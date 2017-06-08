@@ -1,0 +1,20 @@
+{
+  "services": [
+    {
+      "id": "fir",
+      "name": "Fir",
+      "desc": "Fir - 服务移动开发者，让开发测试更高效",
+      "updated_at": "30 Mar 16:27",
+      "active": true,
+      "projectId": 4
+    },
+    {
+      "id": "bugly",
+      "name": "Bugly",
+      "desc": "Bugly内测分发平台",
+      "updated_at": "30 Mar 16:27",
+      "active": false,
+      "projectId": 4
+    }
+  ]
+}

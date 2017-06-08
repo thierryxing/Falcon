@@ -1,0 +1,19 @@
+{
+  "environments": [
+    {
+      "id": 1,
+      "name": "Production",
+      "projectId": 4
+    },
+    {
+      "id": 2,
+      "name": "Test",
+      "projectId": 4
+    },
+    {
+      "id": 3,
+      "name": "Beta",
+      "projectId": 4
+    }
+  ]
+}

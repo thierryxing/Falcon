@@ -1,0 +1,97 @@
+{
+  "configs": [
+    {
+      "id": "info",
+      "name": "Information",
+      "desc": "Information of environment",
+      "finished": true,
+      "environmentsId": 1
+    },
+    {
+      "id": "git_clone",
+      "name": "Git",
+      "desc": "Git clone the project to local",
+      "finished": false,
+      "environmentsId": 1
+    },
+    {
+      "id": "fastlane",
+      "name": "Fastlane",
+      "desc": "Initialize fastlane file of the environment",
+      "finished": true,
+      "environmentsId": 1
+    }
+  ],
+  "templates": [
+    {
+      "id": 0,
+      "name": "Production",
+      "projectId": 4
+    },
+    {
+      "id": 1,
+      "name": "Test",
+      "projectId": 4
+    },
+    {
+      "id": 2,
+      "name": "Beta",
+      "projectId": 4
+    }
+  ],
+  "git_branch": [
+    {
+      "name": "HEAD -\u003e origin/test",
+      "full": "remotes/origin/HEAD -\u003e origin/test",
+      "current": false,
+      "environmentsId": 1
+    },
+    {
+      "name": "dev",
+      "full": "remotes/origin/dev",
+      "current": false,
+      "environmentsId": 1
+    },
+    {
+      "name": "jinzhu/dev",
+      "full": "remotes/origin/jinzhu/dev",
+      "current": false,
+      "environmentsId": 1
+    },
+    {
+      "name": "master",
+      "full": "remotes/origin/master",
+      "current": false,
+      "environmentsId": 1
+    },
+    {
+      "name": "swift3",
+      "full": "remotes/origin/swift3",
+      "current": false,
+      "environmentsId": 1
+    },
+    {
+      "name": "test",
+      "full": "remotes/origin/test",
+      "current": true,
+      "environmentsId": 1
+    }
+  ],
+  "fastlane": [
+    {
+      "name": "Fastfile",
+      "title": "Fastfile",
+      "content": "import_from_git(url: 'git@git.gengmei.cc:mobile/JaguarTemplate.git',\r\n               path: 'fastlane/ios_fastfile')"
+    },
+    {
+      "name": "Appfile",
+      "title": "Appfile",
+      "content": "app_identifier \"com.wanmeizhensuo.Doctor\" # The bundle identifier of your app\r\napple_id \"wanmeizhensuo@gmail.com\" # Your Apple email address\r\n\r\nteam_id \"[[DEV_PORTAL_TEAM_ID]]\"  # Developer Portal Team ID\r\n[[ITC_TEAM]]\r\n# you can even provide different app identifiers, Apple IDs and team names per lane:\r\n# More information: https://github.com/fastlane/fastlane/blob/master/fastlane/docs/Appfile.md"
+    },
+    {
+      "name": "Deliverfile",
+      "title": "Deliverfile",
+      "content": "###################### More Options ######################\n# If you want to have even more control, check out the documentation\n# https://github.com/fastlane/deliver/blob/master/Deliverfile.md\n\n\n###################### Automatically generated ######################\n# Feel free to remove the following line if you use fastlane (which you should)\n\napp_identifier \"com.wanmeizhensuo.Doctor\" # The bundle identifier of your app\nusername \"wanmeizhensuo@gmail.com\" # your Apple ID user\n"
+    }
+  ]
+}

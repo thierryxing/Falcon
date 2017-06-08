@@ -1,0 +1,148 @@
+{
+  "dependencies": [
+    {
+      "id": 8821,
+      "name": "GMBase",
+      "current_version": "0.1.1",
+      "latest_version": "",
+      "need_update": false,
+      "projectId": 4
+    },
+    {
+      "id": 8822,
+      "name": "GMBaseSwift",
+      "current_version": "3.0.1",
+      "latest_version": "",
+      "need_update": false,
+      "projectId": 4
+    },
+    {
+      "id": 8823,
+      "name": "GMCache",
+      "current_version": "0.1.1",
+      "latest_version": "0.1.0",
+      "need_update": false,
+      "projectId": 4
+    },
+    {
+      "id": 8824,
+      "name": "GMFoundation",
+      "current_version": "0.0.5",
+      "latest_version": "",
+      "need_update": false,
+      "projectId": 4
+    },
+    {
+      "id": 8825,
+      "name": "GMHud",
+      "current_version": "0.1.2",
+      "latest_version": "",
+      "need_update": false,
+      "projectId": 4
+    },
+    {
+      "id": 8826,
+      "name": "GMKit",
+      "current_version": "0.7.24",
+      "latest_version": "",
+      "need_update": false,
+      "projectId": 4
+    },
+    {
+      "id": 8827,
+      "name": "GMKit/Category",
+      "current_version": "0.7.24",
+      "latest_version": "",
+      "need_update": false,
+      "projectId": 4
+    },
+    {
+      "id": 8828,
+      "name": "GMKit/FDFullscreenPopGesture",
+      "current_version": "0.7.24",
+      "latest_version": "",
+      "need_update": false,
+      "projectId": 4
+    },
+    {
+      "id": 8829,
+      "name": "GMKit/Kit",
+      "current_version": "0.7.24",
+      "latest_version": "",
+      "need_update": false,
+      "projectId": 4
+    },
+    {
+      "id": 8830,
+      "name": "GMKit/Protocol",
+      "current_version": "0.7.24",
+      "latest_version": "",
+      "need_update": false,
+      "projectId": 4
+    },
+    {
+      "id": 8831,
+      "name": "GMNetService",
+      "current_version": "0.1.7",
+      "latest_version": "",
+      "need_update": false,
+      "projectId": 4
+    },
+    {
+      "id": 8832,
+      "name": "GMNetworking",
+      "current_version": "3.0.3",
+      "latest_version": "0.2.2",
+      "need_update": false,
+      "projectId": 4
+    },
+    {
+      "id": 8833,
+      "name": "GMOCConstant",
+      "current_version": "0.0.3",
+      "latest_version": "",
+      "need_update": false,
+      "projectId": 4
+    },
+    {
+      "id": 8834,
+      "name": "GMPhobos",
+      "current_version": "0.3.7",
+      "latest_version": "0.2.10",
+      "need_update": false,
+      "projectId": 4
+    },
+    {
+      "id": 8835,
+      "name": "GMRefresh",
+      "current_version": "0.1.5",
+      "latest_version": "",
+      "need_update": false,
+      "projectId": 4
+    },
+    {
+      "id": 8836,
+      "name": "GMSwiftConstant",
+      "current_version": "0.3.0",
+      "latest_version": "",
+      "need_update": false,
+      "projectId": 4
+    },
+    {
+      "id": 8837,
+      "name": "GMUtil",
+      "current_version": "0.3.0",
+      "latest_version": "",
+      "need_update": false,
+      "projectId": 4
+    },
+    {
+      "id": 8810,
+      "name": "AFNetworking",
+      "current_version": "3.1.0",
+      "latest_version": "",
+      "need_update": false,
+      "projectId": 4
+    }
+  ]
+}

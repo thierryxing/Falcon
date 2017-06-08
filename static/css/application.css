@@ -1,0 +1,174 @@
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+img.avatar, div.avatar {
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  line-height: 35px;
+}
+
+div.avatar {
+  background-color: #FFEBEE;
+  color: #555;
+  font-size: 16px;
+  margin-right: 10px;
+  text-align: center;
+  vertical-align: top;
+}
+
+/* console output format*/
+pre {
+  line-height: 1.8em;
+  word-break: break-all;
+  word-wrap: break-word;
+  padding: 10px;
+  -webkit-font-smoothing: antialiased;
+  background-color: #232323;
+  border: none;
+  border-radius: 0;
+}
+
+pre, code, textarea.code {
+  font-family: Monaco, Helvetica, Arial, sans-serif !important;
+}
+
+textarea.code {
+  line-height: 1.8em
+}
+
+pre code p {
+  margin: 0;
+}
+
+pre.bash, textarea.code {
+  font-size: 13px;
+  background: #212121;
+  color: #edede3;
+  padding: 10px;
+}
+
+pre.bash .green {
+  color: #42c88a;
+}
+
+pre.bash .magenta {
+  color: #65d8ee;
+}
+
+pre.bash .m35 {
+  color: #42c88a;
+}
+
+pre.bash .yellow {
+  color: #d6cc75;
+}
+
+pre.bash .cyan {
+  color: #ab7fd1;
+}
+
+pre.bash .red {
+  color: #ed5c5c;
+}
+
+pre.bash .bold {
+  color: #fff;
+  font-weight: 900;
+}
+
+pre.bash .underline {
+  text-decoration: underline;
+}
+
+/* will pagination */
+.digg_pagination {
+  background: white;
+  cursor: default;
+  border-radius: 4px;
+  /* self-clearing method: */
+}
+
+.digg_pagination a, .digg_pagination span, .digg_pagination em {
+  text-decoration: none;
+  line-height: 1.42857143;
+  padding: 6px 12px;
+  background: #fafafa;
+  color: #666;
+  border: 1px solid #ddd;
+  margin-right: 1px;
+}
+
+.digg_pagination .disabled {
+  color: #777;
+  cursor: not-allowed;
+  background-color: #fff;
+  border: 1px solid #ddd;
+}
+
+.digg_pagination .current {
+  font-style: normal;
+  font-weight: bold;
+  background: #337ab7;
+  color: white;
+  border: 1px solid #337ab7;
+}
+
+.digg_pagination a, .digg_pagination span, .digg_pagination em {
+  text-decoration: none;
+  line-height: 1.42857143;
+  padding: 6px 12px;
+  background: #fafafa;
+  color: #666;
+  border: 1px solid #ddd
+}
+
+.digg_pagination a:hover, .digg_pagination a:focus {
+  color: #000033;
+  border-color: #000033;
+}
+
+.digg_pagination .page_info {
+  background: #2e6ab1;
+  color: white;
+  padding: 0.4em 0.6em;
+  width: 22em;
+  margin-bottom: 0.3em;
+  text-align: center;
+}
+
+.digg_pagination .page_info b {
+  color: #000033;
+  background: #6aa6ed;
+  padding: 0.1em 0.25em;
+}
+
+.digg_pagination:after {
+  content: ".";
+  display: block;
+  height: 0;
+  clear: both;
+  visibility: hidden;
+}
+
+* html .digg_pagination {
+  height: 1%;
+}
+
+*:first-child + html .digg_pagination {
+  overflow: hidden;
+}
+
+/* rewrite form style*/
+.form-group label.has-warning {
+  color: #f39c12;
+}
+
+.fa-success:before {
+  content: "\f00c";
+}
+
+.fa-error:before {
+  content: "\f05e";
+}
