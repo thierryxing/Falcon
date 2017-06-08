@@ -27,22 +27,16 @@ module.exports = {
     autoOpenBrowser: false,
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
-    // proxyTable: { // proxy all requests starting with /api to jsonplaceholder
-    //   '/api': {
-    //     target: 'http://localhost:3000',
-    //     changeOrigin: true,
-    //     secure: false,
-    //     pathRewrite: {
-    //       '^/api': '/api/v1'
-    //     }
-    //   }
-    // },
 
     proxyTable: { // proxy all requests starting with /api to jsonplaceholder
       '/api': {
-        target: 'http://localhost:9090',
         changeOrigin: true,
         secure: false,
+        //   target: 'http://localhost:3000',
+        //   pathRewrite: {
+        //     '^/api': '/api/v1'
+        //   }
+        target: 'http://localhost:9090',
         pathRewrite: {
           '^/api': ''
         }
