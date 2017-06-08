@@ -28,17 +28,14 @@
 ## 如何运行
 由于后端Jaguar服务目前暂时没有开源，所以无法提供一个真实的API。但是我已经将所有的API放置在了Mock服务上，可以通过JSON Server来访问，运行方法如下：
 
-* 首先保证，config下的index.js中proxyTable的内容如下（注释部分）：
+### 配置proxyTable
+首先保证，config下的index.js中proxyTable的内容如下（注释部分）：
 
 ```
-proxyTable: { // proxy all requests starting with /api to jsonplaceholder
+    proxyTable: { // proxy all requests starting with /api to jsonplaceholder
       '/api': {
         changeOrigin: true,
         secure: false,
-        //   target: 'http://localhost:3000',
-        //   pathRewrite: {
-        //     '^/api': '/api/v1'
-        //   }
         target: 'http://localhost:9090',
         pathRewrite: {
           '^/api': ''
@@ -47,17 +44,25 @@ proxyTable: { // proxy all requests starting with /api to jsonplaceholder
     },
 ```
 
-* 运行如下命令：
+### 运行项目：
+
+* 安装npm依赖的库
 
 ```
 npm install
+```
+
+* 运行服务
+
+```
 npm run mockdev
 ```
 
-在浏览器中访问：[http://localhost:8080/#/](http://localhost:8080/#/)，即可
+* 在浏览器中访问：[http://localhost:8080/#/](http://localhost:8080/#/)
 
+### 登录
 
-* 登录页面用户名和密码随便填写
+登录页面的用户名（邮箱）和密码可以随意填写
 
 ## 项目结构
 
