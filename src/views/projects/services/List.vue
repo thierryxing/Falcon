@@ -58,16 +58,11 @@
 
     methods: {
       fetchData: function () {
-        NetWorking.doGet(API.services,
-          {
-            id: this.$route.params.project_id
-          },
-          null,
-          response => {
-            this.services = response.data
-          },
-          response => {
-          })
+        NetWorking.doGet(API.services, {
+          id: this.$route.params.project_id
+        }, null).then(response => {
+          this.services = response.data
+        })
       },
 
       activeClass: function (service) {

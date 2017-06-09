@@ -66,39 +66,32 @@
 
       fetchGitLog () {
         this.showLoading()
-        NetWorking.doGet(API.latestGitLog,
-          {
-            id: this.$route.params.project_id,
-            env_id: this.$route.params.env_id
-          },
-          this.build,
+        NetWorking.doGet(API.latestGitLog, {
+          id: this.$route.params.project_id,
+          env_id: this.$route.params.env_id
+        }, this.build).then(
           response => {
             this.build.note = response.data.note
             this.hideLoading()
           },
           () => {
             this.hideLoading()
-          }
-        )
+          })
       },
 
       doBuildLib () {
         this.showLoading()
-        NetWorking.doPost(API.buildLib,
-          {
-            id: this.$route.params.project_id,
-            env_id: this.$route.params.env_id
-          },
-          this.build,
-          null,
+        NetWorking.doPost(API.buildLib, {
+          id: this.$route.params.project_id,
+          env_id: this.$route.params.env_id
+        }, this.build, null).then(
           response => {
             this.$router.replace({name: 'build_detail', params: {'build_id': response.data.id}})
             this.hideLoading()
           },
           () => {
             this.hideLoading()
-          }
-        )
+          })
       },
 
       showLoading () {

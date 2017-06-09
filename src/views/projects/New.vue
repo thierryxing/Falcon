@@ -36,15 +36,13 @@
 
       doCreate: function () {
         this.showLoading()
-        NetWorking.doPost(API.projects, null, {project: this.project}, null,
-          response => {
-            this.project = response.data
-            this.$router.push({name: 'environments', params: {'project_id': this.project.id}})
-            this.hideLoading()
-          },
-          () => {
-            this.hideLoading()
-          })
+        NetWorking.doPost(API.projects, null, {project: this.project}, null).then(response => {
+          this.project = response.data
+          this.$router.push({name: 'environments', params: {'project_id': this.project.id}})
+          this.hideLoading()
+        }, () => {
+          this.hideLoading()
+        })
       },
 
       showLoading () {

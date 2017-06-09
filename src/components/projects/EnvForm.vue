@@ -52,11 +52,9 @@
     methods: {
 
       fetchData () {
-        NetWorking.doGet(API.environmentTemplates,
-          {
-            id: this.$route.params.project_id
-          },
-          null,
+        NetWorking.doGet(API.environmentTemplates, {
+          id: this.$route.params.project_id
+        }, null).then(
           response => {
             this.options = response.data
           })

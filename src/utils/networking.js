@@ -9,95 +9,112 @@ Vue.use(VueResource)
 
 export default {
 
+  httpMethod: {
+    GET: 'get',
+    POST: 'post',
+    PUT: 'put',
+    DELETE: 'delete'
+  },
+
   path: '/api',
 
   /**
-   * Http Get
-   * @param {string} url
-   * @param {object} pathParams
-   * @param {object} options
-   * @param {function} success
-   * @param {function} failure
-   * @export
+   *
+   * @param url
+   * @param pathParams
+   * @param options
+   * @returns {*|Promise}
    */
-  doGet (url, pathParams, options, success, failure) {
-    url = this._wrapUrl(url, pathParams)
-    Vue.http.get(url, options).then(response => {
-      this._handleResponse(response, success, failure)
-    }, response => {
-      failure(response.statusText)
-    })
+  doGet (url, pathParams, options) {
+    return this.doRequest(url, this.httpMethod.GET, pathParams, null, options)
   },
 
   /**
    * Http Post
-   * @param {string} url
-   * @param {object} pathParams
-   * @param {object} body
-   * @param {object} options
-   * @param {function} success
-   * @param {function} failure
-   * @export
+   * @param url
+   * @param pathParams
+   * @param body
+   * @param options
+   * @returns {*|Promise}
    */
-  doPost (url, pathParams, body, options, success, failure) {
-    url = this._wrapUrl(url, pathParams)
-    Vue.http.post(url, body, options).then(response => {
-      this._handleResponse(response, success, failure)
-    }, response => {
-      failure(response.statusText)
-    })
+  doPost (url, pathParams, body, options) {
+    return this.doRequest(url, this.httpMethod.POST, pathParams, body, options)
   },
 
   /**
    * Http Put
-   * @param {string} url
-   * @param {object} pathParams
-   * @param {object} body
-   * @param {object} options
-   * @param {function} success
-   * @param {function} failure
-   * @export
+   * @param url
+   * @param pathParams
+   * @param body
+   * @param options
+   * @returns {*|Promise}
    */
-  doPut (url, pathParams, body, options, success, failure) {
-    url = this._wrapUrl(url, pathParams)
-    Vue.http.put(url, body, options).then(response => {
-      this._handleResponse(response, success, failure)
-    }, response => {
-      failure(response.statusText)
-    })
+  doPut (url, pathParams, body, options) {
+    return this.doRequest(url, this.httpMethod.PUT, pathParams, body, options)
   },
 
   /**
-   * Http Put
-   * @param {string} url
-   * @param {object} pathParams
-   * @param {object} options
-   * @param {function} success
-   * @param {function} failure
-   * @export
+   * Http Delete
+   * @param url
+   * @param pathParams
+   * @param options
+   * @returns {*|Promise}
    */
-  doDelete (url, pathParams, options, success, failure) {
-    url = this._wrapUrl(url, pathParams)
-    Vue.http.delete(url, options).then(response => {
-      this._handleResponse(response, success, failure)
-    }, response => {
-      failure(response.statusText)
-    })
+  doDelete (url, pathParams, options) {
+    return this.doRequest(url, this.httpMethod.DELETE, pathParams, null, options)
   },
 
   /**
-   * Handle Response with success or failure
-   * @param {object} response
-   * @param {function} success
-   * @param {function} failure
+   * Http Request
+   * @param url
+   * @param method
+   * @param pathParams
+   * @param body
+   * @param options
+   * @returns {Promise}
+   */
+  doRequest (url, method, pathParams, body, options) {
+    let wrapURL = this._wrapUrl(url, pathParams)
+    let request = null
+    switch (method) {
+      case this.httpMethod.GET: {
+        request = Vue.http.get(wrapURL, options)
+        break
+      }
+      case this.httpMethod.POST: {
+        request = Vue.http.post(wrapURL, body, options)
+        break
+      }
+      case this.httpMethod.PUT: {
+        request = Vue.http.put(wrapURL, body, options)
+        break
+      }
+      case this.httpMethod.DELETE: {
+        request = Vue.http.get(wrapURL, options)
+        break
+      }
+    }
+    return this._requestPromise(request)
+  },
+
+  /**
+   * Request Promise
+   * @param request {Promise} Vue Http Promise
+   * @returns {Promise}
    * @private
    */
-  _handleResponse (response, success, failure) {
-    if (response.body.status === 0) {
-      success(response.body)
-    } else {
-      failure(response.body.message)
-    }
+  _requestPromise (request) {
+    return new Promise(function (resolve, reject) {
+      request.then(response => {
+        if (response.body.status === 0) {
+          resolve(response.body)
+        } else {
+          reject(response.body.message)
+        }
+      }, error => {
+        reject(error.statusText)
+      })
+    })
   },
 
   /**

@@ -58,7 +58,7 @@
     methods: {
       fetchData: function () {
         this.showLoading()
-        NetWorking.doGet(this.url, this.pathParams, this.options, response => {
+        NetWorking.doGet(this.url, this.pathParams, this.options).then(response => {
           this.items = response.data
           this.hideLoading()
         }, () => {

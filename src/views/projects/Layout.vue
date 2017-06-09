@@ -57,7 +57,7 @@
     methods: {
       fetchData: function () {
         this.showLoading()
-        NetWorking.doGet(API.project, {id: this.$route.params.project_id}, null, response => {
+        NetWorking.doGet(API.project, {id: this.$route.params.project_id}, null).then(response => {
           this.project = response.data
           this.$store.dispatch('setProject', this.project)
           this.hideLoading()

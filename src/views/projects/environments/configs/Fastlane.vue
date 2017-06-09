@@ -41,18 +41,13 @@
 
     methods: {
       fetchData: function () {
-        NetWorking.doGet(API.environmentFastlane,
-          {
-            id: this.$route.params.project_id,
-            env_id: this.$route.params.env_id
-          },
-          null,
-          response => {
-            this.files = response.data
-            this.currentFile = this.files[0]
-          },
-          response => {
-          })
+        NetWorking.doGet(API.environmentFastlane, {
+          id: this.$route.params.project_id,
+          env_id: this.$route.params.env_id
+        }, null).then(response => {
+          this.files = response.data
+          this.currentFile = this.files[0]
+        })
       },
 
       switchTab: function (file) {

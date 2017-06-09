@@ -56,7 +56,7 @@
 
       doLogin: function () {
         this.showLoading()
-        NetWorking.doPost(API.login, null, this.user, null, response => {
+        NetWorking.doPost(API.login, null, this.user, null).then(response => {
           let status = response.status
           if (status === 0) {
             let user = response.data
