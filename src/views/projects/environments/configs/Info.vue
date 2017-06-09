@@ -64,7 +64,7 @@
             this.environment = response.data
             this.selected = this.environment.build_template
             this.hideLoading()
-          }, _ => {
+          }, () => {
             this.hideLoading()
           })
       },
@@ -94,11 +94,11 @@
             env_id: this.$route.params.env_id
           },
           null,
-          _ => {
+          () => {
             this.$router.replace({name: 'environments'})
             this.hideLoading()
           },
-          _ => {
+          () => {
             this.hideLoading()
           })
       },

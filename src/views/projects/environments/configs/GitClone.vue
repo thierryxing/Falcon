@@ -90,7 +90,7 @@
             this.reloadData = true
             this.hideLoading()
           },
-          _ => {
+          () => {
             this.hideLoading()
           })
       },
@@ -106,11 +106,11 @@
             branch: name
           },
           null,
-          _ => {
+          () => {
             this.hideLoading()
             this.reloadData = true
           },
-          _ => {
+          () => {
             this.hideLoading()
           })
       },

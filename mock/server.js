@@ -7,7 +7,8 @@ server.use(middleware)
 
 // Add this before server.use(router)
 server.use(jsonServer.rewriter({
-  '/projects/:id/environments/:env_id/configs': '/environments/:env_id/configs'
+  '/projects/:id/environments/:env_id/configs': '/environments/:env_id/configs',
+  '/projects/:id/environments/:env_id/latest_git_log': '/environments/:env_id/latest_git_log'
 }))
 
 // 支持加载多个db文件

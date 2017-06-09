@@ -1,6 +1,6 @@
 <template>
   <div>
-    <iframe height="1000px" src="http://jaguar.gmei/sidekiq" width="100%">
+    <iframe height="1000px" src="http://localhost:3000/sidekiq?:embed=yes" width="100%">
     </iframe>
   </div>
 </template>

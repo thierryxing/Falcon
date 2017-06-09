@@ -5,7 +5,7 @@
       <h3 class="box-title">Build Info</h3>
     </div>
     <div class="box-body">
-      <form @submit.prevent="doCreate" accept-charset="UTF-8" method="post">
+      <form @submit.prevent="doBuildLib" accept-charset="UTF-8" method="post">
         <div class="form-group">
           <label for="current_version">Current Version</label>
           <input type="text" name="current_version" id="current_version" :value="project.version" class="form-control" disabled="disabled">
@@ -23,7 +23,7 @@
           <textarea name="note" id="note" class="form-control" rows="10" v-model="build.note"></textarea>
         </div>
         <div class="box-footer">
-          <button class="btn btn-primary" type="submit" @click="doBuildLib">
+          <button class="btn btn-primary" type="submit">
             Build
           </button>
         </div>
@@ -72,7 +72,8 @@
             env_id: this.$route.params.env_id
           },
           this.build,
-          () => {
+          response => {
+            this.build.note = response.data.note
             this.hideLoading()
           },
           () => {
@@ -89,7 +90,9 @@
             env_id: this.$route.params.env_id
           },
           this.build,
-          () => {
+          null,
+          response => {
+            this.$router.replace({name: 'build_detail', params: {'build_id': response.data.id}})
             this.hideLoading()
           },
           () => {

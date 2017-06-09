@@ -6,7 +6,9 @@ import storage from '@/utils/storage'
 
 // initial state
 const state = {
-  project: {}
+  project: {
+    guardian: {}
+  }
 }
 
 // getters

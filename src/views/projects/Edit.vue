@@ -59,11 +59,11 @@
             id: this.project.id
           },
           null,
-          _ => {
+          () => {
             this.hideLoading()
             this.$router.replace({name: 'dashboard'})
           },
-          _ => {
+          () => {
             this.hideLoading()
           })
       },
@@ -79,7 +79,7 @@
             this.hideLoading()
             this.$store.dispatch('setProject', response.data)
           },
-          _ => {
+          () => {
             this.hideLoading()
           })
       },

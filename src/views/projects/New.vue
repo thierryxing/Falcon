@@ -42,7 +42,7 @@
             this.$router.push({name: 'environments', params: {'project_id': this.project.id}})
             this.hideLoading()
           },
-          _ => {
+          () => {
             this.hideLoading()
           })
       },

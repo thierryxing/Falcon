@@ -3,8 +3,7 @@
     <div class="box box-primary">
       <LoadingOverlay v-show="showOverlay"></LoadingOverlay>
       <div class="box-body box-profile">
-        <img class="profile-user-img img-responsive img-circle"
-             :src="project.icon">
+        <img class="profile-user-img img-responsive img-circle" :src="project.icon">
         <h3 class="profile-username text-center">
           {{ project.title }}
         </h3>
@@ -61,32 +60,24 @@
   import * as API from '@/constants/api'
   import LoadingOverlay from '@/components/global/LoadingOverlay'
   import ConfirmModal from '@/components/global/ConfirmModal'
+  import { mapGetters } from 'vuex'
 
   export default {
     components: {LoadingOverlay, ConfirmModal},
 
+    computed: {
+      ...mapGetters({
+        project: 'currentProject'
+      })
+    },
+
     data () {
       return {
-        project: {},
         showOverlay: false
       }
     },
 
-    created () {
-      this.fetchData()
-    },
-
     methods: {
-
-      fetchData: function () {
-        this.showLoading()
-        NetWorking.doGet(API.project, {id: this.$route.params.project_id}, null, response => {
-          this.project = response.data
-          this.hideLoading()
-        }, _ => {
-          this.hideLoading()
-        })
-      },
 
       syncGitLab: function () {
         this.showLoading()
@@ -94,7 +85,7 @@
           this.project = response.data
           this.$store.dispatch('setProject', this.project)
           this.hideLoading()
-        }, _ => {
+        }, () => {
           this.hideLoading()
         })
       },

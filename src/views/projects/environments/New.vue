@@ -50,7 +50,7 @@
             this.environment = response.data
             this.$router.push({name: 'git_clone', params: {env_id: this.environment.id}})
             this.hideLoading()
-          }, _ => {
+          }, () => {
             this.hideLoading()
           })
       },

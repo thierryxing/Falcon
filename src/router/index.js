@@ -83,7 +83,7 @@ const router = new Router({
         component: BuildDetail
       }, {
         name: 'pre_build_lib',
-        path: ':env_id/pre_build_lib',
+        path: 'environments/:env_id/pre_build_lib',
         component: PreBuildLib
       }, {
         name: 'environments_new',

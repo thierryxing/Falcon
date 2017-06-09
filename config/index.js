@@ -32,10 +32,10 @@ module.exports = {
       '/api': {
         changeOrigin: true,
         secure: false,
-        //   target: 'http://localhost:3000',
-        //   pathRewrite: {
-        //     '^/api': '/api/v1'
-        //   }
+        // target: 'http://localhost:3000',
+        // pathRewrite: {
+        //   '^/api': '/api/v1'
+        // }
         target: 'http://localhost:9090',
         pathRewrite: {
           '^/api': ''

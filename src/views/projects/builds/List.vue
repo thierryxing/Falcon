@@ -20,7 +20,7 @@
             {{ props.item.id }}
           </td>
           <td>
-            <span class="label label-success">Success</span>
+            <span class="label" :class="getStatusText(props.item.status)">{{ props.item.status }}</span>
           </td>
           <td>
             <div>
@@ -75,6 +75,25 @@
         url: API.projectBuilds,
         pathParams: {id: this.$route.params.project_id},
         options: null
+      }
+    },
+
+    methods: {
+      getStatusText (status) {
+        switch (status) {
+          case 'failed': {
+            return 'bg-red'
+          }
+          case 'success': {
+            return 'bg-green'
+          }
+          case 'canceled': {
+            return 'bg-yellow'
+          }
+          case 'processing': {
+            return 'bg-blue'
+          }
+        }
       }
     }
 

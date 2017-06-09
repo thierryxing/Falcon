@@ -61,7 +61,7 @@
         NetWorking.doGet(this.url, this.pathParams, this.options, response => {
           this.items = response.data
           this.hideLoading()
-        }, _ => {
+        }, () => {
           this.hideLoading()
         })
       },
