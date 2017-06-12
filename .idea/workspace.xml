@@ -2,21 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="40efca5f-0789-4e65-9c21-b29f63fa2cef" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/views/projects/builds/CheckDependency.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.eslintrc.js" afterPath="$PROJECT_DIR$/.eslintrc.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/projects/Dependency.vue" afterPath="$PROJECT_DIR$/src/components/projects/Dependency.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/projects/Info.vue" afterPath="$PROJECT_DIR$/src/components/projects/Info.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/constants/api.js" afterPath="$PROJECT_DIR$/src/constants/api.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/router/index.js" afterPath="$PROJECT_DIR$/src/router/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utils/networking.js" afterPath="$PROJECT_DIR$/src/utils/networking.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/projects/Home.vue" afterPath="$PROJECT_DIR$/src/views/projects/Home.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/projects/builds/Detail.vue" afterPath="$PROJECT_DIR$/src/views/projects/builds/Detail.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/projects/builds/PreBuildLib.vue" afterPath="$PROJECT_DIR$/src/views/projects/builds/PreBuildLib.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/projects/environments/List.vue" afterPath="$PROJECT_DIR$/src/views/projects/environments/List.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/projects/environments/configs/GitClone.vue" afterPath="$PROJECT_DIR$/src/views/projects/environments/configs/GitClone.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/projects/environments/configs/Info.vue" afterPath="$PROJECT_DIR$/src/views/projects/environments/configs/Info.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/projects/environments/configs/List.vue" afterPath="$PROJECT_DIR$/src/views/projects/environments/configs/List.vue" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -97,12 +83,25 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="GitClone.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="GitClone.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/projects/environments/configs/GitClone.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="394">
               <caret line="24" column="134" lean-forward="false" selection-start-line="24" selection-start-column="134" selection-end-line="24" selection-end-column="134" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="153">
+                <caret line="140" column="24" lean-forward="false" selection-start-line="140" selection-start-column="24" selection-end-line="140" selection-end-column="24" />
+                <folding />
+              </first_editor>
+              <second_editor />
             </state>
           </provider>
         </entry>
@@ -123,18 +122,6 @@
             <state relative-caret-position="534">
               <caret line="92" column="33" lean-forward="false" selection-start-line="92" selection-start-column="33" selection-end-line="92" selection-end-column="33" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/router/index.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1638">
-              <caret line="91" column="34" lean-forward="false" selection-start-line="91" selection-start-column="34" selection-end-line="91" selection-end-column="34" />
-              <folding>
-                <element signature="e#0#21#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -220,7 +207,6 @@
         <option value="$PROJECT_DIR$/src/views/Layout.vue" />
         <option value="$PROJECT_DIR$/src/views/Dashboard.vue" />
         <option value="$PROJECT_DIR$/src/views/guardian/List.vue" />
-        <option value="$PROJECT_DIR$/README.md" />
         <option value="$PROJECT_DIR$/src/store/modules/current-project.js" />
         <option value="$PROJECT_DIR$/src/views/projects/Layout.vue" />
         <option value="$PROJECT_DIR$/src/views/job/Index.vue" />
@@ -246,6 +232,7 @@
         <option value="$PROJECT_DIR$/src/views/projects/environments/configs/Info.vue" />
         <option value="$PROJECT_DIR$/src/utils/networking.js" />
         <option value="$PROJECT_DIR$/src/views/projects/environments/configs/GitClone.vue" />
+        <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
   </component>
@@ -924,12 +911,12 @@
       <workItem from="1496914173374" duration="2042000" />
       <workItem from="1496977155832" duration="12372000" />
       <workItem from="1497159045174" duration="4612000" />
-      <workItem from="1497239983878" duration="2448000" />
+      <workItem from="1497239983878" duration="2533000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="230923000" />
+    <option name="totallyTimeSpent" value="231008000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1920" height="1053" extended-state="6" />
@@ -982,23 +969,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/README.md">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="634">
-          <caret line="168" column="13" lean-forward="false" selection-start-line="168" selection-start-column="13" selection-end-line="168" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="479">
-            <caret line="64" column="21" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="177" selection-end-column="0" />
-            <folding />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="18">
@@ -1385,6 +1355,23 @@
         <state relative-caret-position="394">
           <caret line="24" column="134" lean-forward="false" selection-start-line="24" selection-start-column="134" selection-end-line="24" selection-end-column="134" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README.md">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="634">
+          <caret line="168" column="13" lean-forward="false" selection-start-line="168" selection-start-column="13" selection-end-line="168" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="153">
+            <caret line="140" column="24" lean-forward="false" selection-start-line="140" selection-start-column="24" selection-end-line="140" selection-end-column="24" />
+            <folding />
+          </first_editor>
+          <second_editor />
         </state>
       </provider>
     </entry>

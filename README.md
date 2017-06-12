@@ -122,6 +122,7 @@ npm run mockdev
         ├── Layout.vue
         ├── New.vue
         ├── builds
+        │   ├── CheckDependency.vue
         │   ├── Detail.vue
         │   ├── List.vue
         │   └── PreBuildLib.vue
@@ -137,7 +138,7 @@ npm run mockdev
             ├── Edit.vue
             └── List.vue
 
-18 directories, 50 files
+18 directories, 51 files
 ```
 
 ## 功能
