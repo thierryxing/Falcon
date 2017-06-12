@@ -17,7 +17,10 @@ export const environmentGitClone = '/projects/:id/environments/:env_id/git_clone
 export const environmentGitBranch = '/projects/:id/environments/:env_id/git_branch'
 export const environmentChooseBranch = '/projects/:id/environments/:env_id/choose_branch'
 export const buildLib = '/projects/:id/environments/:env_id/build_lib'
+export const buildApp = '/projects/:id/environments/:env_id/build_app'
 export const latestGitLog = '/projects/:id/environments/:env_id/latest_git_log'
+export const build = '/projects/:id/builds/:build_id'
+export const buildLog = '/projects/:id/builds/:build_id/log'
 
 export const services = '/projects/:id/services'
 

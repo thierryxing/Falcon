@@ -12,6 +12,7 @@
       <tr slot="ths">
         <th>ID</th>
         <th>Name</th>
+        <th>Version</th>
         <th>Template</th>
         <th>Git Branch</th>
         <th>Updated Time</th>
@@ -24,6 +25,9 @@
           </td>
           <td>
             {{ props.item.name }}
+          </td>
+          <td>
+            {{ props.item.current_version }}
           </td>
           <td>
             {{ props.item.build_template }}
@@ -40,7 +44,7 @@
               class="btn btn-info">
               Config
             </router-link>
-            <button type="button" class="btn btn-info" @click="doBuild(props.item.id, props.item.build_template)">
+            <button type="button" class="btn btn-info" @click="doBuild(props.item.id, props.item.build_template)" v-show="props.item.can_build">
               Build
             </button>
           </td>
@@ -70,6 +74,7 @@
       doBuild (envId, template) {
         switch (template) {
           case Enum.Templates.PROD: {
+            this.$router.push({name: 'check_dependency', params: {env_id: envId}})
             break
           }
           case Enum.Templates.TEST: {

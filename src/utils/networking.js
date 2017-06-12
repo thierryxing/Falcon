@@ -90,7 +90,7 @@ export default {
         break
       }
       case this.httpMethod.DELETE: {
-        request = Vue.http.get(wrapURL, options)
+        request = Vue.http.delete(wrapURL, options)
         break
       }
     }

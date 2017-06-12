@@ -14,6 +14,7 @@ import ServiceEdit from '@/views/projects/services/Edit'
 
 import Builds from '@/views/projects/builds/List'
 import PreBuildLib from '@/views/projects/builds/PreBuildLib'
+import CheckDependency from '@/views/projects/builds/CheckDependency'
 
 import Environments from '@/views/projects/environments/List'
 import Configs from '@/views/projects/environments/configs/List'
@@ -85,6 +86,10 @@ const router = new Router({
         name: 'pre_build_lib',
         path: 'environments/:env_id/pre_build_lib',
         component: PreBuildLib
+      }, {
+        name: 'check_dependency',
+        path: 'environments/:env_id/check_dependency',
+        component: CheckDependency
       }, {
         name: 'environments_new',
         path: 'environments/new',

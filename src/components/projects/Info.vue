@@ -1,56 +1,54 @@
 <template>
-  <div class="col-md-4">
-    <div class="box box-primary">
-      <LoadingOverlay v-show="showOverlay"></LoadingOverlay>
-      <div class="box-body box-profile">
-        <img class="profile-user-img img-responsive img-circle" :src="project.icon">
-        <h3 class="profile-username text-center">
-          {{ project.title }}
-        </h3>
-        <p class="text-muted text-center">
-          {{ project.desc }}
-        </p>
-        <p class="text-muted text-center">
-          {{ project.git_repo_url }}
-        </p>
-        <ul class="list-group list-group-unbordered">
-          <li class="list-group-item">
-            <b>
-              Guardian
-            </b>
-            <a class="pull-right">
-              {{ project.guardian.name }}
-            </a>
-          </li>
-          <li class="list-group-item">
-            <b>
-              Version
-            </b>
-            <a class="pull-right">
-              {{ project.version }}
-            </a>
-          </li>
-          <li class="list-group-item">
-            <b>
-              Last Release
-            </b>
-            <a class="pull-right">
-              {{ project.last_release_at }}
-            </a>
-          </li>
-          <li class="list-group-item">
-            <b>
-              Identifier
-            </b>
-            <a class="pull-right">
-              {{ project.identifier }}
-            </a>
-          </li>
-        </ul>
-        <button type="button" class="btn btn-info" @click="syncGitLab">
-          Sync Gitlab
-        </button>
-      </div>
+  <div class="box box-primary">
+    <LoadingOverlay v-show="showOverlay"></LoadingOverlay>
+    <div class="box-body box-profile">
+      <img class="profile-user-img img-responsive img-circle" :src="project.icon">
+      <h3 class="profile-username text-center">
+        {{ project.title }}
+      </h3>
+      <p class="text-muted text-center">
+        {{ project.desc }}
+      </p>
+      <p class="text-muted text-center">
+        {{ project.git_repo_url }}
+      </p>
+      <ul class="list-group list-group-unbordered">
+        <li class="list-group-item">
+          <b>
+            Guardian
+          </b>
+          <a class="pull-right">
+            {{ project.guardian.name }}
+          </a>
+        </li>
+        <li class="list-group-item">
+          <b>
+            Version
+          </b>
+          <a class="pull-right">
+            {{ project.version }}
+          </a>
+        </li>
+        <li class="list-group-item">
+          <b>
+            Last Release
+          </b>
+          <a class="pull-right">
+            {{ project.last_release_at }}
+          </a>
+        </li>
+        <li class="list-group-item">
+          <b>
+            Identifier
+          </b>
+          <a class="pull-right">
+            {{ project.identifier }}
+          </a>
+        </li>
+      </ul>
+      <button type="button" class="btn btn-info" @click="syncGitLab">
+        Sync Gitlab
+      </button>
     </div>
   </div>
 </template>

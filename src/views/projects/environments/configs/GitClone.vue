@@ -22,7 +22,8 @@
           </td>
           <td>
             <button class="btn btn-block btn-success" v-if="props.item.current">Current Branch</button>
-            <button class="btn btn-block btn-primary" :disabled="buttonDisabled" @click="chooseBranch(props.item.name)" v-else>Choose
+            <button class="btn btn-block btn-primary" :disabled="buttonDisabled" @click="chooseBranch(props.item.name, props.item.full)"
+                    v-else>Choose
             </button>
           </td>
         </tr>
@@ -62,48 +63,40 @@
     methods: {
       fetchData: function () {
         this.showLoading()
-        NetWorking.doGet(API.environment, {
-          id: this.$route.params.project_id,
-          env_id: this.$route.params.env_id
-        }, null).then(
-          response => {
+        NetWorking
+          .doGet(API.environment, {id: this.$route.params.project_id, env_id: this.$route.params.env_id}, null)
+          .then(response => {
             this.environment = response.data
             this.hideLoading()
-          },
-          () => {
+          }, () => {
             this.hideLoading()
           })
       },
 
       doClone: function () {
         this.showLoading()
-        NetWorking.doGet(API.environmentGitClone, {
-          id: this.$route.params.project_id,
-          env_id: this.$route.params.env_id
-        }, null).then(
-          response => {
+        NetWorking
+          .doGet(API.environmentGitClone, {id: this.$route.params.project_id, env_id: this.$route.params.env_id}, null)
+          .then(response => {
             this.environment = response.data
             this.reloadData = true
             this.hideLoading()
-          },
-          () => {
+          }, () => {
             this.hideLoading()
           })
       },
 
-      chooseBranch (name) {
+      chooseBranch (name, full) {
         this.showLoading()
-        NetWorking.doPost(API.environmentChooseBranch, {
-          id: this.$route.params.project_id,
-          env_id: this.$route.params.env_id
-        }, {
-          branch: name
-        }, null).then(
-          () => {
+        NetWorking
+          .doPost(API.environmentChooseBranch,
+            {id: this.$route.params.project_id, env_id: this.$route.params.env_id},
+            {branch: name, full: full},
+            null)
+          .then(() => {
             this.hideLoading()
             this.reloadData = true
-          },
-          () => {
+          }, () => {
             this.hideLoading()
           })
       },

@@ -83,15 +83,12 @@
 
       doDelete () {
         this.showLoading()
-        NetWorking.doDelete(API.environment, {
-          id: this.$route.params.project_id,
-          env_id: this.$route.params.env_id
-        }, null).then(
-          () => {
+        NetWorking
+          .doDelete(API.environment, {id: this.$route.params.project_id, env_id: this.$route.params.env_id}, null)
+          .then(() => {
             this.$router.replace({name: 'environments'})
             this.hideLoading()
-          },
-          () => {
+          }, () => {
             this.hideLoading()
           })
       },

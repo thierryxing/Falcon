@@ -1,7 +1,11 @@
 <template>
   <div class="row">
-    <info></info>
-    <dependency></dependency>
+    <div class="col-md-4">
+      <info></info>
+    </div>
+    <div class="col-md-8">
+      <dependency></dependency>
+    </div>
   </div>
 </template>
 

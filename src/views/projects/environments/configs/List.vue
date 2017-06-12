@@ -64,7 +64,8 @@
           response => {
             this.configs = response.data
             this.navigateToConfig(this.configs[0])
-          })
+          }
+        )
       },
 
       navigateToConfig: function (config) {
