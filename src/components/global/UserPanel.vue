@@ -18,27 +18,13 @@
 <script>
   import NetWorking from '@/utils/networking'
   import * as API from '@/constants/api'
+  import { mapGetters } from 'vuex'
 
   export default {
-    data () {
-      return {
-        currentUser: {}
-      }
-    },
-
-    created () {
-      this.fetchData()
-    },
-
-    methods: {
-      fetchData: function (type) {
-        let user = this.$store.getters.currentUser
-        if (user.id === null) {
-          this.$router.replace({name: 'login'})
-        } else {
-          this.currentUser = user
-        }
-      }
+    computed: {
+      ...mapGetters({
+        currentUser: 'currentUser'
+      })
     }
   }
 </script>

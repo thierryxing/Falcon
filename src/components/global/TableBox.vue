@@ -39,7 +39,7 @@
       },
       pathParams: {
         type: Object,
-        default: function () { return {} }
+        default: () => {}
       },
       options: {
         type: Object,

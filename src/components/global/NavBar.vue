@@ -63,32 +63,12 @@
 
     computed: {
       ...mapGetters({
-        platform: 'currentPlatform'
+        platform: 'currentPlatform',
+        currentUser: 'currentUser'
       })
     },
 
-    data () {
-      return {
-        currentUser: {}
-      }
-    },
-
-    created () {
-      this.fetchData()
-    },
-
     methods: {
-      fetchData: function () {
-        let user = this.$store.getters.currentUser
-        if (user === null || user.id === null) {
-          this.$router.replace({name: 'login'})
-        } else {
-          this.currentUser = user
-        }
-
-        this.$store.dispatch('fetchPlatform')
-      },
-
       signOut: function () {
         NetWorking.doGet(API.logout, null, null).then(() => {
           this.$store.dispatch('deleteUser')

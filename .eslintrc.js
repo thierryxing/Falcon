@@ -26,6 +26,7 @@ module.exports = {
     'no-unused-vars': 0,
     'no-trailing-spaces': 0,
     'indent': 0,
-    'semi': 0
+    'semi': 0,
+    'object-property-newline': 0
   }
 }

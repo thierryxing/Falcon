@@ -8,7 +8,7 @@
       </li>
     </ul>
     <div class="tab-pane">
-      <TableBox :url="url" :pathParams="pathParams" :options="options">
+      <TableBox :url="url" :pathParams="pathParams">
         <tr slot="ths">
           <th>Lib</th>
           <th>Current Version</th>
@@ -46,8 +46,7 @@
     data () {
       return {
         url: API.projectDependencies,
-        pathParams: {id: this.$route.params.project_id},
-        options: null
+        pathParams: {id: this.$route.params.project_id}
       }
     },
 
