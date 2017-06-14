@@ -3,7 +3,7 @@
     <div class="box-header with-border">
       <h3 class="box-title">Builds</h3>
     </div>
-    <table-box :url="url" :pathParams="pathParams" :options="options">
+    <table-box :url="url" :pathParams="pathParams">
       <tr slot="ths">
         <th>ID</th>
         <th>Status</th>
@@ -73,8 +73,7 @@
     data () {
       return {
         url: API.projectBuilds,
-        pathParams: {id: this.$route.params.project_id},
-        options: null
+        pathParams: {id: this.$route.params.project_id}
       }
     },
 

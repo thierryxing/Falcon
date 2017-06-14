@@ -57,15 +57,13 @@
       doLogin: function () {
         this.showLoading()
         NetWorking.doPost(API.login, null, this.user, null).then(response => {
-          let status = response.status
-          if (status === 0) {
-            let user = response.data
-            this.$store.dispatch('createUser', user)
-            this.$store.dispatch('setPlatform', response.data.platform)
-            this.$router.push({name: 'dashboard'})
-          } else {
-            window.alert(response.message)
-          }
+          let user = response.data
+          this.$store.dispatch('createUser', user)
+          this.$store.dispatch('setPlatform', response.data.platform)
+          this.$router.push({name: 'dashboard'})
+          this.hideLoading()
+        }, (message) => {
+          window.alert(message)
           this.hideLoading()
         })
       },

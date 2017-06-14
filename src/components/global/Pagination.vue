@@ -105,11 +105,14 @@
     data () {
       return {
         diff: 1,
+        page: 0,
+        link: '',
         showPrev: false,
         showNext: false,
         currentPage: this.value
-      };
+      }
     },
+
     computed: {
       numberOfPages () {
         const result = Math.ceil(this.totalRows / this.perPage);
@@ -154,6 +157,7 @@
         return this.limit;
       }
     },
+
     methods: {
       isActive (page) {
         return page === this.currentPage;
@@ -224,6 +228,7 @@
 
       }
     },
+
     watch: {
       currentPage (newPage, oldPage) {
         if (newPage === oldPage) {
@@ -238,6 +243,7 @@
         }
       }
     },
+
     props: {
       disabled: {
         type: Boolean,

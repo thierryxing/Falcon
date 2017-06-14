@@ -32,14 +32,30 @@
   export default {
     components: {LoadingOverlay, Pagination},
 
-    props: ['url', 'pathParams', 'options', 'reloadData'],
+    props: {
+      url: {
+        type: String,
+        default: ''
+      },
+      pathParams: {
+        type: Object,
+        default: function () { return {} }
+      },
+      options: {
+        type: Object,
+        default: function () { return {params: {}} }
+      },
+      reloadData: {
+        type: Boolean,
+        default: false
+      }
+    },
 
     data () {
       return {
         showOverlay: false,
         items: [],
         paginate: {
-          perPage: 20,
           currentPage: 1,
           totalRows: 0
         }
@@ -69,8 +85,9 @@
     methods: {
       fetchData (page) {
         this.showLoading()
+        this.options.params.page = page >= 1 ? page : 1
         NetWorking
-          .doGet(this.url, this.pathParams, {params: {page: (page >= 0 ? page : 1), limit: this.paginate.perPage}})
+          .doGet(this.url, this.pathParams, this.options)
           .then(response => {
             this.items = response.data.list
             this.paginate.totalRows = response.data.total
