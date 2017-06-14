@@ -102,7 +102,7 @@
   }
 
   export default {
-    data() {
+    data () {
       return {
         diff: 1,
         showPrev: false,
@@ -111,14 +111,14 @@
       };
     },
     computed: {
-      numberOfPages() {
+      numberOfPages () {
         const result = Math.ceil(this.totalRows / this.perPage);
         return (result < 1) ? 1 : result;
       },
-      btnSize() {
+      btnSize () {
         return this.size ? `pagination-${this.size}` : '';
       },
-      pageLinks() {
+      pageLinks () {
         if (this.currentPage > this.numberOfPages) {
           this.currentPage = 1;
         }
@@ -155,10 +155,10 @@
       }
     },
     methods: {
-      isActive(page) {
+      isActive (page) {
         return page === this.currentPage;
       },
-      setPage(e, num) {
+      setPage (e, num) {
         if (this.disabled) {
           e.preventDefault();
           e.stopPropagation();
@@ -174,29 +174,29 @@
           }
         });
       },
-      getButtons() {
+      getButtons () {
         const buttons = Array.prototype.slice.call(this.$el.querySelectorAll('a.page-link'));
         // Return only buttons that are visible
         return buttons.filter(btn => isVisible(btn));
       },
-      setBtnFocus(btn) {
+      setBtnFocus (btn) {
         this.$nextTick(() => {
           btn.focus();
         });
       },
-      focusFirst() {
+      focusFirst () {
         const btn = this.getButtons().find(el => !el.disabled);
         if (btn && btn.focus && btn !== document.activeElement) {
           this.setBtnFocus(btn);
         }
       },
-      focusLast() {
+      focusLast () {
         const btn = this.getButtons().reverse().find(el => !el.disabled);
         if (btn && btn.focus && btn !== document.activeElement) {
           this.setBtnFocus(btn);
         }
       },
-      focusCurrent() {
+      focusCurrent () {
         const btn = this.getButtons().find(el => parseInt(el.getAttribute('aria-posinset'), 10) === this.currentPage);
         if (btn && btn.focus) {
           this.setBtnFocus(btn);
@@ -205,14 +205,14 @@
           this.focusFirst();
         }
       },
-      focusPrev() {
+      focusPrev () {
         const buttons = this.getButtons();
         const idx = buttons.indexOf(document.activeElement);
         if (idx > 0 && !buttons[idx - 1].disabled && buttons[idx - 1].focus) {
           this.setBtnFocus(buttons[idx - 1]);
         }
       },
-      focusNext() {
+      focusNext () {
         const buttons = this.getButtons();
         const idx = buttons.indexOf(document.activeElement);
         const cnt = buttons.length - 1;
@@ -220,19 +220,19 @@
           this.setBtnFocus(buttons[idx + 1]);
         }
       },
-      _return() {
+      _return () {
 
       }
     },
     watch: {
-      currentPage(newPage, oldPage) {
+      currentPage (newPage, oldPage) {
         if (newPage === oldPage) {
           return;
         }
 
         this.$emit('input', newPage);
       },
-      value(newValue, oldValue) {
+      value (newValue, oldValue) {
         if (newValue !== oldValue) {
           this.currentPage = newValue;
         }

@@ -97,8 +97,6 @@
       },
 
       changePlatform: function (platform) {
-
-        this.$http.get(`/aaa/${id}/xx/${id}`).then()
         NetWorking.doGet(API.setPlatform, {id: this.currentUser.id, platform: platform}, null).then(response => {
           this.$store.dispatch('setPlatform', response.data.platform)
           this.$router.replace({name: 'root', force: true})
