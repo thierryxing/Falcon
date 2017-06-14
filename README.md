@@ -79,6 +79,7 @@ npm run mockdev
 │   │   ├── ContentHeader.vue
 │   │   ├── LoadingOverlay.vue
 │   │   ├── NavBar.vue
+│   │   ├── Pagination.vue
 │   │   ├── SideBar.vue
 │   │   ├── SideBarItem.vue
 │   │   ├── TableBox.vue
@@ -138,7 +139,7 @@ npm run mockdev
             ├── Edit.vue
             └── List.vue
 
-18 directories, 51 files
+18 directories, 52 files
 ```
 
 ## 功能

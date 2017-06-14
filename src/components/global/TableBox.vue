@@ -15,6 +15,11 @@
       </table>
     </div>
     <div class="box-footer">
+      <div class="dataTables_paginate paging_simple_numbers">
+        <pagination :total-rows="paginate.totalRows" v-model="paginate.currentPage"
+                    :per-page="paginate.perPage" @input="pageChanged">
+        </pagination>
+      </div>
     </div>
   </div>
 </template>
@@ -22,16 +27,22 @@
 <script>
   import NetWorking from '@/utils/networking'
   import LoadingOverlay from '@/components/global/LoadingOverlay'
+  import Pagination from '@/components/global/Pagination'
 
   export default {
-    components: {LoadingOverlay},
+    components: {LoadingOverlay, Pagination},
 
     props: ['url', 'pathParams', 'options', 'reloadData'],
 
     data () {
       return {
         showOverlay: false,
-        items: []
+        items: [],
+        paginate: {
+          perPage: 20,
+          currentPage: 1,
+          totalRows: 0
+        }
       }
     },
 
@@ -56,14 +67,21 @@
     },
 
     methods: {
-      fetchData: function () {
+      fetchData (page) {
         this.showLoading()
-        NetWorking.doGet(this.url, this.pathParams, this.options).then(response => {
-          this.items = response.data
-          this.hideLoading()
-        }, () => {
-          this.hideLoading()
-        })
+        NetWorking
+          .doGet(this.url, this.pathParams, {params: {page: (page >= 0 ? page : 1), limit: this.paginate.perPage}})
+          .then(response => {
+            this.items = response.data.list
+            this.paginate.totalRows = response.data.total
+            this.hideLoading()
+          }, () => {
+            this.hideLoading()
+          })
+      },
+
+      pageChanged (page) {
+        this.fetchData(page)
       },
 
       showLoading: function () {
