@@ -23,7 +23,8 @@ module.exports = {
     extensions: ['.js', '.vue', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
-      '@': resolve('src')
+      '@': resolve('src'),
+      'jquery': 'admin-lte/plugins/jQuery/jquery-2.2.3.min',
     }
   },
   module: {
@@ -71,7 +72,6 @@ module.exports = {
       jquery: 'jquery',
       'window.jQuery': 'jquery',
       jQuery: 'jquery',
-      slimscroll: 'jquery.slimscroll'
     })
   ]
 }

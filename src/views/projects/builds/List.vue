@@ -50,11 +50,7 @@
               </router-link>
             </div>
             <div class="btn-group">
-              <router-link
-                :to="{ name: 'build_detail', params: { id: $route.params.id, env_id:$route.params.env_id, build_id:props.item.id }}"
-                class="btn btn-block btn-info">
-                Download
-              </router-link>
+              <button class="btn btn-block btn-info" @click="download(props.item.id)">Download</button>
             </div>
           </td>
         </tr>
@@ -65,6 +61,7 @@
 
 <script>
   import * as API from '@/constants/api'
+  import NetWorking from '@/utils/networking'
   import TableBox from '@/components/global/TableBox'
 
   export default {
@@ -93,6 +90,11 @@
             return 'bg-blue'
           }
         }
+      },
+
+      download (buildId) {
+        NetWorking
+          .doGet(API.buildDownload, {id: this.$route.params.project_id, build_id: buildId}, null)
       }
     }
 

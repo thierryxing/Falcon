@@ -1,15 +1,13 @@
 <template>
-  <div class="col-xs-12">
-    <div class="box">
-      <loading-overlay v-show="showOverlay"></loading-overlay>
-      <div class="box-header" data-id="2491" data-offset="4975" data-pid="78" data-polling="0" id="delivery_id">
-        <h3 class="box-title">{{ build_id }}</h3>
-      </div>
-      <div class="box-body">
-        <div class="row">
-          <div class="col-lg-12">
-            <pre class="bash" v-html="build_log"></pre>
-          </div>
+  <div class="box">
+    <loading-overlay v-show="showOverlay"></loading-overlay>
+    <div class="box-header" data-id="2491" data-offset="4975" data-pid="78" data-polling="0" id="delivery_id">
+      <h3 class="box-title">{{ buildId }}</h3>
+    </div>
+    <div class="box-body">
+      <div class="row">
+        <div class="col-lg-12">
+          <pre class="bash" v-html="buildLog"></pre>
         </div>
       </div>
     </div>
@@ -27,35 +25,64 @@
     data () {
       return {
         showOverlay: false,
-        build_id: this.$route.params.build_id,
-        build_log: ''
+        buildId: this.$route.params.build_id,
+        buildLog: '',
+        offset: 0,
+        shouldPoll: true,
+        fetching: false,
+        interval: null
       }
     },
 
     created () {
-      this.fetchData()
+      this.pollLog()
     },
 
     methods: {
-      fetchData: function () {
-        this.showLoading()
+      fetchData () {
+        if (this.offset === 0) {
+          this.showLoading()
+        }
+        this.fetching = true
         NetWorking
-          .doGet(API.buildLog, {id: this.$route.params.project_id, build_id: this.$route.params.build_id}, null)
+          .doGet(API.buildLog, {id: this.$route.params.project_id, build_id: this.$route.params.build_id}, {params: {offset: this.offset}})
           .then(response => {
-              this.build_log = response.data.log
+              this.buildLog = this.buildLog + response.data.log
+              this.shouldPoll = response.data.should_poll
+              this.offset = response.data.offset
+              this.fetching = false
               this.hideLoading()
+              this.scrollTop()
+              if (!this.shouldPoll) {
+                window.clearInterval(this.interval)
+              }
             }, () => {
               this.hideLoading()
+              this.fetching = false
+              window.clearInterval(this.interval)
             }
           )
       },
 
-      showLoading: function () {
+      showLoading () {
         this.showOverlay = true
       },
 
-      hideLoading: function () {
+      hideLoading () {
         this.showOverlay = false
+      },
+
+      pollLog () {
+        this.interval = setInterval(function () {
+          if (this.shouldPoll && !this.fetching) {
+            this.fetchData()
+          }
+        }.bind(this), 1000)
+      },
+
+      scrollTop () {
+        let container = this.$el.querySelector('html, body')
+        container.scrollTop = container.scrollHeight;
       }
     }
   }

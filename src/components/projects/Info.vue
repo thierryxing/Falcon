@@ -23,26 +23,26 @@
         </li>
         <li class="list-group-item">
           <b>
-            Version
-          </b>
-          <a class="pull-right">
-            {{ project.version }}
-          </a>
-        </li>
-        <li class="list-group-item">
-          <b>
-            Last Release
-          </b>
-          <a class="pull-right">
-            {{ project.last_release_at }}
-          </a>
-        </li>
-        <li class="list-group-item">
-          <b>
             Identifier
           </b>
           <a class="pull-right">
             {{ project.identifier }}
+          </a>
+        </li>
+        <li class="list-group-item">
+          <b>
+            Updated At
+          </b>
+          <a class="pull-right">
+            {{ project.updated_at }}
+          </a>
+        </li>
+        <li class="list-group-item">
+          <b>
+            Last Build Time
+          </b>
+          <a class="pull-right">
+            {{ project.lasted_build_at }}
           </a>
         </li>
       </ul>

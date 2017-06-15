@@ -13,7 +13,7 @@
     <div class="form-group" v-if="project.platform === 'android'">
       <label for="build_path">Build Path</label>
       <input class="form-control" type="text" id="build_path" name="environment[build_path]" :value="environment.build_path"
-             v-model="environment.build_path"/>
+             v-model="environment.build_path" placeholder="app/build/outputs/apk/"/>
     </div>
     <div class="form-group">
       <label for="template">Template</label>

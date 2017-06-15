@@ -10,9 +10,9 @@
           <span slot="sub-title">{{ project.platform }}</span>
         </content-header>
         <alert></alert>
-        <div class="content">
+        <section class="content">
           <router-view></router-view>
-        </div>
+        </section>
       </div>
     </div>
     <content-footer></content-footer>

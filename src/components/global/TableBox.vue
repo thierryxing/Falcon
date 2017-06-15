@@ -15,7 +15,7 @@
       </table>
     </div>
     <div class="box-footer">
-      <div class="dataTables_paginate paging_simple_numbers">
+      <div class="dataTables_paginate paging_simple_numbers" v-show="paginate.totalRows>paginate.perPage">
         <pagination :total-rows="paginate.totalRows" v-model="paginate.currentPage"
                     :per-page="paginate.perPage" @input="pageChanged">
         </pagination>
@@ -57,7 +57,8 @@
         items: [],
         paginate: {
           currentPage: 1,
-          totalRows: 0
+          totalRows: 0,
+          perPage: 15
         }
       }
     },
