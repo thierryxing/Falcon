@@ -51,7 +51,7 @@
     },
 
     methods: {
-      versionClass: function (needUpdate) {
+      versionClass (needUpdate) {
         if (needUpdate) {
           return 'text-warning'
         } else {

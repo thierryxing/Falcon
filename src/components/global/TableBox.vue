@@ -68,17 +68,17 @@
     },
 
     watch: {
-      reloadData: function () {
+      reloadData () {
         if (this.reloadData) {
           this.fetchData()
         }
       },
 
-      pathParams: function () {
+      pathParams () {
         this.fetchData()
       },
 
-      options: function () {
+      options () {
         this.fetchData()
       }
     },
@@ -102,11 +102,11 @@
         this.fetchData(page)
       },
 
-      showLoading: function () {
+      showLoading () {
         this.showOverlay = true
       },
 
-      hideLoading: function () {
+      hideLoading () {
         this.showOverlay = false
         this.$emit('update:reloadData', false)
       }

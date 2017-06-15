@@ -77,7 +77,7 @@
 
     methods: {
 
-      syncGitLab: function () {
+      syncGitLab () {
         this.showLoading()
         NetWorking.doGet(API.projectSyncGitLab, {id: this.$route.params.project_id}, null).then(response => {
           this.project = response.data
@@ -88,11 +88,11 @@
         })
       },
 
-      showLoading: function () {
+      showLoading () {
         this.showOverlay = true
       },
 
-      hideLoading: function () {
+      hideLoading () {
         this.showOverlay = false
       }
 

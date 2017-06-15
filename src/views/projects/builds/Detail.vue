@@ -82,7 +82,7 @@
 
       scrollTop () {
         let container = this.$el.querySelector('html, body')
-        container.scrollTop = container.scrollHeight;
+        container.scrollTop = container.scrollHeight
       }
     }
   }

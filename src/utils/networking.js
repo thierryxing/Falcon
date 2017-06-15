@@ -124,7 +124,7 @@ export default {
    * @returns {string}
    * @private
    */
-  _wrapUrl: function (url, params) {
+  _wrapUrl (url, params) {
     if (params !== null) {
       let matches = this._getMatches(url)
       for (let match of matches) {
@@ -143,7 +143,7 @@ export default {
    * @returns {Array}
    * @private
    */
-  _getMatches: function (string) {
+  _getMatches  (string) {
     let matches = []
     let regex = /(:[a-z_]+)/
     let match = regex.exec(string)

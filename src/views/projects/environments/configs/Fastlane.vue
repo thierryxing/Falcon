@@ -40,7 +40,7 @@
     },
 
     methods: {
-      fetchData: function () {
+      fetchData () {
         NetWorking.doGet(API.environmentFastlane, {
           id: this.$route.params.project_id,
           env_id: this.$route.params.env_id
@@ -50,11 +50,11 @@
         })
       },
 
-      switchTab: function (file) {
+      switchTab (file) {
         this.currentFile = file
       },
 
-      tabClass: function (file) {
+      tabClass (file) {
         if (this.currentFile.name === file.name) {
           return 'active'
         } else {
@@ -62,15 +62,15 @@
         }
       },
 
-      getAnchor: function (file) {
+      getAnchor (file) {
         return '#tab_' + file.name
       },
 
-      getPaneId: function (file) {
+      getPaneId (file) {
         return 'tab_' + file.name
       },
 
-      panelActive: function (file) {
+      panelActive (file) {
 
       }
     }

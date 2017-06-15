@@ -51,7 +51,7 @@
     },
 
     methods: {
-      fetchData: function () {
+      fetchData () {
         NetWorking.doGet(API.users, null, null).then(response => {
           this.users = response.data
         })

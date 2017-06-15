@@ -55,22 +55,24 @@
     },
 
     methods: {
-      fetchData: function () {
+      fetchData () {
         this.showLoading()
-        NetWorking.doGet(API.project, {id: this.$route.params.project_id}, null).then(response => {
-          this.project = response.data
-          this.$store.dispatch('setProject', this.project)
-          this.hideLoading()
-        }, () => {
-          this.hideLoading()
-        })
+        NetWorking
+          .doGet(API.project, {id: this.$route.params.project_id}, null)
+          .then(response => {
+            this.project = response.data
+            this.$store.dispatch('setProject', this.project)
+            this.hideLoading()
+          }, () => {
+            this.hideLoading()
+          })
       },
 
-      showLoading: function () {
+      showLoading () {
         this.showOverlay = true
       },
 
-      hideLoading: function () {
+      hideLoading () {
         this.showOverlay = false
       }
     }

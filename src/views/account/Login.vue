@@ -54,7 +54,7 @@
 
     methods: {
 
-      doLogin: function () {
+      doLogin () {
         this.showLoading()
         NetWorking.doPost(API.login, null, this.user, null).then(response => {
           let user = response.data
@@ -68,11 +68,11 @@
         })
       },
 
-      showLoading: function () {
+      showLoading () {
         this.buttonDisabled = true
       },
 
-      hideLoading: function () {
+      hideLoading () {
         this.buttonDisabled = false
       }
 

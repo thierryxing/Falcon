@@ -18,13 +18,13 @@ const fs = require('fs')
 const mockDir = path.join(__dirname, 'data')
 const base = {}
 const files = fs.readdirSync(mockDir)
-files.forEach(function (file) {
+files.forEach((file) => {
   _.extend(base, require(path.resolve(mockDir, file)))
 })
 const router = jsonServer.router(base)
 
 // 处理登录逻辑
-server.post('/account/login', function (req, res) {
+server.post('/account/login', (req, res) => {
   let db = router.db // lowdb instance
   let data = db.get('login').value()
   res.jsonp({
@@ -34,7 +34,7 @@ server.post('/account/login', function (req, res) {
   })
 })
 // 处理登出逻辑
-server.post('/account/logout', function (req, res) {
+server.post('/account/logout', (req, res) => {
   let db = router.db // lowdb instance
   let data = db.get('logout').value()
   res.jsonp({

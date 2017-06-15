@@ -73,14 +73,14 @@
     },
 
     methods: {
-      signOut: function () {
+      signOut () {
         NetWorking.doGet(API.logout, null, null).then(() => {
           this.$store.dispatch('deleteUser')
           this.$router.replace({name: 'login'})
         })
       },
 
-      changePlatform: function (platform) {
+      changePlatform (platform) {
         NetWorking
           .doGet(API.setPlatform, {id: this.currentUser.id, platform: platform}, null)
           .then(response => {

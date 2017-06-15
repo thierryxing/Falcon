@@ -56,7 +56,7 @@
     },
 
     methods: {
-      fetchData: function () {
+      fetchData () {
         NetWorking.doGet(API.environmentConfigs, {
           id: this.$route.params.project_id,
           env_id: this.$route.params.env_id
@@ -68,12 +68,12 @@
         )
       },
 
-      navigateToConfig: function (config) {
+      navigateToConfig (config) {
         this.currentConfig = config
         this.$router.replace({name: config.id})
       },
 
-      statusClass: function (finished) {
+      statusClass (finished) {
         if (finished) {
           return 'fa-check-circle'
         } else {
@@ -81,7 +81,7 @@
         }
       },
 
-      bgClass: function (configId) {
+      bgClass (configId) {
         if (configId === this.$route.name) {
           return 'bg-green'
         } else {
@@ -89,11 +89,11 @@
         }
       },
 
-      showLoading: function () {
+      showLoading () {
         this.showOverlay = true
       },
 
-      hideLoading: function () {
+      hideLoading () {
         this.showOverlay = false
       }
     }

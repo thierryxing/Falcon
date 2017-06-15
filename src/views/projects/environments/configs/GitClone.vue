@@ -61,7 +61,7 @@
     },
 
     methods: {
-      fetchData: function () {
+      fetchData () {
         this.showLoading()
         NetWorking
           .doGet(API.environment, {id: this.$route.params.project_id, env_id: this.$route.params.env_id}, null)
@@ -73,7 +73,7 @@
           })
       },
 
-      doClone: function () {
+      doClone () {
         this.showLoading()
         NetWorking
           .doGet(API.environmentGitClone, {id: this.$route.params.project_id, env_id: this.$route.params.env_id}, null)
@@ -101,11 +101,11 @@
           })
       },
 
-      showLoading: function () {
+      showLoading () {
         this.showOverlay = true
       },
 
-      hideLoading: function () {
+      hideLoading () {
         if (this.environment.clone_status === 'success') {
           this.cloneButtonShow = false
         }

@@ -57,7 +57,7 @@
     },
 
     methods: {
-      fetchData: function () {
+      fetchData () {
         NetWorking.doGet(API.services, {
           id: this.$route.params.project_id
         }, null).then(response => {
@@ -65,7 +65,7 @@
         })
       },
 
-      activeClass: function (service) {
+      activeClass (service) {
         if (service.active) {
           return 'fa-circle text-green'
         } else {
