@@ -1,7 +1,7 @@
 <template>
   <div class="box">
     <loading-overlay v-show="showOverlay"></loading-overlay>
-    <div class="box-header" data-id="2491" data-offset="4975" data-pid="78" data-polling="0" id="delivery_id">
+    <div class="box-header" id="delivery_id">
       <h3 class="box-title">{{ buildId }}</h3>
     </div>
     <div class="box-body">
