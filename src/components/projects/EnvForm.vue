@@ -21,6 +21,18 @@
         <option v-for="option in options" :value="option.id">{{ option.name }}</option>
       </select>
     </div>
+    <div>
+      <label for="ding_access_token">DingTalk Access Token</label>
+      <input class="form-control" type="text" id="ding_access_token" name="environment[ding_access_token]"
+             :value="environment.ding_access_token"
+             v-model="environment.ding_access_token" placeholder="Keep this empty if you don't want to notice by DingTalk"/>
+    </div>
+    <div>
+      <label for="download_url">Download URL</label>
+      <input class="form-control" type="text" id="download_url" name="environment[download_url]"
+             :value="environment.download_url"
+             v-model="environment.download_url" placeholder="eg:http://fir.im/nlkc"/>
+    </div>
   </div>
 </template>
 

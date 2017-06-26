@@ -19,15 +19,19 @@ div.avatar {
 }
 
 /* console output format*/
-pre {
-  line-height: 1.8em;
-  word-break: break-all;
+pre, textarea.code {
+  clear: left;
+  min-height: 42px;
+  padding: 15px 0;
+  color: #f1f1f1;
+  font-family: Monaco, monospace;
+  font-size: 12px;
+  line-height: 20px;
+  white-space: pre-wrap;
   word-wrap: break-word;
-  padding: 10px;
-  -webkit-font-smoothing: antialiased;
-  background-color: #232323;
-  border: none;
-  border-radius: 0;
+  background-color: #222;
+  counter-reset: line-numbering;
+  margin-top: 0;
 }
 
 pre, code, textarea.code {
@@ -42,9 +46,7 @@ pre code p {
   margin: 0;
 }
 
-pre.bash, textarea.code {
-  font-size: 13px;
-  background: #212121;
+textarea.code {
   color: #edede3;
   padding: 10px;
 }

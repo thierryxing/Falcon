@@ -32,11 +32,6 @@
             paths: ['builds'],
             icon: 'fa-legal'
           }, {
-            name: 'Services',
-            to: 'services',
-            paths: ['services'],
-            icon: 'fa-cogs'
-          }, {
             name: 'Settings',
             to: 'setting',
             paths: ['setting'],
