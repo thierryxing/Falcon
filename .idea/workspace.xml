@@ -4,20 +4,6 @@
     <list default="true" id="40efca5f-0789-4e65-9c21-b29f63fa2cef" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/App.vue" afterPath="$PROJECT_DIR$/src/App.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/global/TableBox.vue" afterPath="$PROJECT_DIR$/src/components/global/TableBox.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/components/projects/Form.vue" afterPath="$PROJECT_DIR$/src/components/projects/Form.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/utils/networking.js" afterPath="$PROJECT_DIR$/src/utils/networking.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/account/Login.vue" afterPath="$PROJECT_DIR$/src/views/account/Login.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/projects/Edit.vue" afterPath="$PROJECT_DIR$/src/views/projects/Edit.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/projects/Layout.vue" afterPath="$PROJECT_DIR$/src/views/projects/Layout.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/projects/New.vue" afterPath="$PROJECT_DIR$/src/views/projects/New.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/projects/builds/CheckDependency.vue" afterPath="$PROJECT_DIR$/src/views/projects/builds/CheckDependency.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/projects/builds/List.vue" afterPath="$PROJECT_DIR$/src/views/projects/builds/List.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/projects/environments/New.vue" afterPath="$PROJECT_DIR$/src/views/projects/environments/New.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/projects/environments/configs/GitClone.vue" afterPath="$PROJECT_DIR$/src/views/projects/environments/configs/GitClone.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/projects/environments/configs/Info.vue" afterPath="$PROJECT_DIR$/src/views/projects/environments/configs/Info.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/projects/environments/configs/List.vue" afterPath="$PROJECT_DIR$/src/views/projects/environments/configs/List.vue" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/views/projects/services/List.vue" afterPath="$PROJECT_DIR$/src/views/projects/services/List.vue" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -65,11 +51,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="App.vue" pinned="false" current-in-tab="false">
+      <file leaf-file-name="App.vue" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/App.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="414">
-              <caret line="35" column="24" lean-forward="false" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
+            <state relative-caret-position="346">
+              <caret line="37" column="23" lean-forward="false" selection-start-line="37" selection-start-column="23" selection-end-line="37" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -105,7 +91,7 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Detail.vue" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Detail.vue" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/views/projects/builds/Detail.vue">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="578">
@@ -230,7 +216,6 @@
         <option value="$PROJECT_DIR$/src/constants/api.js" />
         <option value="$PROJECT_DIR$/src/views/projects/environments/configs/Fastlane.vue" />
         <option value="$PROJECT_DIR$/src/components/global/TableBox.vue" />
-        <option value="$PROJECT_DIR$/src/App.vue" />
         <option value="$PROJECT_DIR$/src/utils/networking.js" />
         <option value="$PROJECT_DIR$/src/components/projects/Form.vue" />
         <option value="$PROJECT_DIR$/src/views/projects/builds/List.vue" />
@@ -244,6 +229,7 @@
         <option value="$PROJECT_DIR$/src/views/projects/Edit.vue" />
         <option value="$PROJECT_DIR$/src/views/projects/Layout.vue" />
         <option value="$PROJECT_DIR$/src/views/projects/New.vue" />
+        <option value="$PROJECT_DIR$/src/App.vue" />
       </list>
     </option>
   </component>
@@ -947,12 +933,12 @@
       <workItem from="1498643318180" duration="1698000" />
       <workItem from="1498649162159" duration="68000" />
       <workItem from="1498805302619" duration="40000" />
-      <workItem from="1499078867396" duration="1024000" />
+      <workItem from="1499078867396" duration="1358000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="269019000" />
+    <option name="totallyTimeSpent" value="269353000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1369,14 +1355,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="414">
-          <caret line="35" column="24" lean-forward="false" selection-start-line="35" selection-start-column="24" selection-end-line="35" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/views/job/Index.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1405,6 +1383,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="578">
           <caret line="89" column="0" lean-forward="false" selection-start-line="89" selection-start-column="0" selection-end-line="89" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="346">
+          <caret line="37" column="23" lean-forward="false" selection-start-line="37" selection-start-column="23" selection-end-line="37" selection-end-column="23" />
           <folding />
         </state>
       </provider>

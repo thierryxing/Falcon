@@ -20,6 +20,7 @@
     methods: {
       handleResponse (response) {
         this.$store.dispatch('deleteAlert')
+        console.log(response)
         if (response.status >= 400) {
           if (response.status === 401) {
             this.handleUnauthorized()
@@ -34,7 +35,7 @@
       },
 
       handleServerError (response) {
-        this.showAlert(response.statusText)
+        this._showAlert(response.statusText)
       },
 
       handleUnauthorized () {
