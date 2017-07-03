@@ -92,6 +92,8 @@
           .then(response => {
             this.items = response.data.list
             this.paginate.totalRows = response.data.total
+            // 抛出data完整对象，以便父组件使用
+            this.$emit('afterFetchData', response.data)
             this.hideLoading()
           }, () => {
             this.hideLoading()

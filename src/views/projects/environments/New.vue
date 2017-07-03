@@ -40,13 +40,15 @@
 
       doCreate () {
         this.showLoading()
-        NetWorking.doPost(API.environments, {id: this.project.id}, this.environment, null).then(response => {
-          this.environment = response.data
-          this.$router.push({name: 'git_clone', params: {env_id: this.environment.id}})
-          this.hideLoading()
-        }, () => {
-          this.hideLoading()
-        })
+        NetWorking
+          .doPost(API.environments, {id: this.project.id}, this.environment)
+          .then(response => {
+            this.environment = response.data
+            this.$router.push({name: 'git_clone', params: {env_id: this.environment.id}})
+            this.hideLoading()
+          }, () => {
+            this.hideLoading()
+          })
       },
 
       showLoading () {

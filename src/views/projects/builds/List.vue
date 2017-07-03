@@ -94,7 +94,7 @@
 
       download (buildId) {
         NetWorking
-          .doGet(API.buildDownload, {id: this.$route.params.project_id, build_id: buildId}, null)
+          .doGet(API.buildDownload, {id: this.$route.params.project_id, build_id: buildId})
       }
     }
 

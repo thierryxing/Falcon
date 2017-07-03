@@ -64,7 +64,7 @@
       fetchData () {
         this.showLoading()
         NetWorking
-          .doGet(API.environment, {id: this.$route.params.project_id, env_id: this.$route.params.env_id}, null)
+          .doGet(API.environment, {id: this.$route.params.project_id, env_id: this.$route.params.env_id})
           .then(response => {
             this.environment = response.data
             this.hideLoading()
@@ -76,7 +76,7 @@
       doClone () {
         this.showLoading()
         NetWorking
-          .doGet(API.environmentGitClone, {id: this.$route.params.project_id, env_id: this.$route.params.env_id}, null)
+          .doGet(API.environmentGitClone, {id: this.$route.params.project_id, env_id: this.$route.params.env_id})
           .then(response => {
             this.environment = response.data
             this.reloadData = true
@@ -90,9 +90,7 @@
         this.showLoading()
         NetWorking
           .doPost(API.environmentChooseBranch,
-            {id: this.$route.params.project_id, env_id: this.$route.params.env_id},
-            {branch: name, full: full},
-            null)
+            {id: this.$route.params.project_id, env_id: this.$route.params.env_id}, {branch: name, full: full})
           .then(() => {
             this.hideLoading()
             this.reloadData = true

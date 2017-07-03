@@ -57,15 +57,13 @@
 
     methods: {
       fetchData () {
-        NetWorking.doGet(API.environmentConfigs, {
-          id: this.$route.params.project_id,
-          env_id: this.$route.params.env_id
-        }, null).then(
-          response => {
-            this.configs = response.data
-            this.navigateToConfig(this.configs[0])
-          }
-        )
+        NetWorking
+          .doGet(API.environmentConfigs, {id: this.$route.params.project_id, env_id: this.$route.params.env_id})
+          .then(response => {
+              this.configs = response.data
+              this.navigateToConfig(this.configs[0])
+            }
+          )
       },
 
       navigateToConfig (config) {

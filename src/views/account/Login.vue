@@ -56,7 +56,7 @@
 
       doLogin () {
         this.showLoading()
-        NetWorking.doPost(API.login, null, this.user, null).then(response => {
+        NetWorking.doPost(API.login, null, this.user).then(response => {
           let user = response.data
           this.$store.dispatch('createUser', user)
           this.$store.dispatch('setPlatform', response.data.platform)

@@ -37,7 +37,7 @@
       doCreate () {
         this.showLoading()
         NetWorking
-          .doPost(API.projects, null, {project: this.project}, null)
+          .doPost(API.projects, null, {project: this.project})
           .then(response => {
             this.project = response.data
             this.$router.push({name: 'environments', params: {'project_id': this.project.id}})

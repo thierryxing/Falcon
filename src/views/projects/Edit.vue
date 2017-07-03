@@ -54,22 +54,26 @@
 
       doDelete () {
         this.showLoading()
-        NetWorking.doDelete(API.project, {id: this.project.id}, null).then(() => {
-          this.hideLoading()
-          this.$router.replace({name: 'dashboard'})
-        }, () => {
-          this.hideLoading()
-        })
+        NetWorking
+          .doDelete(API.project, {id: this.project.id}, null)
+          .then(() => {
+            this.hideLoading()
+            this.$router.replace({name: 'dashboard'})
+          }, () => {
+            this.hideLoading()
+          })
       },
 
       doUpdate () {
         this.showLoading()
-        NetWorking.doPut(API.project, {id: this.project.id}, {project: this.project}).then(response => {
-          this.hideLoading()
-          this.$store.dispatch('setProject', response.data)
-        }, () => {
-          this.hideLoading()
-        })
+        NetWorking
+          .doPut(API.project, {id: this.project.id}, {project: this.project})
+          .then(response => {
+            this.hideLoading()
+            this.$store.dispatch('setProject', response.data)
+          }, () => {
+            this.hideLoading()
+          })
       },
 
       showLoading () {

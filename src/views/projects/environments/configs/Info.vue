@@ -55,7 +55,7 @@
       fetchData () {
         this.showLoading()
         NetWorking
-          .doGet(API.environment, {id: this.$route.params.project_id, env_id: this.$route.params.env_id}, null)
+          .doGet(API.environment, {id: this.$route.params.project_id, env_id: this.$route.params.env_id})
           .then(response => {
             this.environment = response.data
             this.selected = this.environment.build_template

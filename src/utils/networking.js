@@ -25,7 +25,7 @@ export default {
    * @param options
    * @returns {*|Promise}
    */
-  doGet (url, pathParams, options) {
+  doGet (url, pathParams = null, options = null) {
     return this.doRequest(url, this.httpMethod.GET, pathParams, null, options)
   },
 
@@ -37,7 +37,7 @@ export default {
    * @param options
    * @returns {*|Promise}
    */
-  doPost (url, pathParams, body, options) {
+  doPost (url, pathParams = null, body = null, options = null) {
     return this.doRequest(url, this.httpMethod.POST, pathParams, body, options)
   },
 
@@ -49,7 +49,7 @@ export default {
    * @param options
    * @returns {*|Promise}
    */
-  doPut (url, pathParams, body, options) {
+  doPut (url, pathParams = null, body = null, options = null) {
     return this.doRequest(url, this.httpMethod.PUT, pathParams, body, options)
   },
 
@@ -60,7 +60,7 @@ export default {
    * @param options
    * @returns {*|Promise}
    */
-  doDelete (url, pathParams, options) {
+  doDelete (url, pathParams = null, options = null) {
     return this.doRequest(url, this.httpMethod.DELETE, pathParams, null, options)
   },
 

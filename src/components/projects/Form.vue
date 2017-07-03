@@ -52,8 +52,8 @@
 
     methods: {
       fetchData () {
-        NetWorking.doGet(API.users, null, null).then(response => {
-          this.users = response.data
+        NetWorking.doGet(API.users).then(response => {
+          this.users = response.data.list
         })
       }
     }
