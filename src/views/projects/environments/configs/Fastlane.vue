@@ -76,6 +76,7 @@
         NetWorking
           .doPut(API.environmentUpdateFastfile, {id: this.$route.params.project_id, env_id: this.$route.params.env_id}, this.currentFile)
           .then(() => {
+            this.showEdit = false
             this.hideLoading()
           }, () => {
             this.hideLoading()

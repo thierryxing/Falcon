@@ -18,16 +18,16 @@
     <div class="form-group">
       <label for="template">Template</label>
       <select class="form-control" id="template" name="environment[template]" v-model="environment.build_template">
-        <option v-for="option in options" :value="option.id">{{ option.name }}</option>
+        <option v-for="option in options" :value="option.value">{{ option.name }}</option>
       </select>
     </div>
-    <div>
+    <div class="form-group">
       <label for="ding_access_token">DingTalk Access Token</label>
       <input class="form-control" type="text" id="ding_access_token" name="environment[ding_access_token]"
              :value="environment.ding_access_token"
-             v-model="environment.ding_access_token" placeholder="Keep this empty if you don't want to notice by DingTalk"/>
+             v-model="environment.ding_access_token" placeholder="Keep this empty if you don't want to notification by DingTalk"/>
     </div>
-    <div>
+    <div class="form-group">
       <label for="download_url">Download URL</label>
       <input class="form-control" type="text" id="download_url" name="environment[download_url]"
              :value="environment.download_url"
@@ -40,6 +40,7 @@
   import NetWorking from '@/utils/networking'
   import * as API from '@/constants/api'
   import { mapGetters } from 'vuex'
+  import Enum from '@/constants/enum'
 
   export default {
 
@@ -58,18 +59,17 @@
     },
 
     created () {
-      this.fetchData()
+      this.setOptions()
     },
 
     methods: {
 
-      fetchData () {
-        NetWorking.doGet(API.environmentTemplates, {
-          id: this.$route.params.project_id
-        }, null).then(
-          response => {
-            this.options = response.data
-          })
+      setOptions () {
+        for (let template in Enum.Templates) {
+          if (Enum.Templates.hasOwnProperty(template)) {
+            this.options.push({name: template, value: Enum.Templates[template]})
+          }
+        }
       }
 
     }

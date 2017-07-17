@@ -3,7 +3,7 @@
     <div class="box-header with-border">
       <h3 class="box-title">Builds</h3>
     </div>
-    <table-box :url="url" :pathParams="pathParams">
+    <table-box :url="url" :pathParams="pathParams" :reloadData.sync="reloadData">
       <tr slot="ths">
         <th>ID</th>
         <th>Status</th>
@@ -12,7 +12,7 @@
         <th>Environment</th>
         <th>Release Notes</th>
         <th>Updated Time</th>
-        <th style="width:200px">Action</th>
+        <th style="width:300px">Action</th>
       </tr>
       <template slot="item" scope="props">
         <tr>
@@ -52,6 +52,9 @@
             <div class="btn-group">
               <button class="btn btn-block btn-info" @click="download(props.item.id)">Download</button>
             </div>
+            <div class="btn-group">
+              <button class="btn btn-block btn-danger" @click="remove(props.item.id)">Remove</button>
+            </div>
           </td>
         </tr>
       </template>
@@ -70,7 +73,8 @@
     data () {
       return {
         url: API.projectBuilds,
-        pathParams: {id: this.$route.params.project_id}
+        pathParams: {id: this.$route.params.project_id},
+        reloadData: false
       }
     },
 
@@ -95,6 +99,14 @@
       download (buildId) {
         NetWorking
           .doGet(API.buildDownload, {id: this.$route.params.project_id, build_id: buildId})
+      },
+
+      remove (buildId) {
+        NetWorking
+          .doDelete(API.build, {id: this.$route.params.project_id, build_id: buildId})
+          .then(() => {
+            this.reloadData = true
+          })
       }
     }
 

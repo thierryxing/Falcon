@@ -73,17 +73,18 @@
     methods: {
       doBuild (envId, template) {
         switch (template) {
-          case Enum.Templates.PROD: {
+          case Enum.Templates.Prod: {
             this.$router.push({name: 'check_dependency', params: {env_id: envId}})
             break
           }
-          case Enum.Templates.TEST: {
+          case Enum.Templates.Test: {
             break
           }
-          case Enum.Templates.BETA: {
+          case Enum.Templates.Beta: {
+            this.$router.push({name: 'pre_build_beta', params: {env_id: envId}})
             break
           }
-          case Enum.Templates.LIB: {
+          case Enum.Templates.Lib: {
             this.$router.push({name: 'pre_build_lib', params: {env_id: envId}})
             break
           }

@@ -23,7 +23,7 @@
 
       doDeliver () {
         NetWorking
-          .doPost(API.buildApp, {id: this.$route.params.project_id, env_id: this.$route.params.env_id})
+          .doPost(API.buildProd, {id: this.$route.params.project_id, env_id: this.$route.params.env_id})
           .then(response => {
             this.$router.replace({name: 'build_detail', params: {'build_id': response.data.id}})
             this.hideLoading()

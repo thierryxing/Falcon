@@ -3,10 +3,17 @@
  */
 export default {
   Templates: {
-    PROD: 0,
-    TEST: 1,
-    BETA: 2,
-    LIB: 3
+    Prod: 0,
+    Test: 1,
+    Beta: 2,
+    Lib: 3
+  },
+
+  BuildStatus: {
+    Failed: 0,
+    Success: 1,
+    Processing: 2,
+    Canceled: 3
   }
 }
 

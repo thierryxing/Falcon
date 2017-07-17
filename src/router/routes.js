@@ -15,6 +15,7 @@ import ServiceEdit from '@/views/projects/services/Edit'
 
 import Builds from '@/views/projects/builds/List'
 import PreBuildLib from '@/views/projects/builds/PreBuildLib'
+import PreBuildBeta from '@/views/projects/builds/PreBuildBeta'
 import CheckDependency from '@/views/projects/builds/CheckDependency'
 
 import Environments from '@/views/projects/environments/List'
@@ -53,6 +54,7 @@ const projectRoutes = {
     {name: 'builds', path: 'builds', component: Builds},
     {name: 'build_detail', path: 'builds/:build_id', component: BuildDetail},
     {name: 'pre_build_lib', path: 'environments/:env_id/pre_build_lib', component: PreBuildLib},
+    {name: 'pre_build_beta', path: 'environments/:env_id/pre_build_beta', component: PreBuildBeta},
     {name: 'check_dependency', path: 'environments/:env_id/check_dependency', component: CheckDependency},
     {name: 'environments_new', path: 'environments/new', component: EnvironmentsNew},
     {name: 'services', path: 'services', component: Services},
