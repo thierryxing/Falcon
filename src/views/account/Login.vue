@@ -15,6 +15,7 @@
             <input type="email" name="email" id="email" class="form-control" placeholder="Email" v-model="user.email">
             <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
           </div>
+
           <div class="form-group has-feedback">
             <input type="password" name="password" id="password" class="form-control" placeholder="Password" v-model="user.password">
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>

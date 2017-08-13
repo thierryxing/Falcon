@@ -44,6 +44,10 @@
       this.pollLog()
     },
 
+    beforeDestroy () {
+      window.clearInterval(this.interval)
+    },
+
     methods: {
       fetchData () {
         if (this.offset === 0) {
