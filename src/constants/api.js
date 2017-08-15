@@ -10,6 +10,7 @@ export const projectSyncGitLab = '/projects/:id/sync_gitlab'
 
 export const environments = '/projects/:id/environments'
 export const environment = '/projects/:id/environments/:env_id'
+export const environmentClone = '/projects/:id/environments/:env_id/clone'
 export const environmentTemplates = '/projects/:id/environments/templates'
 export const environmentConfigs = '/projects/:id/environments/:env_id/configs'
 export const environmentFastlane = '/projects/:id/environments/:env_id/fastlane'

@@ -19,11 +19,12 @@ import PreBuildBeta from '@/views/projects/builds/PreBuildBeta'
 import CheckDependency from '@/views/projects/builds/CheckDependency'
 
 import Environments from '@/views/projects/environments/List'
+import EnvironmentCLone from '@/views/projects/environments/Clone'
+import EnvironmentNew from '@/views/projects/environments/New'
 import Configs from '@/views/projects/environments/configs/List'
 import ConfigGitClone from '@/views/projects/environments/configs/GitClone'
 import ConfigInfo from '@/views/projects/environments/configs/Info'
 import ConfigFastlane from '@/views/projects/environments/configs/Fastlane'
-import EnvironmentsNew from '@/views/projects/environments/New'
 
 import BuildDetail from '@/views/projects/builds/Detail'
 
@@ -56,9 +57,10 @@ const projectRoutes = {
     {name: 'pre_build_lib', path: 'environments/:env_id/pre_build_lib', component: PreBuildLib},
     {name: 'pre_build_beta', path: 'environments/:env_id/pre_build_beta', component: PreBuildBeta},
     {name: 'check_dependency', path: 'environments/:env_id/check_dependency', component: CheckDependency},
-    {name: 'environments_new', path: 'environments/new', component: EnvironmentsNew},
+    {name: 'environments_new', path: 'environments/new', component: EnvironmentNew},
     {name: 'services', path: 'services', component: Services},
     {name: 'service_edit', path: 'services/:service_id/edit', component: ServiceEdit},
+    {name: 'environment_clone', path: 'environments/:env_id/clone', component: EnvironmentCLone},
     {
       name: 'environment_configs',
       path: 'environments/:env_id/configs',

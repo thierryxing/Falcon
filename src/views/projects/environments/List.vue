@@ -16,7 +16,7 @@
         <th>Template</th>
         <th>Git Branch</th>
         <th>Updated Time</th>
-        <th style="width:200px">Action</th>
+        <th style="width:220px">Action</th>
       </tr>
       <template slot="item" scope="props">
         <tr>
@@ -39,14 +39,19 @@
             {{ props.item.updated_at }}
           </td>
           <td>
-            <router-link
-              :to="{ name: 'environment_configs', params: { id: $route.params.id, env_id: props.item.id }}"
-              class="btn btn-info">
-              Config
-            </router-link>
-            <button type="button" class="btn btn-info" @click="doBuild(props.item.id, props.item.build_template)" v-show="props.item.can_build">
+            <button type="button" class="btn btn-primary" @click="doBuild(props.item.id, props.item.build_template)" v-show="props.item.can_build">
               Build
             </button>
+            <router-link
+              :to="{ name: 'environment_configs', params: { id: $route.params.id, env_id: props.item.id }}"
+              class="btn btn-warning">
+              Config
+            </router-link>
+            <router-link
+              :to="{ name: 'environment_clone', params: { id: $route.params.id, env_id: props.item.id }}"
+              class="btn btn-info">
+              Clone
+            </router-link>
           </td>
         </tr>
       </template>

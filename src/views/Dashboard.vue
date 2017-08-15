@@ -28,7 +28,6 @@
           <th>Guardian</th>
           <th>Desc</th>
           <th>Updated Time</th>
-          <th>Actions</th>
         </tr>
         <template slot="item" scope="props">
           <tr>
@@ -54,11 +53,6 @@
             </td>
             <td>
               {{ props.item.updated_at }}
-            </td>
-            <td>
-              <div class="btn-group">
-                <input class="btn btn-block btn-primary" type="submit" value="Release">
-              </div>
             </td>
           </tr>
         </template>
