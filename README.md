@@ -95,7 +95,8 @@ npm run mockdev
 │   └── enum.js
 ├── main.js
 ├── router
-│   └── index.js
+│   ├── index.js
+│   └── routes.js
 ├── store
 │   ├── actions.js
 │   ├── index.js
@@ -126,8 +127,10 @@ npm run mockdev
         │   ├── CheckDependency.vue
         │   ├── Detail.vue
         │   ├── List.vue
+        │   ├── PreBuildBeta.vue
         │   └── PreBuildLib.vue
         ├── environments
+        │   ├── Clone.vue
         │   ├── List.vue
         │   ├── New.vue
         │   └── configs
@@ -139,7 +142,7 @@ npm run mockdev
             ├── Edit.vue
             └── List.vue
 
-18 directories, 52 files
+18 directories, 55 files
 ```
 
 ## 功能
@@ -168,6 +171,7 @@ npm run mockdev
 * [Vue实战（二）框架和环境](http://www.jianshu.com/p/a6e37818fd9a)
 * [Vue实战（三）Mock服务JSON Server](http://www.jianshu.com/p/7094c477207d)
 * [Vue实战（四）组件和路由](http://www.jianshu.com/p/153f847fa2aa)
+* [Vue实战（五）网络层拦截器与全局异常信息展示](http://www.jianshu.com/p/0f3f27f33a6f)
 
 ### 三方工具
 
