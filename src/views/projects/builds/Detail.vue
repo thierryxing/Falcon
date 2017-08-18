@@ -112,8 +112,10 @@
       },
 
       scrollTop () {
-        let container = this.$el.querySelector('#content-wrapper')
-        container.scrollTop = container.scrollHeight
+        let container = this.$refs.contentWrapper
+        if (container !== null) {
+          container.scrollTop = container.scrollHeight
+        }
       }
     }
   }

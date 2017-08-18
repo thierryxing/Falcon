@@ -83,6 +83,7 @@
             break
           }
           case Enum.Templates.Test: {
+            this.$router.push({name: 'pre_build_test', params: {env_id: envId}})
             break
           }
           case Enum.Templates.Beta: {

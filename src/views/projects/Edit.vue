@@ -7,7 +7,7 @@
     <form @submit.prevent="doCreate" accept-charset="UTF-8" method="post">
       <project-form :project.sync="project" :edit="true"></project-form>
       <div class="box-footer">
-        <button class="btn btn-primary" type="submit" @click="doUpdate">
+        <button class="btn btn-primary" @click="doUpdate">
           Update
         </button>
         <button type="button" class="btn btn-danger" @click="show">

@@ -3,8 +3,8 @@
  */
 import Layout from '@/views/Layout'
 import Dashboard from '@/views/Dashboard'
-import Job from '@/views/Job/Index'
-import Guardians from '@/views/Guardian/List'
+import Job from '@/views/job/List'
+import Guardians from '@/views/guardian/List'
 import ProjectLayout from '@/views/projects/Layout'
 import ProjectNew from '@/views/projects/New'
 import ProjectEdit from '@/views/projects/Edit'
@@ -16,6 +16,7 @@ import ServiceEdit from '@/views/projects/services/Edit'
 import Builds from '@/views/projects/builds/List'
 import PreBuildLib from '@/views/projects/builds/PreBuildLib'
 import PreBuildBeta from '@/views/projects/builds/PreBuildBeta'
+import PreBuildTest from '@/views/projects/builds/PreBuildTest'
 import CheckDependency from '@/views/projects/builds/CheckDependency'
 
 import Environments from '@/views/projects/environments/List'
@@ -56,6 +57,7 @@ const projectRoutes = {
     {name: 'build_detail', path: 'builds/:build_id', component: BuildDetail},
     {name: 'pre_build_lib', path: 'environments/:env_id/pre_build_lib', component: PreBuildLib},
     {name: 'pre_build_beta', path: 'environments/:env_id/pre_build_beta', component: PreBuildBeta},
+    {name: 'pre_build_test', path: 'environments/:env_id/pre_build_test', component: PreBuildTest},
     {name: 'check_dependency', path: 'environments/:env_id/check_dependency', component: CheckDependency},
     {name: 'environments_new', path: 'environments/new', component: EnvironmentNew},
     {name: 'services', path: 'services', component: Services},
