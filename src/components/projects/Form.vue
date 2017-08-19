@@ -2,12 +2,12 @@
   <div class="box-body">
     <div class="form-group">
       <label for="title">Title</label>
-      <input id="title" placeholder="" class="form-control" type="text" name="project[title]" v-model="project.title" :disabled="edit">
+      <input id="title" placeholder="" class="form-control" name="project[title]" v-model="project.title" :disabled="edit">
     </div>
     <div class="form-group">
       <label for="git_repo_url">Git Repo URL</label>
-      <input id="git_repo_url" placeholder="eg:git@git.gengmei.cc/repo/path" class="form-control" type="text" v-model="project.git_repo_url"
-             name="project[git_repo_url]" :disabled="edit">
+      <input id="git_repo_url" placeholder="eg:git@git.gengmei.cc/repo/path" class="form-control" v-model="project.git_repo_url"
+             name="project[git_repo_url]">
     </div>
     <div class="form-group">
       <label for="type">Type</label>
@@ -18,7 +18,7 @@
     <div class="form-group">
       <label for="identifier">Package (or Bundle Id)</label>
       <input id="identifier" placeholder="eg: com.wanmeizhensuo.zhensuo or com.gengmei.framework:gmcache" class="form-control"
-             type="text" name="project[package_name]" v-model="project.identifier">
+             name="project[package_name]" v-model="project.identifier">
     </div>
     <div class="form-group">
       <label for="guardian_id">Guardian</label>

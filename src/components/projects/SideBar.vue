@@ -2,7 +2,7 @@
   <aside class="main-sidebar">
     <section class="sidebar">
       <user-panel></user-panel>
-      <side-bar-item :data="navs"></side-bar-item>
+      <side-bar-item :navsData="navs"></side-bar-item>
     </section>
   </aside>
 </template>

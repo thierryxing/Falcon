@@ -2,7 +2,7 @@
  * Created by Thierry on 2017/6/14.
  */
 import Layout from '@/views/Layout'
-import Dashboard from '@/views/Dashboard'
+import Dashboard from '@/views/dashboard/List'
 import Job from '@/views/job/List'
 import Guardians from '@/views/guardian/List'
 import ProjectLayout from '@/views/projects/Layout'
@@ -17,7 +17,7 @@ import Builds from '@/views/projects/builds/List'
 import PreBuildLib from '@/views/projects/builds/PreBuildLib'
 import PreBuildBeta from '@/views/projects/builds/PreBuildBeta'
 import PreBuildTest from '@/views/projects/builds/PreBuildTest'
-import CheckDependency from '@/views/projects/builds/CheckDependency'
+import PreBuildProd from '@/views/projects/builds/PreBuildProd'
 
 import Environments from '@/views/projects/environments/List'
 import EnvironmentCLone from '@/views/projects/environments/Clone'
@@ -58,7 +58,7 @@ const projectRoutes = {
     {name: 'pre_build_lib', path: 'environments/:env_id/pre_build_lib', component: PreBuildLib},
     {name: 'pre_build_beta', path: 'environments/:env_id/pre_build_beta', component: PreBuildBeta},
     {name: 'pre_build_test', path: 'environments/:env_id/pre_build_test', component: PreBuildTest},
-    {name: 'check_dependency', path: 'environments/:env_id/check_dependency', component: CheckDependency},
+    {name: 'pre_build_prod', path: 'environments/:env_id/pre_build_prod', component: PreBuildProd},
     {name: 'environments_new', path: 'environments/new', component: EnvironmentNew},
     {name: 'services', path: 'services', component: Services},
     {name: 'service_edit', path: 'services/:service_id/edit', component: ServiceEdit},

@@ -2,7 +2,7 @@
   <aside class="main-sidebar">
     <section class="sidebar" style="height: 468px; overflow: hidden; width: auto;">
       <UserPanel></UserPanel>
-      <SideBarItem :data="navs"></SideBarItem>
+      <SideBarItem :navsData="navs"></SideBarItem>
     </section>
   </aside>
 </template>
@@ -10,6 +10,8 @@
 <script>
   import UserPanel from '@/components/global/UserPanel'
   import SideBarItem from '@/components/global/SideBarItem'
+  import NetWorking from '@/utils/networking'
+  import * as API from '@/constants/api'
 
   export default {
     components: {UserPanel, SideBarItem},
@@ -27,7 +29,8 @@
             name: 'Jobs',
             to: 'job',
             paths: ['job'],
-            icon: 'fa fa-send'
+            icon: 'fa fa-send',
+            label: ''
           },
           {
             name: 'Guardian',
@@ -36,6 +39,20 @@
             icon: 'fa fa-shield'
           }
         ]
+      }
+    },
+
+    created () {
+      this.fetchData()
+    },
+
+    methods: {
+      fetchData () {
+        NetWorking
+          .doGet(API.buildsExecuting)
+          .then(response => {
+            this.navs[1].label = response.data.total === 0 ? '' : response.data.total
+          })
       }
     }
   }

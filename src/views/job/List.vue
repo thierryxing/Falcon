@@ -6,7 +6,7 @@
     <table-box :url="url">
       <tr slot="ths">
         <th>ID</th>
-        <th>Status</th>
+        <th>Project</th>
         <th>Version</th>
         <th>Operator</th>
         <th>Environment</th>
@@ -19,7 +19,7 @@
             {{ props.item.id }}
           </td>
           <td>
-            <span class="label" :class="getStatusText(props.item.status)">{{ props.item.status }}</span>
+            {{ props.item.project.name }}
           </td>
           <td>
             <div>
@@ -41,7 +41,7 @@
           <td>
             <div class="btn-group">
               <router-link
-                :to="{ name: 'build_detail', params: { project_id: props.item.project_id, build_id:props.item.id }}"
+                :to="{ name: 'build_detail', params: { project_id: props.item.project.id, build_id:props.item.id }}"
                 class="btn btn-block btn-info">
                 Detail
               </router-link>
@@ -64,25 +64,6 @@
     data () {
       return {
         url: API.buildsExecuting
-      }
-    },
-
-    methods: {
-      getStatusText (status) {
-        switch (status) {
-          case 'failed': {
-            return 'bg-red'
-          }
-          case 'success': {
-            return 'bg-green'
-          }
-          case 'canceled': {
-            return 'bg-yellow'
-          }
-          case 'processing': {
-            return 'bg-blue'
-          }
-        }
       }
     }
 

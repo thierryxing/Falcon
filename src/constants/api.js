@@ -19,7 +19,6 @@ export const environmentGitClone = '/projects/:id/environments/:env_id/git_clone
 export const environmentGitBranch = '/projects/:id/environments/:env_id/git_branch'
 export const environmentGitTag = '/projects/:id/environments/:env_id/git_tags'
 export const environmentChooseBranch = '/projects/:id/environments/:env_id/choose_branch'
-export const latestGitLog = '/projects/:id/environments/:env_id/latest_git_log'
 export const releaseNotes = '/projects/:id/environments/:env_id/release_notes'
 
 export const buildLib = '/projects/:id/environments/:env_id/build_lib'

@@ -20,7 +20,7 @@
         </div>
         <div class="form-group">
           <label for="note">Release Notes</label>
-          <textarea name="note" id="note" class="form-control" rows="10" v-model="build.note"></textarea>
+          <textarea name="note" id="note" class="form-control" rows="10" v-model="build.note" disabled></textarea>
         </div>
         <div class="box-footer">
           <button class="btn btn-primary">
@@ -54,7 +54,8 @@
           snapshot: '1',
           note: ''
         },
-        showOverlay: false
+        showOverlay: false,
+        pathParams: {id: this.$route.params.project_id, env_id: this.$route.params.env_id}
       }
     },
 
@@ -67,9 +68,9 @@
       fetchGitLog () {
         this.showLoading()
         NetWorking
-          .doGet(API.latestGitLog, {id: this.$route.params.project_id, env_id: this.$route.params.env_id}, this.build)
+          .doGet(API.releaseNotes, this.pathParams, this.build)
           .then(response => {
-            this.build.note = response.data.note
+            this.build.note = response.data.list.map(note => `${note.author + note.content}`)
             this.hideLoading()
           }, () => {
             this.hideLoading()
@@ -79,7 +80,7 @@
       doBuildLib () {
         this.showLoading()
         NetWorking
-          .doPost(API.buildLib, {id: this.$route.params.project_id, env_id: this.$route.params.env_id}, this.build, null)
+          .doPost(API.buildLib, this.pathParams, this.build, null)
           .then(response => {
             this.$router.replace({name: 'build_detail', params: {'build_id': response.data.id}})
             this.hideLoading()

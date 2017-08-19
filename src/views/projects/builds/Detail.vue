@@ -113,7 +113,7 @@
 
       scrollTop () {
         let container = this.$refs.contentWrapper
-        if (container !== null) {
+        if (container !== undefined && container !== null) {
           container.scrollTop = container.scrollHeight
         }
       }
