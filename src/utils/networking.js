@@ -16,7 +16,7 @@ export default {
     DELETE: 'delete'
   },
 
-  path: '/api',
+  path: '/api/v1',
 
   /**
    *
@@ -62,6 +62,15 @@ export default {
    */
   doDelete (url, pathParams = null, options = null) {
     return this.doRequest(url, this.httpMethod.DELETE, pathParams, null, options)
+  },
+
+  /**
+   * Download File
+   * @param url
+   * @param pathParams
+   */
+  doDownload (url, pathParams = null) {
+    window.location.href = process.env.JAGUAR_HOST + this._wrapUrl(url, pathParams)
   },
 
   /**
@@ -143,7 +152,7 @@ export default {
    * @returns {Array}
    * @private
    */
-  _getMatches  (string) {
+  _getMatches (string) {
     let matches = []
     let regex = /(:[a-z_]+)/
     let match = regex.exec(string)

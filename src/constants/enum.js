@@ -16,10 +16,10 @@ export default {
   },
 
   BuildStatus: {
-    Failed: 0,
-    Success: 1,
-    Processing: 2,
-    Canceled: 3
+    Failed: 'failed',
+    Success: 'success',
+    Processing: 'processing',
+    Canceled: 'canceled'
   }
 }
 

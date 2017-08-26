@@ -49,7 +49,7 @@
                 Detail
               </router-link>
             </div>
-            <div class="btn-group">
+            <div class="btn-group" v-show="canDownload(props.item)">
               <button class="btn btn-block btn-info" @click="download(props.item.id)">Download</button>
             </div>
             <div class="btn-group">
@@ -66,6 +66,7 @@
   import * as API from '@/constants/api'
   import NetWorking from '@/utils/networking'
   import TableBox from '@/components/global/TableBox'
+  import Enum from '@/constants/enum'
 
   export default {
     components: {TableBox},
@@ -98,7 +99,7 @@
 
       download (buildId) {
         NetWorking
-          .doGet(API.buildDownload, {id: this.$route.params.project_id, build_id: buildId})
+          .doDownload(API.buildDownload, {id: this.$route.params.project_id, build_id: buildId})
       },
 
       remove (buildId) {
@@ -107,6 +108,10 @@
           .then(() => {
             this.reloadData = true
           })
+      },
+
+      canDownload (build) {
+        return build.status === Enum.BuildStatus.Success
       }
     }
 

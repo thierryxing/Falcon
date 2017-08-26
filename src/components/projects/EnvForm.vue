@@ -38,6 +38,12 @@
              :value="environment.download_url"
              v-model="environment.download_url" placeholder="eg:http://fir.im/nlkc"/>
     </div>
+    <div class="form-group">
+      <label for="cron">Cron</label>
+      <input class="form-control" id="cron" name="environment[cron]"
+             :value="environment.cron"
+             v-model="environment.cron" placeholder="0 */5 * * * *"/>
+    </div>
   </div>
 </template>
 

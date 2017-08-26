@@ -9,7 +9,7 @@
       <p class="login-box-msg">
         Sign in with your Gitlab Account
       </p>
-      <form role="form" action="" accept-charset="UTF-8" method="post" @submit.prevent="doLogin">
+      <form action="" accept-charset="UTF-8" method="post" @submit.prevent="doLogin">
         <div class="box-body">
           <div class="form-group has-feedback">
             <input type="email" name="email" id="email" class="form-control" placeholder="Email" v-model="user.email">
