@@ -20,7 +20,7 @@
           <code v-html="file.content" class="ruby"></code>
         </pre>
           <div class="tab_form" id="tab_form_0" v-show="showEdit">
-            <form role="form" @submit.prevent="doSave" accept-charset="UTF-8" method="post">
+            <form @submit.prevent="doSave" accept-charset="UTF-8" method="post">
               <div class="box-body">
                 <div class="form-group">
                   <textarea name="contents" id="contents" class="form-control code" rows="15" v-model="currentFile.content"></textarea>

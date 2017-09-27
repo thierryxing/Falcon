@@ -6,8 +6,8 @@
       <b>Jaguar</b>
     </span>
     </a>
-    <nav class="navbar navbar-static-top" role="navigation">
-      <a class="sidebar-toggle" data-toggle="offcanvas" role="button">
+    <nav class="navbar navbar-static-top">
+      <a class="sidebar-toggle" data-toggle="offcanvas">
         <span class="sr-only">Toggle navigation</span>
       </a>
       <div class="navbar-custom-menu">
@@ -19,8 +19,7 @@
             </a>
             <ul class="dropdown-menu">
               <li class="user-header">
-                <img alt="User Image" class="img-circle"
-                     :src="currentUser.avatar_url">
+                <img alt="User Image" class="img-circle" :src="currentUser.avatar_url">
                 <p>
                   {{ currentUser.name }} - {{ currentUser.username }}
                   <small>{{ currentUser.created_at }}</small>
@@ -74,7 +73,7 @@
 
     methods: {
       signOut () {
-        NetWorking.doGet(API.logout, null, null).then(() => {
+        NetWorking.doGet(API.logout).then(() => {
           this.$store.dispatch('deleteUser')
           this.$router.replace({name: 'login'})
         })
@@ -82,7 +81,7 @@
 
       changePlatform (platform) {
         NetWorking
-          .doGet(API.setPlatform, {id: this.currentUser.id, platform: platform}, null)
+          .doGet(API.setPlatform, {id: this.currentUser.id, platform: platform})
           .then(response => {
             this.$store.dispatch('setPlatform', response.data.platform)
             this.$router.replace({name: 'root', force: true})

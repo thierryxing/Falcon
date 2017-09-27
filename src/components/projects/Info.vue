@@ -2,15 +2,15 @@
   <div class="box box-primary">
     <LoadingOverlay v-show="showOverlay"></LoadingOverlay>
     <div class="box-body box-profile">
-      <img class="profile-user-img img-responsive img-circle" :src="project.icon">
+      <img class="profile-user-img img-responsive img-circle" :src="currentProject.icon">
       <h3 class="profile-username text-center">
-        {{ project.title }}
+        {{ currentProject.title }}
       </h3>
       <p class="text-muted text-center">
-        {{ project.desc }}
+        {{ currentProject.desc }}
       </p>
       <p class="text-muted text-center">
-        {{ project.git_repo_url }}
+        {{ currentProject.git_repo_url }}
       </p>
       <ul class="list-group list-group-unbordered">
         <li class="list-group-item">
@@ -18,7 +18,7 @@
             Guardian
           </b>
           <a class="pull-right">
-            {{ project.guardian.name }}
+            {{ currentProject.guardian.name }}
           </a>
         </li>
         <li class="list-group-item">
@@ -26,7 +26,7 @@
             Identifier
           </b>
           <a class="pull-right">
-            {{ project.identifier }}
+            {{ currentProject.identifier }}
           </a>
         </li>
         <li class="list-group-item">
@@ -34,7 +34,7 @@
             Updated At
           </b>
           <a class="pull-right">
-            {{ project.updated_at }}
+            {{ currentProject.updated_at }}
           </a>
         </li>
         <li class="list-group-item">
@@ -42,7 +42,7 @@
             Last Build Time
           </b>
           <a class="pull-right">
-            {{ project.lasted_build_at }}
+            {{ currentProject.lasted_build_at }}
           </a>
         </li>
       </ul>
@@ -64,13 +64,12 @@
     components: {LoadingOverlay, ConfirmModal},
 
     computed: {
-      ...mapGetters({
-        project: 'currentProject'
-      })
+      ...mapGetters(['currentProject'])
     },
 
     data () {
       return {
+        project: this.currentProject,
         showOverlay: false
       }
     },
@@ -79,13 +78,15 @@
 
       syncGitLab () {
         this.showLoading()
-        NetWorking.doGet(API.projectSyncGitLab, {id: this.$route.params.project_id}, null).then(response => {
-          this.project = response.data
-          this.$store.dispatch('setProject', this.project)
-          this.hideLoading()
-        }, () => {
-          this.hideLoading()
-        })
+        NetWorking
+          .doGet(API.projectSyncGitLab, {id: this.$route.params.project_id}, null)
+          .then(response => {
+            this.project = response.data
+            this.$store.dispatch('setProject', this.project)
+            this.hideLoading()
+          }, () => {
+            this.hideLoading()
+          })
       },
 
       showLoading () {

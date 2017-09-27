@@ -39,10 +39,10 @@
              v-model="environment.download_url" placeholder="eg:http://fir.im/nlkc"/>
     </div>
     <div class="form-group">
-      <label for="cron">Cron</label>
+      <label for="cron">Build Schedule</label>
       <input class="form-control" id="cron" name="environment[cron]"
              :value="environment.cron"
-             v-model="environment.cron" placeholder="0 */5 * * * *"/>
+             v-model="environment.cron" placeholder="eg:0 */5 * * * *"/>
     </div>
   </div>
 </template>
