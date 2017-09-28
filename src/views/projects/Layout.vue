@@ -6,8 +6,8 @@
       <div class="box box-solid" style="background-color: #ecf0f5;box-shadow:none">
         <LoadingOverlay v-show="showOverlay"></LoadingOverlay>
         <content-header>
-          <span slot="title">{{ project.title }}</span>
-          <span slot="sub-title">{{ project.platform }}</span>
+          <span slot="title">{{ currentProject.title }}</span>
+          <span slot="sub-title">{{ currentProject.platform }}</span>
         </content-header>
         <alert></alert>
         <section class="content">
@@ -34,16 +34,11 @@
     components: {SideBar, NavBar, ContentHeader, ContentFooter, Alert, LoadingOverlay},
 
     computed: {
-      ...mapGetters({
-        currentProject: 'currentProject'
-      })
+      ...mapGetters(['currentProject'])
     },
 
     data () {
       return {
-        project: {
-          guardian: {}
-        },
         showOverlay: false
       }
     },
@@ -60,8 +55,7 @@
         NetWorking
           .doGet(API.project, {id: this.$route.params.project_id})
           .then(response => {
-            this.project = response.data
-            this.$store.dispatch('setProject', this.project)
+            this.$store.dispatch('setProject', response.data)
             this.hideLoading()
           }, () => {
             this.hideLoading()

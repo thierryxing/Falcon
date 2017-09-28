@@ -1,38 +1,36 @@
 <template>
-  <section class="content">
-    <div class="box box-success">
-      <loading-overlay v-show="showOverlay"></loading-overlay>
-      <div class="box-header with-border">
-        <h3 class="box-title">
-          {{ currentConfig.name }}
-        </h3>
-      </div>
-      <div class="box-body">
-        <div class="row">
-          <a href="javascript:" class="col-md-4 col-sm-6 col-xs-12" v-for="(config, index) in configs" @click="navigateToConfig(config)">
-            <div class="info-box bg-gray" :class="bgClass(config.id)">
+  <div class="box box-success">
+    <loading-overlay v-show="showOverlay"></loading-overlay>
+    <div class="box-header with-border">
+      <h3 class="box-title">
+        {{ currentConfig.name }}
+      </h3>
+    </div>
+    <div class="box-body">
+      <div class="row">
+        <a href="javascript:" class="col-md-4 col-sm-6 col-xs-12" v-for="(config, index) in configs" @click="navigateToConfig(config)">
+          <div class="info-box bg-gray" :class="bgClass(config.id)">
               <span class="info-box-icon">
                 <i class="fa" :class="statusClass(config.finished)"></i>
               </span>
-              <div class="info-box-content">
+            <div class="info-box-content">
                 <span class="info-box-text">
                   {{ config.name }}
                 </span>
-                <span class="info-box-number">{{ index + 1 }}</span>
-                <div class="progress">
-                  <div class="progress-bar" style="width: 100%"></div>
-                </div>
-                <span class="progress-description">
+              <span class="info-box-number">{{ index + 1 }}</span>
+              <div class="progress">
+                <div class="progress-bar" style="width: 100%"></div>
+              </div>
+              <span class="progress-description">
                   {{ config.desc }}
                 </span>
-              </div>
             </div>
-          </a>
-        </div>
-        <router-view></router-view>
+          </div>
+        </a>
       </div>
+      <router-view></router-view>
     </div>
-  </section>
+  </div>
 </template>
 
 <script>

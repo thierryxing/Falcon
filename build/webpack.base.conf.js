@@ -24,7 +24,7 @@ module.exports = {
     alias: {
       'vue$': 'vue/dist/vue.esm.js',
       '@': resolve('src'),
-      'jquery': 'admin-lte/plugins/jQuery/jquery-2.2.3.min',
+      'jquery': 'jquery/dist/jquery.min',
     }
   },
   module: {

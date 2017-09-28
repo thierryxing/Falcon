@@ -10,7 +10,7 @@
       <input class="form-control" id="scheme" name="environment[scheme]" :value="environment.scheme"
              v-model="environment.scheme"/>
     </div>
-    <div class="form-group" v-show="project.platform === 'android'">
+    <div class="form-group" v-show="isAndroidApp()">
       <label for="build_path">Build Path</label>
       <input class="form-control" id="build_path" name="environment[build_path]" :value="environment.build_path"
              v-model="environment.build_path" placeholder="app/build/outputs/apk/"/>
@@ -89,8 +89,11 @@
       },
 
       isApp () {
-        console.log(this.project.type === Enum.ProjectType.App)
         return this.project.type === Enum.ProjectType.App
+      },
+
+      isAndroidApp () {
+        return this.isApp() && this.project.platform === 'android'
       }
 
     }

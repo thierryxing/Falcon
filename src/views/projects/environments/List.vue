@@ -30,7 +30,7 @@
             {{ props.item.current_version }}
           </td>
           <td>
-            {{ props.item.build_template }}
+            {{ props.item.build_template_name }}
           </td>
           <td>
             {{ props.item.git_branch }}
