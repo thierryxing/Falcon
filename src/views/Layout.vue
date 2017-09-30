@@ -4,6 +4,7 @@
     <side-bar></side-bar>
     <div class="content-wrapper" style="min-height: 916px;">
       <alert></alert>
+      <content-header></content-header>
       <div class="content">
         <router-view></router-view>
       </div>
@@ -15,8 +16,9 @@
 <script>
   import NavBar from '@/components/global/NavBar'
   import SideBar from '@/components/global/SideBar'
+  import ContentHeader from '@/components/global/ContentHeader'
   import ContentFooter from '@/components/global/ContentFooter'
   import Alert from '@/components/global/Alert'
 
-  export default {components: {SideBar, NavBar, ContentFooter, Alert}}
+  export default {components: {SideBar, NavBar, ContentFooter, ContentHeader, Alert}}
 </script>

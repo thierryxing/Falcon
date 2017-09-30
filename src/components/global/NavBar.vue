@@ -7,7 +7,7 @@
     </span>
     </a>
     <nav class="navbar navbar-static-top">
-      <a class="sidebar-toggle" data-toggle="offcanvas">
+      <a class="sidebar-toggle" data-toggle="push-menu">
         <span class="sr-only">Toggle navigation</span>
       </a>
       <div class="navbar-custom-menu">

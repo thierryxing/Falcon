@@ -22,21 +22,27 @@
           {
             name: 'Dashboard',
             to: 'dashboard',
-            paths: ['dashboard', 'new_project'],
-            icon: 'fa fa-dashboard'
+            paths: ['dashboard'],
+            icon: 'fa-dashboard'
+          },
+          {
+            name: 'Projects',
+            to: 'project_list',
+            paths: ['project_list', 'new_project'],
+            icon: 'fa-cube'
           },
           {
             name: 'Jobs',
-            to: 'job',
-            paths: ['job'],
-            icon: 'fa fa-send',
+            to: 'jobs',
+            paths: ['jobs'],
+            icon: 'fa-send',
             label: ''
           },
           {
-            name: 'Guardian',
-            to: 'guardian',
-            paths: ['guardian'],
-            icon: 'fa fa-shield'
+            name: 'Members',
+            to: 'members',
+            paths: ['members'],
+            icon: 'fa-user'
           }
         ]
       }
@@ -51,7 +57,7 @@
         NetWorking
           .doGet(API.buildsExecuting)
           .then(response => {
-            this.navs[1].label = response.data.total === 0 ? '' : response.data.total
+            this.navs[2].label = response.data.total === 0 ? '' : response.data.total
           })
       }
     }

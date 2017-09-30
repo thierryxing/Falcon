@@ -1,67 +1,23 @@
 <template>
-  <div class="nav-tabs-custom">
-    <ul class="nav nav-tabs">
-      <li id="tab-apps" :class="{ active: type === 'app' }">
-        <a href="javascript:" @click="switchTab('app')">
-          Apps
-        </a>
-      </li>
-      <li id="tab-libs" :class="{ active: type === 'lib' }">
-        <a href="javascript:" @click="switchTab('lib')">
-          Libs
-        </a>
-      </li>
-      <li class="pull-right">
-        <div class="box-tools">
-          <router-link class="btn btn-block btn-primary btn-sm" :to="{ name: 'project_new'}">
-            Add
-          </router-link>
+  <div class="row">
+    <div class="col-lg-3 col-xs-6" v-for="(aggregate,index) in aggregates">
+      <!-- small box -->
+      <div class="small-box" :class="getBg(index)">
+        <div class="inner">
+          <h3>{{ aggregate.value }}</h3>
+          <p>{{ aggregate.name }}</p>
         </div>
-      </li>
-    </ul>
-    <div class="active tab-pane" id="deliveries">
-      <table-box :url="url" :options="options">
-        <tr slot="ths">
-          <th>ID</th>
-          <th>Icon</th>
-          <th>Project</th>
-          <th>Guardian</th>
-          <th>Desc</th>
-          <th>Updated Time</th>
-        </tr>
-        <template slot="item" scope="props">
-          <tr>
-            <td>
-              {{ props.item.id }}
-            </td>
-            <td>
-              <img class="avatar" :src="props.item.icon" v-if="props.item.icon !== null">
-              <div class="avatar" v-else>
-                G
-              </div>
-            </td>
-            <td>
-              <router-link :to="{name:'home', params:{project_id:props.item.id}}">
-                {{ props.item.title }}
-              </router-link>
-            </td>
-            <td>
-              {{ props.item.guardian.name }}
-            </td>
-            <td>
-              {{ props.item.desc }}
-            </td>
-            <td>
-              {{ props.item.updated_at }}
-            </td>
-          </tr>
-        </template>
-      </table-box>
+        <div class="icon">
+          <i class="fa" :class="getIcon(index)"></i>
+        </div>
+        <a href="#" class="small-box-footer">More info <i class="fa fa-arrow-circle-right"></i></a>
+      </div>
     </div>
   </div>
 </template>
 
 <script>
+  import NetWorking from '@/utils/networking'
   import * as API from '@/constants/api'
   import TableBox from '@/components/global/TableBox'
 
@@ -70,39 +26,31 @@
 
     data () {
       return {
-        type: '',
-        url: API.projects,
-        options: null
+        aggregates: []
       }
     },
 
     created () {
-      this.switchTab('app')
+      this.fetchData()
     },
 
     methods: {
-      switchTab (type) {
-        this.type = type
-        this.options = {'params': {'type': this.type}}
+      fetchData () {
+        NetWorking
+          .doGet(API.dashboard)
+          .then(response => {
+            this.aggregates = response.data
+          }, () => {
+          })
+      },
+
+      getBg (index) {
+        return ['bg-aqua', 'bg-yellow', 'bg-green', 'bg-red'][index]
+      },
+
+      getIcon (index) {
+        return ['fa-legal', 'fa-bar-chart', 'fa-cube', 'fa-user'][index]
       }
     }
   }
 </script>
-
-<style scoped>
-  img.avatar, div.avatar {
-    border-radius: 50%;
-    width: 35px;
-    height: 35px;
-    line-height: 35px;
-  }
-
-  div.avatar {
-    background-color: #FFEBEE;
-    color: #555;
-    font-size: 16px;
-    margin-right: 10px;
-    text-align: center;
-    vertical-align: top;
-  }
-</style>

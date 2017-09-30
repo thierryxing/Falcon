@@ -6,7 +6,6 @@
       <div class="box box-solid" style="background-color: #ecf0f5;box-shadow:none">
         <LoadingOverlay v-show="showOverlay"></LoadingOverlay>
         <content-header>
-          <span slot="title">{{ currentProject.title }}</span>
           <span slot="sub-title">{{ currentProject.platform }}</span>
         </content-header>
         <alert></alert>

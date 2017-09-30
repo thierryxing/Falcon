@@ -3,8 +3,10 @@
  */
 import Layout from '@/views/Layout'
 import Dashboard from '@/views/dashboard/List'
-import Job from '@/views/job/List'
-import Guardians from '@/views/guardian/List'
+import Jobs from '@/views/jobs/List'
+import Members from '@/views/members/List'
+import Projects from '@/views/projects/List'
+
 import ProjectLayout from '@/views/projects/Layout'
 import ProjectNew from '@/views/projects/New'
 import ProjectEdit from '@/views/projects/Edit'
@@ -40,10 +42,11 @@ const loginRoutes = {
 const dashboardRoutes = {
   path: '/', name: 'root', component: Layout, redirect: '/dashboard',
   children: [
-    {path: 'dashboard', name: 'dashboard', component: Dashboard},
-    {path: 'job', name: 'job', component: Job},
-    {path: 'guardian', name: 'guardian', component: Guardians},
-    {path: 'new_project', name: 'project_new', component: ProjectNew}
+    {path: 'dashboard', name: 'dashboard', component: Dashboard, meta: {contentHeader: {title: 'Dashboard', subTitle: 'Control panel'}}},
+    {path: 'jobs', name: 'jobs', component: Jobs, meta: {contentHeader: {title: 'Job', subTitle: 'executing'}}},
+    {path: 'members', name: 'members', component: Members, meta: {contentHeader: {title: 'Member', subTitle: 'list'}}},
+    {path: 'project_list', name: 'project_list', component: Projects, meta: {contentHeader: {title: 'Project', subTitle: 'list'}}},
+    {path: 'new_project', name: 'project_new', component: ProjectNew, meta: {contentHeader: {title: 'Project', subTitle: 'new'}}}
   ]
 }
 

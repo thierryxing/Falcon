@@ -2,6 +2,8 @@
  * Created by Thierry on 2017/4/14.
  */
 
+export const dashboard = '/dashboard'
+
 export const projects = '/projects'
 export const project = '/projects/:id'
 export const projectBuilds = '/projects/:id/builds'

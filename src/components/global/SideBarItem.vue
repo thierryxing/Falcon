@@ -1,5 +1,5 @@
 <template>
-  <ul class="sidebar-menu">
+  <ul class="sidebar-menu" data-widget="tree">
 
     <li class="header" v-if="$route.path.includes('/projects')">
       <router-link :to="{ name: 'dashboard'}">

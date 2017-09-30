@@ -6,7 +6,7 @@
     </div>
     <div class="form-group" v-show="isApp()">
       <label for="scheme" v-if="project.platform === 'ios'">Build Scheme</label>
-      <label for="scheme" v-else-if="project.platform === 'android'">Package Name(*.apk)</label>
+      <label for="scheme" v-else-if="project.platform === 'android'">Build Name(*.apk)</label>
       <input class="form-control" id="scheme" name="environment[scheme]" :value="environment.scheme"
              v-model="environment.scheme"/>
     </div>
