@@ -1,7 +1,7 @@
 <template>
   <div class="box">
     <div class="box-header with-border">
-      <h3 class="box-title">Executing Jobs</h3>
+      <h3 class="box-title">Activity</h3>
     </div>
     <table-box :url="url">
       <tr slot="ths">

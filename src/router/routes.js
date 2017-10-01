@@ -3,7 +3,8 @@
  */
 import Layout from '@/views/Layout'
 import Dashboard from '@/views/dashboard/List'
-import Jobs from '@/views/jobs/List'
+import Jobs from '@/views/jobs/Index'
+import Activity from '@/views/activity/List'
 import Members from '@/views/members/List'
 import Projects from '@/views/projects/List'
 
@@ -43,7 +44,8 @@ const dashboardRoutes = {
   path: '/', name: 'root', component: Layout, redirect: '/dashboard',
   children: [
     {path: 'dashboard', name: 'dashboard', component: Dashboard, meta: {contentHeader: {title: 'Dashboard', subTitle: 'Control panel'}}},
-    {path: 'jobs', name: 'jobs', component: Jobs, meta: {contentHeader: {title: 'Job', subTitle: 'executing'}}},
+    {path: 'jobs', name: 'jobs', component: Jobs, meta: {contentHeader: {title: 'Background Jobs', subTitle: 'Sidekiq'}}},
+    {path: 'activity', name: 'activity', component: Activity, meta: {contentHeader: {title: 'Activity', subTitle: 'Executing jobs'}}},
     {path: 'members', name: 'members', component: Members, meta: {contentHeader: {title: 'Member', subTitle: 'list'}}},
     {path: 'project_list', name: 'project_list', component: Projects, meta: {contentHeader: {title: 'Project', subTitle: 'list'}}},
     {path: 'new_project', name: 'project_new', component: ProjectNew, meta: {contentHeader: {title: 'Project', subTitle: 'new'}}}

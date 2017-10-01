@@ -3,6 +3,7 @@
  */
 
 export const dashboard = '/dashboard'
+export const weeklyData = '/dashboard/weekly_data'
 
 export const projects = '/projects'
 export const project = '/projects/:id'

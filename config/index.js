@@ -33,6 +33,11 @@ module.exports = {
         changeOrigin: true,
         secure: false,
         target: 'http://localhost:3000',
+      },
+      '/sidekiq': {
+        changeOrigin: true,
+        secure: false,
+        target: 'http://localhost:3000',
       }
     },
 

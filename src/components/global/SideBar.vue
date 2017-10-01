@@ -32,7 +32,14 @@
             icon: 'fa-cube'
           },
           {
-            name: 'Jobs',
+            name: 'Activity',
+            to: 'activity',
+            paths: ['activity'],
+            icon: 'fa-rocket',
+            label: ''
+          },
+          {
+            name: 'Background Jobs',
             to: 'jobs',
             paths: ['jobs'],
             icon: 'fa-send',
