@@ -2,6 +2,7 @@
  * Created by Thierry on 2017/4/14.
  */
 
+export const index = '/'
 export const dashboard = '/dashboard'
 export const weeklyData = '/dashboard/weekly_data'
 
