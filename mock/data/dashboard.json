@@ -1,0 +1,69 @@
+{
+  "index": [
+    {
+      "version": "0.2.1 Beta"
+    }
+  ],
+  "dashboard": [
+    {
+      "name": "Builds",
+      "value": 105
+    },
+    {
+      "name": "Success Rate",
+      "value": "90%"
+    },
+    {
+      "name": "Projects",
+      "value": 40
+    },
+    {
+      "name": "Members",
+      "value": 26
+    }
+  ],
+  "weekly_data": [
+    {
+      "platform": "ios",
+      "data": [
+        10,
+        12,
+        12,
+        14,
+        10,
+        10,
+        10
+      ],
+      "days": [
+        "Thu",
+        "Wed",
+        "Tue",
+        "Mon",
+        "Sun",
+        "Sat",
+        "Fri"
+      ]
+    },
+    {
+      "platform": "android",
+      "data": [
+        10,
+        11,
+        11,
+        21,
+        10,
+        10,
+        10
+      ],
+      "days": [
+        "Thu",
+        "Wed",
+        "Tue",
+        "Mon",
+        "Sun",
+        "Sat",
+        "Fri"
+      ]
+    }
+  ]
+}

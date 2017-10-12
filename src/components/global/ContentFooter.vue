@@ -2,7 +2,7 @@
   <footer class="main-footer">
     <div class="pull-right hidden-xs">
       <b>Version</b>
-      {{version}}
+      0.2.1 Beta
     </div>
     <strong>
       Copyright &copy; 2016-2017
@@ -28,7 +28,7 @@
     },
 
     created () {
-      this.fetchData()
+//      this.fetchData()
     },
 
     methods: {

@@ -8,7 +8,8 @@ server.use(middleware)
 // Add this before server.use(router)
 server.use(jsonServer.rewriter({
   '/projects/:id/environments/:env_id/configs': '/environments/:env_id/configs',
-  '/projects/:id/environments/:env_id/latest_git_log': '/environments/:env_id/latest_git_log'
+  '/projects/:id/environments/:env_id/latest_git_log': '/environments/:env_id/latest_git_log',
+  '/dashboard/weekly_data': '/weekly_data'
 }))
 
 // 支持加载多个db文件
@@ -48,8 +49,19 @@ server.use(router)
 
 // 返回自定义格式数据
 router.render = (req, res) => {
+  let data = {}
+  let blackList = ['/dashboard', '/dashboard/weekly_data']
+  let localData = res.locals.data
+  if (localData instanceof Array && !blackList.includes(req.originalUrl)) {
+    data = {
+      list: localData,
+      total: 20
+    }
+  } else {
+    data = localData
+  }
   res.jsonp({
-    data: res.locals.data,
+    data: data,
     status: 0,
     message: ''
   })

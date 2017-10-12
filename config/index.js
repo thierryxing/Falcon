@@ -30,14 +30,12 @@ module.exports = {
 
     proxyTable: { // proxy all requests starting with /api to jsonplaceholder
       '/api/v1': {
+        target: 'http://localhost:9090',
         changeOrigin: true,
         secure: false,
-        target: 'http://localhost:3000',
-      },
-      '/sidekiq': {
-        changeOrigin: true,
-        secure: false,
-        target: 'http://localhost:3000',
+        pathRewrite: {
+          '^/api/v1': ''
+        }
       }
     },
 
