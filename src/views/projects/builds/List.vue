@@ -17,7 +17,7 @@
             </div>
           </div>
         </div>
-        <div class="row">
+        <div>
           <table-box :url="url" :pathParams="pathParams" :options="options" :reloadData.sync="reloadData">
             <tr slot="ths">
               <th>ID</th>
