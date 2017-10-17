@@ -95,7 +95,7 @@
         environments: [],
         url: API.projectBuilds,
         pathParams: {id: this.$route.params.project_id},
-        options: {params: {env_id: this.currentEnvironment}},
+        options: {params: {environment_id: this.currentEnvironment}},
         reloadData: false
       }
     },
@@ -106,7 +106,7 @@
 
     watch: {
       currentEnvironment (value) {
-        this.options.params.env_id = value
+        this.options.params.environment_id = value
         this.reloadData = true
       }
     },
