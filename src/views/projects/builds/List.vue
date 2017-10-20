@@ -52,6 +52,9 @@
                   {{ props.item.environment.name }}
                 </td>
                 <td>
+                    <ul v-for="note in props.item.release_notes">
+                      <li>{{ note.content }}</li>
+                    </ul>
                 </td>
                 <td>
                   {{ props.item.updated_at }}
