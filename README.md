@@ -72,6 +72,9 @@ npm run mockdev
 ├── assets
 │   └── logo.png
 ├── components
+│   ├── dashboard
+│   │   ├── Aggregate.vue
+│   │   └── WeeklyChart.vue
 │   ├── global
 │   │   ├── Alert.vue
 │   │   ├── ConfirmModal.vue
@@ -110,25 +113,30 @@ npm run mockdev
 │   ├── networking.js
 │   └── storage.js
 └── views
-    ├── Dashboard.vue
     ├── Layout.vue
     ├── account
     │   └── Login.vue
-    ├── guardian
+    ├── activity
     │   └── List.vue
-    ├── job
+    ├── dashboard
+    │   └── List.vue
+    ├── jobs
     │   └── Index.vue
+    ├── members
+    │   └── List.vue
     └── projects
         ├── Edit.vue
         ├── Home.vue
         ├── Layout.vue
+        ├── List.vue
         ├── New.vue
         ├── builds
-        │   ├── CheckDependency.vue
         │   ├── Detail.vue
         │   ├── List.vue
         │   ├── PreBuildBeta.vue
-        │   └── PreBuildLib.vue
+        │   ├── PreBuildLib.vue
+        │   ├── PreBuildProd.vue
+        │   └── PreBuildTest.vue
         ├── environments
         │   ├── Clone.vue
         │   ├── List.vue
@@ -142,7 +150,7 @@ npm run mockdev
             ├── Edit.vue
             └── List.vue
 
-18 directories, 55 files
+21 directories, 60 files
 ```
 
 ## 功能
