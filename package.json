@@ -9,7 +9,8 @@
     "start": "node build/dev-server.js",
     "build": "node build/build.js",
     "mock": "node mock/server.js",
-    "mockdev": "npm run mock & npm run dev",  //windows: npm run mock | npm run dev
+    "mockdev": "npm run mock & npm run dev",
+    "_comment for mockdev":"windows: npm run mock | npm run dev",
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
