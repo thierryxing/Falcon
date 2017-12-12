@@ -45,6 +45,7 @@
 ```
 
 ### 运行项目：
+* 选择mock分支，这样可以不依赖后端服务器，而是从Mock服务器中获取数据
 
 * 安装npm依赖的库
 
@@ -72,6 +73,9 @@ npm run mockdev
 ├── assets
 │   └── logo.png
 ├── components
+│   ├── dashboard
+│   │   ├── Aggregate.vue
+│   │   └── WeeklyChart.vue
 │   ├── global
 │   │   ├── Alert.vue
 │   │   ├── ConfirmModal.vue
@@ -110,25 +114,30 @@ npm run mockdev
 │   ├── networking.js
 │   └── storage.js
 └── views
-    ├── Dashboard.vue
     ├── Layout.vue
     ├── account
     │   └── Login.vue
-    ├── guardian
+    ├── activity
     │   └── List.vue
-    ├── job
+    ├── dashboard
+    │   └── List.vue
+    ├── jobs
     │   └── Index.vue
+    ├── members
+    │   └── List.vue
     └── projects
         ├── Edit.vue
         ├── Home.vue
         ├── Layout.vue
+        ├── List.vue
         ├── New.vue
         ├── builds
-        │   ├── CheckDependency.vue
         │   ├── Detail.vue
         │   ├── List.vue
         │   ├── PreBuildBeta.vue
-        │   └── PreBuildLib.vue
+        │   ├── PreBuildLib.vue
+        │   ├── PreBuildProd.vue
+        │   └── PreBuildTest.vue
         ├── environments
         │   ├── Clone.vue
         │   ├── List.vue
@@ -142,7 +151,7 @@ npm run mockdev
             ├── Edit.vue
             └── List.vue
 
-18 directories, 55 files
+21 directories, 60 files
 ```
 
 ## 功能
@@ -172,6 +181,7 @@ npm run mockdev
 * [Vue实战（三）Mock服务JSON Server](http://www.jianshu.com/p/7094c477207d)
 * [Vue实战（四）组件和路由](http://www.jianshu.com/p/153f847fa2aa)
 * [Vue实战（五）网络层拦截器与全局异常信息展示](http://www.jianshu.com/p/0f3f27f33a6f)
+* [Vue实战（六）通用Table组件](http://www.jianshu.com/p/d0b43b1fd3d8)
 
 ### 三方工具
 
