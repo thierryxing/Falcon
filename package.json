@@ -64,7 +64,8 @@
     "webpack-dev-middleware": "^1.10.0",
     "webpack-hot-middleware": "^2.16.1",
     "webpack-merge": "^2.6.1",
-    "json-server": "^0.9.6 "
+    "json-server": "^0.9.6",
+    "underscore": "^1.8.3"
   },
   "engines": {
     "node": ">= 4.0.0",
