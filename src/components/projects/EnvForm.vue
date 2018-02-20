@@ -1,31 +1,26 @@
 <template>
   <div class="box-body">
     <div class="form-group">
-      <label for="name">Name</label>
+      <label for="name">Name *</label>
       <input class="form-control" id="name" name="environment[name]" v-model="environment.name"/>
     </div>
     <div class="form-group" v-show="isApp()">
-      <label for="scheme" v-if="project.platform === 'ios'">Build Scheme</label>
+      <label for="scheme" v-if="project.platform === 'ios'">Build Scheme *</label>
       <label for="scheme" v-else-if="project.platform === 'android'">Build Name(*.apk)</label>
       <input class="form-control" id="scheme" name="environment[scheme]" :value="environment.scheme"
              v-model="environment.scheme"/>
     </div>
     <div class="form-group" v-show="isAndroidApp()">
-      <label for="build_path">Build Path</label>
+      <label for="build_path">Build Path *</label>
       <input class="form-control" id="build_path" name="environment[build_path]" :value="environment.build_path"
              v-model="environment.build_path" placeholder="app/build/outputs/apk/"/>
     </div>
-
     <div class="form-group" v-if="isApp()">
-      <label for="template">Template</label>
-      <select class="form-control" id="template" name="environment[template]" v-model="environment.build_template">
+      <label for="fastlane_template_id">Template *</label>
+      <select class="form-control" id="fastlane_template_id" name="environment[fastlane_template][id]" v-model="environment.fastlane_template.id">
         <option v-for="option in options" :value="option.value">{{ option.name }}</option>
       </select>
     </div>
-    <div v-else>
-      <input type="hidden" name="environment[template]" v-model="environment.build_template"/>
-    </div>
-
     <div class="form-group">
       <label for="ding_access_token">DingTalk Access Token</label>
       <input class="form-control" id="ding_access_token" name="environment[ding_access_token]"
@@ -60,7 +55,8 @@
 
     computed: {
       ...mapGetters({
-        project: 'currentProject'
+        project: 'currentProject',
+        platform: 'currentPlatform'
       })
     },
 
@@ -77,15 +73,14 @@
     methods: {
 
       setOptions () {
-        if (this.isApp()) {
-          for (let template in Enum.Templates) {
-            if (Enum.Templates.hasOwnProperty(template)) {
-              this.options.push({name: template, value: Enum.Templates[template]})
+        NetWorking
+          .doGet(API.fastlaneTemplates, null, {platform: this.platform})
+          .then((response) => {
+            let templates = response.data.list
+            for (let template of templates) {
+              this.options.push({name: `${template.name} - ${template.command}`, value: template.id})
             }
-          }
-        } else {
-          this.environment.build_template = Enum.Templates.Lib
-        }
+          })
       },
 
       isApp () {

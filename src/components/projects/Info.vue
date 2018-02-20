@@ -79,7 +79,7 @@
       syncGitLab () {
         this.showLoading()
         NetWorking
-          .doGet(API.projectSyncGitLab, {id: this.$route.params.project_id}, null)
+          .doGet(API.projectSyncGitLab, {id: this.$route.params.project_id})
           .then(response => {
             this.project = response.data
             this.$store.dispatch('setProject', this.project)

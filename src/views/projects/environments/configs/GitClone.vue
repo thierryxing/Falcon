@@ -37,12 +37,16 @@
   import * as API from '@/constants/api'
   import LoadingOverlay from '@/components/global/LoadingOverlay'
   import TableBox from '@/components/global/TableBox'
+  import Enum from '@/constants/enum'
 
   export default {
     components: {LoadingOverlay, TableBox},
 
     data () {
       return {
+        interval: null,
+        fetching: false,
+        shouldPoll: true,
         showOverlay: false,
         buttonDisabled: false,
         cloneButtonShow: true,
@@ -60,15 +64,30 @@
       this.fetchData()
     },
 
+    beforeDestroy () {
+      window.clearInterval(this.interval)
+    },
+
     methods: {
+
       fetchData () {
+        this.fetching = true
         this.showLoading()
         NetWorking
           .doGet(API.environment, {id: this.$route.params.project_id, env_id: this.$route.params.env_id})
           .then(response => {
             this.environment = response.data
-            this.hideLoading()
+            this.fetching = false
+            if (this.environment.clone_status === Enum.CloneStatus.Processing) {
+              this.shouldPoll = true
+              this.pollLog()
+            } else {
+              this.shouldPoll = false
+              this.reloadData = true
+              this.hideLoading()
+            }
           }, () => {
+            this.fetching = false
             this.hideLoading()
           })
       },
@@ -79,8 +98,11 @@
           .doGet(API.environmentGitClone, {id: this.$route.params.project_id, env_id: this.$route.params.env_id})
           .then(response => {
             this.environment = response.data
-            this.reloadData = true
-            this.hideLoading()
+            if (this.environment.clone_status === Enum.CloneStatus.Processing) {
+              this.fetchData()
+            } else {
+              this.hideLoading()
+            }
           }, () => {
             this.hideLoading()
           })
@@ -104,10 +126,18 @@
       },
 
       hideLoading () {
-        if (this.environment.clone_status === 'success') {
+        if (this.environment.clone_status === Enum.CloneStatus.Success) {
           this.cloneButtonShow = false
         }
         this.showOverlay = false
+      },
+
+      pollLog () {
+        this.interval = setInterval(function () {
+          if (this.shouldPoll && !this.fetching) {
+            this.fetchData()
+          }
+        }.bind(this), 5000)
       }
     }
   }

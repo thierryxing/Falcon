@@ -80,7 +80,7 @@
       doBuildLib () {
         this.showLoading()
         NetWorking
-          .doPost(API.buildLib, this.pathParams, this.build, null)
+          .doPost(API.buildLib, this.pathParams, this.build)
           .then(response => {
             this.$router.replace({name: 'build_detail', params: {'build_id': response.data.id}})
             this.hideLoading()

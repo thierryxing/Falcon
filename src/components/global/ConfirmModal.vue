@@ -1,6 +1,6 @@
 <template>
   <div v-show="show" :transition="transition">
-    <div class="modal modal-info" @click.self="clickMask">
+    <div class="modal" @click.self="clickMask">
       <div class="modal-dialog">
         <div class="modal-content">
           <!--Header-->
@@ -8,7 +8,7 @@
             <slot name="header">
               <a type="button" class="close" @click="cancel">x</a>
               <h4 class="modal-title">
-                Are your sure?
+                <slot name="title">Are your sure?</slot>
               </h4>
             </slot>
           </div>
@@ -18,8 +18,8 @@
           </div>
           <!--Footer-->
           <div class="modal-footer">
-            <button type="button" class="btn btn-outline pull-left" @click="cancel">Cancel</button>
-            <button type="button" class="btn btn-outline" @click="ok">Confirm</button>
+            <button type="button" class="btn btn-default pull-left" @click="cancel">Cancel</button>
+            <button type="button" class="btn btn-primary" @click="ok">Confirm</button>
           </div>
         </div>
       </div>
@@ -106,29 +106,32 @@
 </script>
 
 <style scoped>
-  .modal {
-    display: block;
-  }
+.modal {
+  display: block;
+}
 
-  .modal-transition {
-    transition: all .6s ease;
-  }
+.modal-transition {
+  transition: all 0.6s ease;
+}
 
-  .modal-leave {
-    /* 样式没什么用，但可以让根标签的transitionEnd生效，以去掉modal-leave */
-    border-radius: 1px !important;
-  }
+.modal-leave {
+  /* 样式没什么用，但可以让根标签的transitionEnd生效，以去掉modal-leave */
+  border-radius: 1px !important;
+}
 
-  .modal-transition .modal-dialog, .modal-transition .modal-backdrop {
-    transition: all .5s ease;
-  }
+.modal-transition .modal-dialog,
+.modal-transition .modal-backdrop {
+  transition: all 0.5s ease;
+}
 
-  .modal-enter .modal-dialog, .modal-leave .modal-dialog {
-    opacity: 0;
-    transform: translateY(-30%);
-  }
+.modal-enter .modal-dialog,
+.modal-leave .modal-dialog {
+  opacity: 0;
+  transform: translateY(-30%);
+}
 
-  .modal-enter .modal-backdrop, .modal-leave .modal-backdrop {
-    opacity: 0;
-  }
+.modal-enter .modal-backdrop,
+.modal-leave .modal-backdrop {
+  opacity: 0;
+}
 </style>

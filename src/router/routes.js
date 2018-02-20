@@ -34,6 +34,12 @@ import BuildDetail from '@/views/projects/builds/Detail'
 
 import Login from '@/views/account/Login'
 
+import AdminLayout from '@/views/admin/Layout'
+import AdminFastlaneTemplates from '@/views/admin/fastlane_templates/List'
+import AdminFastlaneTemplatesNew from '@/views/admin/fastlane_templates/New'
+import AdminFastlaneTemplatesEdit from '@/views/admin/fastlane_templates/Edit'
+import AdminConfigs from '@/views/admin/configs/Index'
+
 const loginRoutes = {
   path: '/login',
   name: 'login',
@@ -49,6 +55,16 @@ const dashboardRoutes = {
     {path: 'members', name: 'members', component: Members, meta: {contentHeader: {title: 'Member', subTitle: 'list'}}},
     {path: 'project_list', name: 'project_list', component: Projects, meta: {contentHeader: {title: 'Project', subTitle: 'list'}}},
     {path: 'new_project', name: 'project_new', component: ProjectNew, meta: {contentHeader: {title: 'Project', subTitle: 'new'}}}
+  ]
+}
+
+const adminRoutes = {
+  path: '/admin', name: 'admin', component: AdminLayout, redirect: '/admin/configs',
+  children: [
+    {path: 'configs', name: 'configs', component: AdminConfigs, meta: {contentHeader: {title: 'Admin', subTitle: 'Configs'}}},
+    {path: 'fastlane_templates', name: 'fastlane_templates', component: AdminFastlaneTemplates, meta: {contentHeader: {title: 'Admin', subTitle: 'Fastlane Templates'}}},
+    {path: 'fastlane_templates/new', name: 'fastlane_templates_new', component: AdminFastlaneTemplatesNew, meta: {contentHeader: {title: 'Admin', subTitle: 'Fastlane Templates'}}},
+    {path: 'fastlane_templates/:id/edit', name: 'fastlane_templates_edit', component: AdminFastlaneTemplatesEdit, meta: {contentHeader: {title: 'Admin', subTitle: 'Fastlane Templates'}}}
   ]
 }
 
@@ -84,5 +100,6 @@ const projectRoutes = {
 export default [
   loginRoutes,
   dashboardRoutes,
-  projectRoutes
+  projectRoutes,
+  adminRoutes
 ]

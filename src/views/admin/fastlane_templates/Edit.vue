@@ -2,12 +2,12 @@
   <div class="box box-primary">
     <loading-overlay v-show="showOverlay"></loading-overlay>
     <div class="box-header with-border">
-      <h3 class="box-title">Clone Environment</h3>
+      <h3 class="box-title">Edit Fastlane Template</h3>
     </div>
-    <form @submit.prevent="doClone" accept-charset="UTF-8" method="post">
-      <env-form :environment.sync="environment"></env-form>
+    <form @submit.prevent="doUpdate" accept-charset="UTF-8" method="post">
+      <template-form :template.sync="template"></template-form>
       <div class="box-footer">
-        <input class="btn btn-primary" type="submit" value="Clone">
+        <input class="btn btn-primary" type="submit" value="Update">
       </div>
     </form>
   </div>
@@ -16,47 +16,44 @@
 <script>
   import NetWorking from '@/utils/networking'
   import * as API from '@/constants/api'
-  import { mapGetters } from 'vuex'
   import LoadingOverlay from '@/components/global/LoadingOverlay'
-  import EnvForm from '@/components/projects/EnvForm'
+  import TemplateForm from '@/components/admin/TemplateForm'
 
   export default {
-    components: {LoadingOverlay, EnvForm},
+    components: {LoadingOverlay, TemplateForm},
 
     data () {
       return {
-        project_id: null,
-        env_id: null,
+        id: this.$route.params.id,
         showOverlay: false,
-        environment: {}
+        template: {}
       }
     },
 
     created () {
-      this.project_id = this.$route.params.project_id
-      this.env_id = this.$route.params.env_id
       this.fetchData()
     },
 
     methods: {
+
       fetchData () {
         this.showLoading()
         NetWorking
-          .doGet(API.environment, {id: this.project_id, env_id: this.env_id})
+          .doGet(API.fastlaneTemplate, {id: this.id})
           .then(response => {
-            this.environment = response.data
+            this.template = response.data
             this.hideLoading()
           }, () => {
             this.hideLoading()
           })
       },
 
-      doClone () {
+      doUpdate () {
         this.showLoading()
         NetWorking
-          .doPost(API.environmentClone, {id: this.project_id, env_id: this.env_id}, {environment: this.environment})
+          .doPut(API.fastlaneTemplate, {id: this.id}, this.template)
           .then(() => {
-            this.$router.replace({name: 'environments', params: {project_id: this.project_id}})
+            this.$router.replace({name: 'fastlane_templates'})
             this.hideLoading()
           }, () => {
             this.hideLoading()

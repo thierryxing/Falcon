@@ -14,7 +14,7 @@
       <li class="pull-right">
         <div class="box-tools">
           <router-link class="btn btn-block btn-primary btn-sm" :to="{ name: 'project_new'}">
-            Add
+            New Project
           </router-link>
         </div>
       </li>

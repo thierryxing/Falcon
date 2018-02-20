@@ -55,7 +55,7 @@
         }
         this.fetching = true
         NetWorking
-          .doGet(API.buildLog, this.pathParams, {params: {offset: this.offset}})
+          .doGet(API.buildLog, this.pathParams, {offset: this.offset})
           .then(response => {
               this.buildLog = this.buildLog + response.data.log
               this.shouldPoll = response.data.should_poll
@@ -85,7 +85,7 @@
       _markStatus (status) {
         this.showLoading()
         NetWorking
-          .doGet(API.buildMarkStatus, this.pathParams, {params: {status: status}})
+          .doGet(API.buildMarkStatus, this.pathParams, {status: status})
           .then(() => {
               this.hideLoading()
               this.$router.replace({name: 'builds'})

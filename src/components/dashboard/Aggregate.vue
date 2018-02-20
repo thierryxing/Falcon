@@ -1,6 +1,6 @@
 <template>
   <div class="row">
-    <div class="col-lg-3 col-xs-6" v-for="(aggregate,index) in aggregates">
+    <div class="col-lg-3 col-xs-6" v-for="(aggregate,index) in aggregates" :key="index">
       <div class="small-box" :class="getBg(index)">
         <div class="inner">
           <h3>{{ aggregate.value }}</h3>
@@ -16,37 +16,37 @@
 </template>
 
 <script>
-  import NetWorking from '@/utils/networking'
-  import * as API from '@/constants/api'
+import NetWorking from '@/utils/networking'
+import * as API from '@/constants/api';
 
-  export default {
-    data () {
-      return {
-        aggregates: []
-      }
+export default {
+  data() {
+    return {
+      aggregates: []
+    };
+  },
+
+  created() {
+    this.fetchData()
+  },
+
+  methods: {
+    fetchData() {
+      NetWorking.doGet(API.dashboard).then(
+        response => {
+          this.aggregates = response.data
+        },
+        () => { }
+      )
     },
 
-    created () {
-      this.fetchData()
+    getBg(index) {
+      return ['bg-aqua', 'bg-yellow', 'bg-green', 'bg-red'][index];
     },
 
-    methods: {
-      fetchData () {
-        NetWorking
-          .doGet(API.dashboard)
-          .then(response => {
-            this.aggregates = response.data
-          }, () => {
-          })
-      },
-
-      getBg (index) {
-        return ['bg-aqua', 'bg-yellow', 'bg-green', 'bg-red'][index]
-      },
-
-      getIcon (index) {
-        return ['fa-legal', 'fa-bar-chart', 'fa-cube', 'fa-user'][index]
-      }
+    getIcon(index) {
+      return ['fa-legal', 'fa-bar-chart', 'fa-cube', 'fa-user'][index];
     }
   }
+};
 </script>

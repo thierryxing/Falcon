@@ -87,7 +87,7 @@ export default {
     let request = null
     switch (method) {
       case this.httpMethod.GET: {
-        request = Vue.http.get(wrapURL, options)
+        request = Vue.http.get(wrapURL, {params: options})
         break
       }
       case this.httpMethod.POST: {

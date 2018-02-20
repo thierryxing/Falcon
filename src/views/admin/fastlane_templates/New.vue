@@ -2,10 +2,10 @@
   <div class="box box-primary">
     <loading-overlay v-show="showOverlay"></loading-overlay>
     <div class="box-header with-border">
-      <h3 class="box-title">New Environment</h3>
+      <h3 class="box-title">New Fastlane Template</h3>
     </div>
     <form @submit.prevent="doCreate" accept-charset="UTF-8" method="post">
-      <env-form :environment.sync="environment"></env-form>
+      <template-form :template.sync="template"></template-form>
       <div class="box-footer">
         <input class="btn btn-primary" type="submit" value="Create">
       </div>
@@ -16,25 +16,16 @@
 <script>
   import NetWorking from '@/utils/networking'
   import * as API from '@/constants/api'
-  import { mapGetters } from 'vuex'
   import LoadingOverlay from '@/components/global/LoadingOverlay'
-  import EnvForm from '@/components/projects/EnvForm'
+  import TemplateForm from '@/components/admin/TemplateForm'
 
   export default {
-    components: {LoadingOverlay, EnvForm},
-
-    computed: {
-      ...mapGetters({
-        project: 'currentProject'
-      })
-    },
+    components: {LoadingOverlay, TemplateForm},
 
     data () {
       return {
         showOverlay: false,
-        environment: {
-          fastlane_template: {}
-        }
+        template: {}
       }
     },
 
@@ -43,10 +34,9 @@
       doCreate () {
         this.showLoading()
         NetWorking
-          .doPost(API.environments, {id: this.project.id}, {environment: this.environment})
-          .then(response => {
-            this.environment = response.data
-            this.$router.push({name: 'git_clone', params: {env_id: this.environment.id}})
+          .doPost(API.fastlaneTemplates, null, this.template)
+          .then(() => {
+            this.$router.replace({name: 'fastlane_templates'})
             this.hideLoading()
           }, () => {
             this.hideLoading()

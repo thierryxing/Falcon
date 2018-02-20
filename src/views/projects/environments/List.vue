@@ -4,7 +4,7 @@
       <h3 class="box-title">Environments</h3>
       <div class="box-tools">
         <router-link class="btn btn-block btn-primary btn-sm" :to="{ name: 'environments_new'}">
-          New
+          New Environment
         </router-link>
       </div>
     </div>
@@ -13,7 +13,7 @@
         <th>ID</th>
         <th>Name</th>
         <th>Version</th>
-        <th>Template</th>
+        <th>Fastlane Template</th>
         <th>Git Branch</th>
         <th>Updated Time</th>
         <th style="width:220px">Action</th>
@@ -30,7 +30,7 @@
             {{ props.item.current_version }}
           </td>
           <td>
-            {{ props.item.build_template_name }}
+            {{ props.item.fastlane_template.command }}({{ props.item.fastlane_template.name }})
           </td>
           <td>
             {{ props.item.git_branch }}

@@ -43,7 +43,9 @@
         showOverlay: false,
         showModal: false,
         selected: '',
-        environment: {}
+        environment: {
+          fastlane_template: {}
+        }
       }
     },
 
@@ -68,7 +70,7 @@
       doUpdate () {
         this.showLoading()
         NetWorking
-          .doPut(API.environment, {id: this.$route.params.project_id, env_id: this.$route.params.env_id}, this.environment, null)
+          .doPut(API.environment, {id: this.$route.params.project_id, env_id: this.$route.params.env_id}, this.environment)
           .then(response => {
             this.config = response.data
             this.hideLoading()
@@ -80,7 +82,7 @@
       doDelete () {
         this.showLoading()
         NetWorking
-          .doDelete(API.environment, {id: this.$route.params.project_id, env_id: this.$route.params.env_id}, null)
+          .doDelete(API.environment, {id: this.$route.params.project_id, env_id: this.$route.params.env_id})
           .then(() => {
             this.$router.replace({name: 'environments'})
             this.hideLoading()

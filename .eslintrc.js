@@ -27,6 +27,7 @@ module.exports = {
     'no-trailing-spaces': 0,
     'indent': 0,
     'semi': 0,
-    'object-property-newline': 0
+    'object-property-newline': 0,
+    'space-before-function-paren': 0
   }
 }

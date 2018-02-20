@@ -44,3 +44,6 @@ export const setPlatform = '/users/:id/set_platform/:platform'
 
 export const login = '/account/login'
 export const logout = '/account/logout'
+
+export const fastlaneTemplates = '/fastlane_templates'
+export const fastlaneTemplate = '/fastlane_templates/:id'

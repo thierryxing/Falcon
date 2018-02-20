@@ -2,7 +2,7 @@
   <div class="box box-primary">
     <loading-overlay v-show="showOverlay"></loading-overlay>
     <div class="box-header with-border">
-      <h3 class="box-title">Edit Project</h3>
+      <h3 class="box-title">编辑项目</h3>
     </div>
     <form @submit.prevent="doCreate" accept-charset="UTF-8" method="post">
       <project-form :project.sync="project" :edit="true"></project-form>
@@ -55,7 +55,7 @@
       doDelete () {
         this.showLoading()
         NetWorking
-          .doDelete(API.project, {id: this.project.id}, null)
+          .doDelete(API.project, {id: this.project.id})
           .then(() => {
             this.hideLoading()
             this.$router.replace({name: 'dashboard'})

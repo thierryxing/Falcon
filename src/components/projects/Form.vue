@@ -12,11 +12,11 @@
     <div class="form-group">
       <label for="type">Type</label>
       <select id="type" class="form-control" name="project[type]" v-model="project.type">
-        <option v-for="option in options" :value="option.value">{{ option.text }}</option>
+        <option v-for="option in options" :value="option.value" :key="option.value">{{ option.text }}</option>
       </select>
     </div>
     <div class="form-group">
-      <label for="identifier">Package (or Bundle Id)</label>
+      <label for="identifier">{{ identifierLabel() }}</label>
       <input id="identifier" placeholder="eg: com.wanmeizhensuo.zhensuo or com.gengmei.framework:gmcache" class="form-control"
              name="project[package_name]" v-model="project.identifier">
     </div>
@@ -32,9 +32,16 @@
 <script>
   import NetWorking from '@/utils/networking'
   import * as API from '@/constants/api'
+  import { mapGetters } from 'vuex'
 
   export default {
     props: ['project', 'edit'],
+
+    computed: {
+      ...mapGetters({
+        platform: 'currentPlatform'
+      })
+    },
 
     data () {
       return {
@@ -43,6 +50,11 @@
           {text: 'App', value: 'App'},
           {text: 'Lib', value: 'Lib'}
         ]
+      }
+    },
+
+    watch: {
+      'project.type': function (value) {
       }
     },
 
@@ -55,6 +67,18 @@
         NetWorking.doGet(API.users).then(response => {
           this.users = response.data.list
         })
+      },
+
+      isAndroidApp () {
+        return this.platform === 'android'
+      },
+
+      identifierLabel () {
+        if (this.isAndroidApp()) {
+          return 'Android applicationId'
+        } else {
+          return 'Bundle Identifier'
+        }
       }
     }
   }

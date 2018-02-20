@@ -47,6 +47,9 @@
               </li>
             </ul>
           </li>
+          <li>
+            <a href="javascript:;" @click="jumpToAdmin()" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
+          </li>
         </ul>
       </div>
     </nav>
@@ -87,6 +90,10 @@
             this.$router.replace({name: 'root', force: true})
             window.location.reload()
           })
+      },
+
+      jumpToAdmin () {
+        this.$router.replace({name: 'admin'})
       }
     }
   }

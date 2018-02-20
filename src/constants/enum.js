@@ -8,6 +8,11 @@ export default {
     Lib: 'Lib'
   },
 
+  Platforms: {
+    iOS: 'ios',
+    Android: 'android'
+  },
+
   Templates: {
     Prod: 0,
     Test: 1,
@@ -20,6 +25,14 @@ export default {
     Success: 'success',
     Processing: 'processing',
     Canceled: 'canceled'
+  },
+
+  CloneStatus: {
+    Prepare: 'prepare',
+    Processing: 'processing',
+    Success: 'success',
+    Failed: 'failed'
   }
+
 }
 

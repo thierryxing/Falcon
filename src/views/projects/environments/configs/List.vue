@@ -59,7 +59,9 @@
           .doGet(API.environmentConfigs, {id: this.$route.params.project_id, env_id: this.$route.params.env_id})
           .then(response => {
               this.configs = response.data
-              this.navigateToConfig(this.configs[0])
+              if (['info', 'fastlane', 'git_clone'].indexOf(this.$route.name) === -1) {
+                this.navigateToConfig(this.configs[0])
+              }
             }
           )
       },
