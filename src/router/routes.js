@@ -17,10 +17,7 @@ import Services from '@/views/projects/services/List'
 import ServiceEdit from '@/views/projects/services/Edit'
 
 import Builds from '@/views/projects/builds/List'
-import PreBuildLib from '@/views/projects/builds/PreBuildLib'
-import PreBuildBeta from '@/views/projects/builds/PreBuildBeta'
-import PreBuildTest from '@/views/projects/builds/PreBuildTest'
-import PreBuildProd from '@/views/projects/builds/PreBuildProd'
+import BuildInfo from '@/views/projects/builds/Info'
 
 import Environments from '@/views/projects/environments/List'
 import EnvironmentCLone from '@/views/projects/environments/Clone'
@@ -76,10 +73,7 @@ const projectRoutes = {
     {name: 'environments', path: 'environments', component: Environments},
     {name: 'builds', path: 'builds', component: Builds},
     {name: 'build_detail', path: 'builds/:build_id', component: BuildDetail},
-    {name: 'pre_build_lib', path: 'environments/:env_id/pre_build_lib', component: PreBuildLib},
-    {name: 'pre_build_beta', path: 'environments/:env_id/pre_build_beta', component: PreBuildBeta},
-    {name: 'pre_build_test', path: 'environments/:env_id/pre_build_test', component: PreBuildTest},
-    {name: 'pre_build_prod', path: 'environments/:env_id/pre_build_prod', component: PreBuildProd},
+    {name: 'build_info', path: 'environments/:env_id/build_info', component: BuildInfo},
     {name: 'environments_new', path: 'environments/new', component: EnvironmentNew},
     {name: 'services', path: 'services', component: Services},
     {name: 'service_edit', path: 'services/:service_id/edit', component: ServiceEdit},

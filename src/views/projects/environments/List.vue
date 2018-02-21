@@ -39,9 +39,11 @@
             {{ props.item.updated_at }}
           </td>
           <td>
-            <button type="button" class="btn btn-primary" @click="doBuild(props.item.id, props.item.build_template)" v-show="props.item.can_build">
+            <router-link
+              :to="{ name: 'build_info', params: { id: $route.params.id, env_id: props.item.id }}"
+              class="btn btn-primary">
               Build
-            </button>
+            </router-link>
             <router-link
               :to="{ name: 'environment_configs', params: { id: $route.params.id, env_id: props.item.id }}"
               class="btn btn-warning">
@@ -72,31 +74,6 @@
         url: API.environments,
         pathParams: {id: this.$route.params.project_id},
         reloadData: false
-      }
-    },
-
-    methods: {
-      doBuild (envId, template) {
-        let templateName = ''
-        switch (template) {
-          case Enum.Templates.Prod: {
-            templateName = 'pre_build_prod'
-            break
-          }
-          case Enum.Templates.Test: {
-            templateName = 'pre_build_test'
-            break
-          }
-          case Enum.Templates.Beta: {
-            templateName = 'pre_build_beta'
-            break
-          }
-          case Enum.Templates.Lib: {
-            templateName = 'pre_build_lib'
-            break
-          }
-        }
-        this.$router.push({name: templateName, params: {env_id: envId}})
       }
     }
 
