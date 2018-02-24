@@ -52,9 +52,9 @@
                   {{ props.item.environment.name }}
                 </td>
                 <td>
-                    <ul v-for="note in props.item.release_notes">
-                      <li>{{ note.content }}</li>
-                    </ul>
+                  <ul v-for="note in props.item.release_notes">
+                    <li>{{ note.content }}</li>
+                  </ul>
                 </td>
                 <td>
                   {{ props.item.updated_at }}
@@ -94,29 +94,31 @@
 
     data () {
       return {
+        project_id: '',
         currentEnvironment: '',
         environments: [],
         url: API.projectBuilds,
         pathParams: {id: this.$route.params.project_id},
-        options: {params: {environment_id: this.currentEnvironment}},
+        options: {environment_id: this.currentEnvironment},
         reloadData: false
       }
     },
 
     created () {
+      this.project_id = this.$route.params.project_id
       this.fetchEnvironments()
     },
 
     watch: {
       currentEnvironment (value) {
-        this.options.params.environment_id = value
+        this.options.environment_id = value
         this.reloadData = true
       }
     },
 
     methods: {
       fetchEnvironments () {
-        NetWorking.doGet(API.environments, {id: this.$route.params.project_id})
+        NetWorking.doGet(API.environments, {id: this.project_id})
           .then(response => {
             this.environments = [{'id': '', name: 'All'}].concat(response.data.list)
           })
@@ -141,12 +143,12 @@
 
       download (buildId) {
         NetWorking
-          .doDownload(API.buildDownload, {id: this.$route.params.project_id, build_id: buildId})
+          .doDownload(API.buildDownload, {id: this.project_id, build_id: buildId})
       },
 
       remove (buildId) {
         NetWorking
-          .doDelete(API.build, {id: this.$route.params.project_id, build_id: buildId})
+          .doDelete(API.build, {id: this.project_id, build_id: buildId})
           .then(() => {
             this.reloadData = true
           })

@@ -2,7 +2,7 @@
   <div class="skin-blue sidebar-mini wysihtml5-supported">
     <nav-bar></nav-bar>
     <side-bar></side-bar>
-    <div class="content-wrapper" style="min-height: 916px;" ref="contentWrapper">
+    <div class="content-wrapper" style="min-height: 916px;">
       <div class="box box-solid" style="background-color: #ecf0f5;box-shadow:none">
         <LoadingOverlay v-show="showOverlay"></LoadingOverlay>
         <content-header>

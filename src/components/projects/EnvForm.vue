@@ -15,7 +15,7 @@
       <input class="form-control" id="build_path" name="environment[build_path]" :value="environment.build_path"
              v-model="environment.build_path" placeholder="app/build/outputs/apk/"/>
     </div>
-    <div class="form-group" v-if="isApp()">
+    <div class="form-group">
       <label for="fastlane_template_id">Template *</label>
       <select class="form-control" id="fastlane_template_id" name="environment[fastlane_template][id]" v-model="environment.fastlane_template.id">
         <option v-for="option in options" :value="option.value">{{ option.name }}</option>

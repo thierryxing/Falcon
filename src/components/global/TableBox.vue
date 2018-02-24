@@ -86,7 +86,7 @@
     methods: {
       fetchData (page) {
         this.showLoading()
-        this.options.params.page = page >= 1 ? page : 1
+        this.options.page = page >= 1 ? page : 1
         NetWorking
           .doGet(this.url, this.pathParams, this.options)
           .then(response => {

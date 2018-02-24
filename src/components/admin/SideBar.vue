@@ -17,12 +17,6 @@ export default {
     return {
       navs: [
         {
-          name: 'Config',
-          to: 'configs',
-          paths: ['configs'],
-          icon: 'fa-cog'
-        },
-        {
           name: 'Fastlane Template',
           to: 'fastlane_templates',
           paths: ['fastlane_templates'],

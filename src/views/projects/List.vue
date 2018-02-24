@@ -83,7 +83,7 @@
     methods: {
       switchTab (type) {
         this.type = type
-        this.options = {'params': {'type': this.type}}
+        this.options = {'type': this.type}
       }
     }
   }

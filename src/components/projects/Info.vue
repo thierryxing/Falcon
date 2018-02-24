@@ -2,47 +2,23 @@
   <div class="box box-primary">
     <LoadingOverlay v-show="showOverlay"></LoadingOverlay>
     <div class="box-body box-profile">
-      <img class="profile-user-img img-responsive img-circle" :src="currentProject.icon">
+      <img class="profile-user-img img-responsive img-circle" :src="project.icon">
       <h3 class="profile-username text-center">
-        {{ currentProject.title }}
+        {{ project.title }}
       </h3>
       <p class="text-muted text-center">
-        {{ currentProject.desc }}
+        {{ project.desc }}
       </p>
       <p class="text-muted text-center">
-        {{ currentProject.git_repo_url }}
+        {{ project.git_repo_url }}
       </p>
       <ul class="list-group list-group-unbordered">
-        <li class="list-group-item">
+        <li class="list-group-item" v-for="item in properties">
           <b>
-            Guardian
+            {{ item.name }}
           </b>
           <a class="pull-right">
-            {{ currentProject.guardian.name }}
-          </a>
-        </li>
-        <li class="list-group-item">
-          <b>
-            Identifier
-          </b>
-          <a class="pull-right">
-            {{ currentProject.identifier }}
-          </a>
-        </li>
-        <li class="list-group-item">
-          <b>
-            Updated At
-          </b>
-          <a class="pull-right">
-            {{ currentProject.updated_at }}
-          </a>
-        </li>
-        <li class="list-group-item">
-          <b>
-            Last Build Time
-          </b>
-          <a class="pull-right">
-            {{ currentProject.lasted_build_at }}
+            {{ item.value }}
           </a>
         </li>
       </ul>
@@ -64,25 +40,48 @@
     components: {LoadingOverlay, ConfirmModal},
 
     computed: {
-      ...mapGetters(['currentProject'])
+      ...mapGetters({
+        project: 'currentProject'
+      })
     },
 
     data () {
       return {
-        project: this.currentProject,
-        showOverlay: false
+        showOverlay: false,
+        properties: []
       }
     },
 
+    watch: {
+      project () {
+        this.setProjectProperties()
+      }
+    },
+
+    created () {
+      this.setProjectProperties()
+    },
+
     methods: {
+
+      setProjectProperties () {
+        this.properties = [
+          {name: 'Guardian', value: this.project.guardian.name},
+          {name: 'Identifier', value: this.project.identifier},
+          {name: 'Git Repo URL', value: this.project.git_repo_url},
+          {name: 'Type', value: this.project.type},
+          {name: 'Updated Time', value: this.project.updated_at},
+          {name: 'Last Build Time', value: this.project.lasted_build_at}
+        ]
+      },
 
       syncGitLab () {
         this.showLoading()
         NetWorking
           .doGet(API.projectSyncGitLab, {id: this.$route.params.project_id})
           .then(response => {
-            this.project = response.data
-            this.$store.dispatch('setProject', this.project)
+            let project = response.data
+            this.$store.dispatch('setProject', project)
             this.hideLoading()
           }, () => {
             this.hideLoading()

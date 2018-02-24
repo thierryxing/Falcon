@@ -70,7 +70,7 @@
       doUpdate () {
         this.showLoading()
         NetWorking
-          .doPut(API.environment, {id: this.$route.params.project_id, env_id: this.$route.params.env_id}, this.environment)
+          .doPut(API.environment, {id: this.$route.params.project_id, env_id: this.$route.params.env_id}, {environment: this.environment})
           .then(response => {
             this.config = response.data
             this.hideLoading()

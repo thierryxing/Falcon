@@ -6,8 +6,9 @@
     </div>
     <div class="box-body">
       <div class="row">
-        <div class="col-lg-12">
+        <div class="col-lg-12 log-container">
           <pre class="bash" v-html="buildLog"></pre>
+          <a class="float-icon fa fa-arrow-down bg-gray" href="javascript:" @click="scrollToBottom()"></a>
         </div>
       </div>
     </div>
@@ -62,7 +63,6 @@
               this.offset = response.data.offset
               this.fetching = false
               this.hideLoading()
-              this.scrollTop()
               if (!this.shouldPoll) {
                 window.clearInterval(this.interval)
               }
@@ -111,12 +111,27 @@
         }.bind(this), 1000)
       },
 
-      scrollTop () {
-        let container = this.$refs.contentWrapper
-        if (container !== undefined && container !== null) {
-          container.scrollTop = container.scrollHeight
-        }
+      scrollToBottom () {
+        this.$nextTick(() => {
+          let body = document.documentElement || document.body
+          body.scrollTop = body.scrollHeight
+        })
       }
     }
   }
 </script>
+
+<style scoped>
+  a.float-icon {
+    display: block;
+    position: fixed;
+    bottom: 200px;
+    right: 30px;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 55px;
+    font-size: 20px;
+  }
+</style>

@@ -35,7 +35,6 @@ import AdminLayout from '@/views/admin/Layout'
 import AdminFastlaneTemplates from '@/views/admin/fastlane_templates/List'
 import AdminFastlaneTemplatesNew from '@/views/admin/fastlane_templates/New'
 import AdminFastlaneTemplatesEdit from '@/views/admin/fastlane_templates/Edit'
-import AdminConfigs from '@/views/admin/configs/Index'
 
 const loginRoutes = {
   path: '/login',
@@ -56,9 +55,8 @@ const dashboardRoutes = {
 }
 
 const adminRoutes = {
-  path: '/admin', name: 'admin', component: AdminLayout, redirect: '/admin/configs',
+  path: '/admin', name: 'admin', component: AdminLayout, redirect: '/admin/fastlane_templates',
   children: [
-    {path: 'configs', name: 'configs', component: AdminConfigs, meta: {contentHeader: {title: 'Admin', subTitle: 'Configs'}}},
     {path: 'fastlane_templates', name: 'fastlane_templates', component: AdminFastlaneTemplates, meta: {contentHeader: {title: 'Admin', subTitle: 'Fastlane Templates'}}},
     {path: 'fastlane_templates/new', name: 'fastlane_templates_new', component: AdminFastlaneTemplatesNew, meta: {contentHeader: {title: 'Admin', subTitle: 'Fastlane Templates'}}},
     {path: 'fastlane_templates/:id/edit', name: 'fastlane_templates_edit', component: AdminFastlaneTemplatesEdit, meta: {contentHeader: {title: 'Admin', subTitle: 'Fastlane Templates'}}}

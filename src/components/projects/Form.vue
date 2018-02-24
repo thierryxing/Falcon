@@ -1,16 +1,16 @@
 <template>
   <div class="box-body">
     <div class="form-group">
-      <label for="title">Title</label>
+      <label for="title">Title *</label>
       <input id="title" placeholder="" class="form-control" name="project[title]" v-model="project.title" :disabled="edit">
     </div>
     <div class="form-group">
-      <label for="git_repo_url">Git Repo URL</label>
+      <label for="git_repo_url">Git Repo URL *</label>
       <input id="git_repo_url" placeholder="eg:git@git.gengmei.cc/repo/path" class="form-control" v-model="project.git_repo_url"
              name="project[git_repo_url]">
     </div>
     <div class="form-group">
-      <label for="type">Type</label>
+      <label for="type">Type *</label>
       <select id="type" class="form-control" name="project[type]" v-model="project.type">
         <option v-for="option in options" :value="option.value" :key="option.value">{{ option.text }}</option>
       </select>
@@ -45,16 +45,12 @@
 
     data () {
       return {
+        showIdentifier: true,
         users: [],
         options: [
           {text: 'App', value: 'App'},
           {text: 'Lib', value: 'Lib'}
         ]
-      }
-    },
-
-    watch: {
-      'project.type': function (value) {
       }
     },
 

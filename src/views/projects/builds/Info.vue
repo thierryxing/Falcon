@@ -10,7 +10,7 @@
           <label for="current_version">Current Version</label>
           <input name="current_version" id="current_version" :value="build.current_version" class="form-control" disabled>
         </div>
-        <div class="form-group" v-show="isLib" hidden>
+        <div class="form-group" v-show="isLib()">
           <label for="version">New Version</label>
           <input name="version" id="version" class="form-control" v-model="build.version">
         </div>
