@@ -2,9 +2,7 @@
   <div class="box box-success">
     <loading-overlay v-show="showOverlay"></loading-overlay>
     <div class="box-header with-border">
-      <h3 class="box-title">
-        {{ currentConfig.name }}
-      </h3>
+      <h3 class="box-title">Configuration</h3>
     </div>
     <div class="box-body">
       <div class="row">
@@ -58,8 +56,8 @@
         NetWorking
           .doGet(API.environmentConfigs, {id: this.$route.params.project_id, env_id: this.$route.params.env_id})
           .then(response => {
-              this.configs = response.data
-              if (['info', 'fastlane', 'git_clone'].indexOf(this.$route.name) === -1) {
+              this.configs = response.data.list
+              if (['fastlane', 'git_clone', 'services'].indexOf(this.$route.name) === -1) {
                 this.navigateToConfig(this.configs[0])
               }
             }

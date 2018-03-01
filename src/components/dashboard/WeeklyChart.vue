@@ -44,7 +44,7 @@
         NetWorking
           .doGet(API.weeklyData)
           .then(response => {
-            this.results = response.data
+            this.results = response.data.list
             this.handleData()
           }, () => {
           })

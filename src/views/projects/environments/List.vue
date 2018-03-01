@@ -16,7 +16,7 @@
         <th>Fastlane Template</th>
         <th>Git Branch</th>
         <th>Updated Time</th>
-        <th style="width:220px">Action</th>
+        <th style="width:270px">Action</th>
       </tr>
       <template slot="item" scope="props">
         <tr>
@@ -45,12 +45,17 @@
               Build
             </router-link>
             <router-link
-              :to="{ name: 'environment_configs', params: { id: $route.params.id, env_id: props.item.id }}"
-              class="btn btn-warning">
+              :to="{ name: 'environments_edit', params: { id: $route.params.id, env_id: props.item.id }}"
+              class="btn btn-info">
+              Edit
+            </router-link>
+            <router-link
+              :to="{ name: 'environments_config', params: { id: $route.params.id, env_id: props.item.id }}"
+              class="btn btn-info">
               Config
             </router-link>
             <router-link
-              :to="{ name: 'environment_clone', params: { id: $route.params.id, env_id: props.item.id }}"
+              :to="{ name: 'environments_clone', params: { id: $route.params.id, env_id: props.item.id }}"
               class="btn btn-info">
               Clone
             </router-link>
@@ -64,7 +69,6 @@
 <script>
   import * as API from '@/constants/api'
   import TableBox from '@/components/global/TableBox'
-  import Enum from '@/constants/enum'
 
   export default {
     components: {TableBox},

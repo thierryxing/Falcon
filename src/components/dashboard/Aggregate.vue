@@ -34,7 +34,7 @@ export default {
     fetchData() {
       NetWorking.doGet(API.dashboard).then(
         response => {
-          this.aggregates = response.data
+          this.aggregates = response.data.list
         },
         () => { }
       )

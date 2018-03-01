@@ -2,7 +2,7 @@
   <div class="box box-primary">
     <loading-overlay v-show="showOverlay"></loading-overlay>
     <div class="box-header with-border">
-      <h3 class="box-title">Environment</h3>
+      <h3 class="box-title">Edit Environment</h3>
     </div>
     <form @submit.prevent="doUpdate" accept-charset="UTF-8" method="post">
       <env-form :environment.sync="environment"></env-form>

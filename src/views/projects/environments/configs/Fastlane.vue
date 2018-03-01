@@ -63,7 +63,7 @@
         NetWorking
           .doGet(API.environmentFastlane, {id: this.$route.params.project_id, env_id: this.$route.params.env_id}, this.currentFile)
           .then(response => {
-            this.files = response.data
+            this.files = response.data.list
             this.currentFile = this.files[0]
             this.hideLoading()
           }, () => {

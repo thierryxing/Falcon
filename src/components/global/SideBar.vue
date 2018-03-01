@@ -28,7 +28,7 @@
           {
             name: 'Projects',
             to: 'project_list',
-            paths: ['project_list', 'new_project'],
+            paths: ['project_list', 'project_new'],
             icon: 'fa-cube'
           },
           {
@@ -62,7 +62,7 @@
     methods: {
       fetchData () {
         NetWorking
-          .doGet(API.buildsExecuting)
+          .doGet(API.activity)
           .then(response => {
             this.navs[2].label = response.data.total === 0 ? '' : response.data.total
           })

@@ -13,19 +13,18 @@ import ProjectNew from '@/views/projects/New'
 import ProjectEdit from '@/views/projects/Edit'
 import ProjectHome from '@/views/projects/Home'
 
-import Services from '@/views/projects/services/List'
-import ServiceEdit from '@/views/projects/services/Edit'
-
 import Builds from '@/views/projects/builds/List'
 import BuildInfo from '@/views/projects/builds/Info'
 
 import Environments from '@/views/projects/environments/List'
 import EnvironmentCLone from '@/views/projects/environments/Clone'
 import EnvironmentNew from '@/views/projects/environments/New'
-import Configs from '@/views/projects/environments/configs/List'
+import EnvironmentEdit from '@/views/projects/environments/Edit'
+import Configs from '@/views/projects/environments/configs/Index'
 import ConfigGitClone from '@/views/projects/environments/configs/GitClone'
-import ConfigInfo from '@/views/projects/environments/configs/Info'
 import ConfigFastlane from '@/views/projects/environments/configs/Fastlane'
+import ServiceList from '@/views/projects/environments/configs/services/List'
+import ServiceEdit from '@/views/projects/environments/configs/services/Edit'
 
 import BuildDetail from '@/views/projects/builds/Detail'
 
@@ -50,7 +49,7 @@ const dashboardRoutes = {
     {path: 'activity', name: 'activity', component: Activity, meta: {contentHeader: {title: 'Activity', subTitle: 'Executing jobs'}}},
     {path: 'members', name: 'members', component: Members, meta: {contentHeader: {title: 'Member', subTitle: 'list'}}},
     {path: 'project_list', name: 'project_list', component: Projects, meta: {contentHeader: {title: 'Project', subTitle: 'list'}}},
-    {path: 'new_project', name: 'project_new', component: ProjectNew, meta: {contentHeader: {title: 'Project', subTitle: 'new'}}}
+    {path: 'project_new', name: 'project_new', component: ProjectNew, meta: {contentHeader: {title: 'Project', subTitle: 'new'}}}
   ]
 }
 
@@ -73,17 +72,17 @@ const projectRoutes = {
     {name: 'build_detail', path: 'builds/:build_id', component: BuildDetail},
     {name: 'build_info', path: 'environments/:env_id/build_info', component: BuildInfo},
     {name: 'environments_new', path: 'environments/new', component: EnvironmentNew},
-    {name: 'services', path: 'services', component: Services},
-    {name: 'service_edit', path: 'services/:service_id/edit', component: ServiceEdit},
-    {name: 'environment_clone', path: 'environments/:env_id/clone', component: EnvironmentCLone},
+    {name: 'environments_edit', path: 'environments/edit', component: EnvironmentEdit},
+    {name: 'environments_clone', path: 'environments/:env_id/clone', component: EnvironmentCLone},
     {
-      name: 'environment_configs',
-      path: 'environments/:env_id/configs',
+      name: 'environments_config',
+      path: 'environments/:env_id/config',
       component: Configs,
       children: [
         {name: 'git_clone', path: 'git_clone', component: ConfigGitClone},
         {name: 'fastlane', path: 'fastlane', component: ConfigFastlane},
-        {name: 'info', path: 'info', component: ConfigInfo}
+        {name: 'services', path: 'services', component: ServiceList},
+        {name: 'services_edit', path: 'services/:service_id/edit', component: ServiceEdit}
       ]
     }
   ]

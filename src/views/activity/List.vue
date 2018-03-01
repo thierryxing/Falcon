@@ -63,7 +63,7 @@
 
     data () {
       return {
-        url: API.buildsExecuting
+        url: API.activity
       }
     }
 
