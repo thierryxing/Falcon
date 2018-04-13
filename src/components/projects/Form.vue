@@ -71,7 +71,7 @@
 
       identifierLabel () {
         if (this.isAndroidApp()) {
-          return 'Android applicationId'
+          return 'Package Name'
         } else {
           return 'Bundle Identifier'
         }

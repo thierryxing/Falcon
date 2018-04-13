@@ -16,7 +16,7 @@
         </div>
         <div class="form-group">
           <label for="notes">Release Notes</label>
-          <textarea name="notes" id="notes" class="form-control" rows="10" v-model="build.notes" disabled></textarea>
+          <textarea name="notes" id="notes" class="form-control" rows="10" v-model="build.notes"></textarea>
         </div>
         <div class="box-footer">
           <button class="btn btn-primary">
@@ -67,6 +67,7 @@
           .doGet(API.environmentBuildInfo, this.pathParams, this.build)
           .then(response => {
             this.build = response.data
+            this.build.notes = response.data.notes.join('\n')
             this.hideLoading()
           }, () => {
             this.hideLoading()

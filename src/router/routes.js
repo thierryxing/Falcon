@@ -72,7 +72,7 @@ const projectRoutes = {
     {name: 'build_detail', path: 'builds/:build_id', component: BuildDetail},
     {name: 'build_info', path: 'environments/:env_id/build_info', component: BuildInfo},
     {name: 'environments_new', path: 'environments/new', component: EnvironmentNew},
-    {name: 'environments_edit', path: 'environments/edit', component: EnvironmentEdit},
+    {name: 'environments_edit', path: 'environments/:env_id/edit', component: EnvironmentEdit},
     {name: 'environments_clone', path: 'environments/:env_id/clone', component: EnvironmentCLone},
     {
       name: 'environments_config',

@@ -15,6 +15,7 @@
         <th>Version</th>
         <th>Fastlane Template</th>
         <th>Git Branch</th>
+        <th>Git Tag</th>
         <th>Updated Time</th>
         <th style="width:270px">Action</th>
       </tr>
@@ -34,6 +35,9 @@
           </td>
           <td>
             {{ props.item.git_branch }}
+          </td>
+          <td>
+            {{ props.item.git_tag }}
           </td>
           <td>
             {{ props.item.updated_at }}

@@ -6,29 +6,43 @@
         Clone Project
       </button>
     </div>
-    <table-box :url="url" :pathParams="pathParams" :reloadData.sync="reloadData">
-      <tr slot="ths">
-        <th>Name</th>
-        <th>Full</th>
-        <th>Action</th>
-      </tr>
-      <template slot="item" scope="props">
-        <tr>
-          <td>
-            {{ props.item.name }}
-          </td>
-          <td>
-            {{ props.item.full }}
-          </td>
-          <td>
-            <button class="btn btn-block btn-success" v-if="props.item.current">Current Branch</button>
-            <button class="btn btn-block btn-primary" :disabled="buttonDisabled" @click="chooseBranch(props.item.name, props.item.full)"
-                    v-else>Choose
-            </button>
-          </td>
+    <div class="nav-tabs-custom">
+      <ul class="nav nav-tabs">
+        <li id="tab-branch" :class="{ active: type === 'branch' }">
+          <a href="javascript:" @click="switchTab('branch')">
+            Branches
+          </a>
+        </li>
+        <li id="tab-tag" :class="{ active: type === 'tag' }">
+          <a href="javascript:" @click="switchTab('tag')">
+            Tags
+          </a>
+        </li>
+      </ul>
+      <table-box :url="url" :pathParams="pathParams" :reloadData.sync="reloadData">
+        <tr slot="ths">
+          <th>Name</th>
+          <th>Full</th>
+          <th>Action</th>
         </tr>
-      </template>
-    </table-box>
+        <template slot="item" scope="props">
+          <tr>
+            <td>
+              {{ props.item.name }}
+            </td>
+            <td>
+              {{ props.item.full }}
+            </td>
+            <td>
+              <button class="btn btn-block btn-success" v-if="props.item.current">Current Branch</button>
+              <button class="btn btn-block btn-primary" :disabled="buttonDisabled" @click="chooseBranch(props.item.name, props.item.full)"
+                      v-else>Choose
+              </button>
+            </td>
+          </tr>
+        </template>
+      </table-box>
+    </div>
   </div>
 </template>
 
@@ -44,6 +58,7 @@
 
     data () {
       return {
+        type: 'branch',
         interval: null,
         fetching: false,
         shouldPoll: true,
@@ -95,7 +110,7 @@
       doClone () {
         this.showLoading()
         NetWorking
-          .doGet(API.environmentGitClone, {id: this.$route.params.project_id, env_id: this.$route.params.env_id})
+          .doGet(API.environmentGitClone, this.pathParams)
           .then(response => {
             this.environment = response.data
             if (this.environment.clone_status === Enum.CloneStatus.Processing) {
@@ -110,15 +125,26 @@
 
       chooseBranch (name, full) {
         this.showLoading()
+        let url = API.environmentChooseBranch
+        let options = {branch: name, full: full}
+        if (this.type === 'tag') {
+          url = API.environmentChooseTag
+          options = {tag: name}
+        }
         NetWorking
-          .doPost(API.environmentChooseBranch,
-            {id: this.$route.params.project_id, env_id: this.$route.params.env_id}, {branch: name, full: full})
+          .doPut(url, this.pathParams, options)
           .then(() => {
             this.hideLoading()
             this.reloadData = true
           }, () => {
             this.hideLoading()
           })
+      },
+
+      switchTab (type) {
+        this.type = type
+        this.url = type === 'branch' ? API.environmentGitBranch : API.environmentGitTag
+        this.reloadData = true
       },
 
       showLoading () {

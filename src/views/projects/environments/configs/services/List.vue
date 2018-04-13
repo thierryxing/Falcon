@@ -10,7 +10,6 @@
             <th></th>
             <th>Service</th>
             <th>Description</th>
-            <th>Type</th>
             <th>Last edit</th>
             <th>Action</th>
           </tr>
@@ -24,9 +23,6 @@
               </td>
               <td>
                 {{ props.item.desc }}
-              </td>
-              <td>
-                {{ props.item.service_type }}
               </td>
               <td>
                 {{ props.item.updated_at }}
@@ -93,6 +89,7 @@
         for (let field of this.currentService.fields) {
           data[field.name] = field.value
         }
+        data['service_type'] = this.currentService.service_type
         NetWorking
           .doPut(API.service, Object.assign(this.pathParams, {service_id: this.currentService.id}), {service: data})
           .then(() => {

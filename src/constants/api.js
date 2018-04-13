@@ -24,6 +24,7 @@ export const environmentGitClone = '/projects/:id/environments/:env_id/git/clone
 export const environmentGitBranch = '/projects/:id/environments/:env_id/git/branches'
 export const environmentGitTag = '/projects/:id/environments/:env_id/git/tags'
 export const environmentChooseBranch = '/projects/:id/environments/:env_id/git/choose_branch'
+export const environmentChooseTag = '/projects/:id/environments/:env_id/git/choose_tag'
 export const environmentBuildInfo = '/projects/:id/environments/:env_id/build_info'
 export const environmentBuild = '/projects/:id/environments/:env_id/build'
 export const services = '/projects/:id/environments/:env_id/services'
