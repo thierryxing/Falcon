@@ -23,10 +23,6 @@
         <option v-for="option in options" :value="option.value">{{ option.name }}</option>
       </select>
     </div>
-    <div class="form-group" v-show="isApp()">
-      <label for="download_url">Download URL</label>
-      <input class="form-control" id="download_url" name="environment[download_url]" v-model="environment.download_url" placeholder="eg:http://fir.im/nlkc"/>
-    </div>
     <div class="form-group">
       <label for="cron">Build Schedule</label>
       <input class="form-control" id="cron" name="environment[cron]" v-model="environment.cron" placeholder="eg:0 */5 * * * *"/>
