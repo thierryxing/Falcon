@@ -13,7 +13,7 @@
             <th>Last edit</th>
             <th>Action</th>
           </tr>
-          <template slot="item" scope="props">
+          <template slot="item" slot-scope="props">
             <tr>
               <td>
                 <i class="fa" :class="activeClass(props.item)"></i>

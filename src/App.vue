@@ -5,20 +5,20 @@
 </template>
 
 <script>
-  import Vue from 'vue'
+  import axios from 'axios'
 
   export default {
-    created () {
-      Vue.http.interceptors.push((request, next) => {
-        next((response) => {
-          this.handleResponse(response)
-          return response
-        })
-      })
+    created() {
+      axios.interceptors.response.use((response) => {
+        this.handleResponse(response)
+        return response
+      }, (error => {
+        this._showAlert(error)
+      }))
     },
 
     methods: {
-      handleResponse (response) {
+      handleResponse(response) {
         // 在处理前，删除已经弹出的Alert
         this.$store.dispatch('deleteAlert')
         if (response.status >= 400) {
@@ -40,14 +40,14 @@
        * 处理服务器Http请求异常
        * @param response
        */
-      handleServerError (response) {
+      handleServerError(response) {
         this._showAlert(response.statusText)
       },
 
       /**
        * 处理服务器Http 401未登录异常
        */
-      handleUnauthorized () {
+      handleUnauthorized() {
         this.$router.replace({name: 'login'})
       },
 
@@ -55,7 +55,7 @@
        * 处理服务器Http 403无权限异常
        * @param response
        */
-      handleForbidden (response) {
+      handleForbidden(response) {
         this._showAlert(response.data.message)
       },
 
@@ -63,7 +63,7 @@
        * 处理服务器API业务异常
        * @param response
        */
-      handleApiError (response) {
+      handleApiError(response) {
         this._showAlert(response.data.message)
       },
 
@@ -72,7 +72,7 @@
        * @param message
        * @private
        */
-      _showAlert (message) {
+      _showAlert(message) {
         this.$store.dispatch('createAlert', {type: 'warning', message: message})
       }
     }

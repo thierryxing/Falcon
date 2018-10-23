@@ -17,7 +17,8 @@
           </div>
 
           <div class="form-group has-feedback">
-            <input type="password" name="password" id="password" class="form-control" placeholder="Password" v-model="user.password">
+            <input type="password" name="password" id="password" class="form-control" placeholder="Password"
+                   v-model="user.password">
             <span class="glyphicon glyphicon-lock form-control-feedback"></span>
           </div>
           <div class="row">
@@ -25,7 +26,8 @@
           <div class="row">
             <div class="col-xs-8"></div>
             <div class="col-xs-4">
-              <input class="btn btn-primary btn-block btn-flat" type="submit" value="Sign In" :disabled="buttonDisabled">
+              <input class="btn btn-primary btn-block btn-flat" type="submit" value="Sign In"
+                     :disabled="buttonDisabled">
             </div>
           </div>
         </div>
@@ -40,7 +42,7 @@
 
   export default {
 
-    data () {
+    data() {
       return {
         user: {
           email: '',
@@ -50,12 +52,12 @@
       }
     },
 
-    created () {
+    created() {
     },
 
     methods: {
 
-      doLogin () {
+      doLogin: function () {
         this.showLoading()
         NetWorking.doPost(API.login, null, this.user).then(response => {
           let user = response.data
@@ -69,11 +71,11 @@
         })
       },
 
-      showLoading () {
+      showLoading() {
         this.buttonDisabled = true
       },
 
-      hideLoading () {
+      hideLoading() {
         this.buttonDisabled = false
       }
 

@@ -3,7 +3,7 @@
   <header class="main-header">
     <a class="logo" href="/">
     <span class="logo-lg">
-      <b>Jaguar</b>
+      <b>Falcon</b>
     </span>
     </a>
     <nav class="navbar navbar-static-top">

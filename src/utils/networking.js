@@ -1,11 +1,7 @@
 /**
  * Created by Thierry on 2017/4/14.
  */
-import Vue from 'vue'
-import VueResource from 'vue-resource'
-import { mockData } from '../../mock/data/configs'
-
-Vue.use(VueResource)
+import axios from 'axios'
 
 export default {
 
@@ -16,7 +12,10 @@ export default {
     DELETE: 'delete'
   },
 
-  path: '/api/v1',
+  instance: axios.create({
+    baseURL: '/api/v1/',
+    timeout: 10000
+  }),
 
   /**
    *
@@ -25,7 +24,7 @@ export default {
    * @param options
    * @returns {*|Promise}
    */
-  doGet (url, pathParams = null, options = null) {
+  doGet(url, pathParams = null, options = null) {
     return this.doRequest(url, this.httpMethod.GET, pathParams, null, options)
   },
 
@@ -37,7 +36,7 @@ export default {
    * @param options
    * @returns {*|Promise}
    */
-  doPost (url, pathParams = null, body = null, options = null) {
+  doPost(url, pathParams = null, body = null, options = null) {
     return this.doRequest(url, this.httpMethod.POST, pathParams, body, options)
   },
 
@@ -49,7 +48,7 @@ export default {
    * @param options
    * @returns {*|Promise}
    */
-  doPut (url, pathParams = null, body = null, options = null) {
+  doPut(url, pathParams = null, body = null, options = null) {
     return this.doRequest(url, this.httpMethod.PUT, pathParams, body, options)
   },
 
@@ -60,17 +59,8 @@ export default {
    * @param options
    * @returns {*|Promise}
    */
-  doDelete (url, pathParams = null, options = null) {
+  doDelete(url, pathParams = null, options = null) {
     return this.doRequest(url, this.httpMethod.DELETE, pathParams, null, options)
-  },
-
-  /**
-   * Download File
-   * @param url
-   * @param pathParams
-   */
-  doDownload (url, pathParams = null) {
-    window.location.href = process.env.JAGUAR_HOST + this._wrapUrl(url, pathParams)
   },
 
   /**
@@ -82,24 +72,28 @@ export default {
    * @param options
    * @returns {Promise}
    */
-  doRequest (url, method, pathParams, body, options) {
+  doRequest(url, method, pathParams, body, options) {
     let wrapURL = this._wrapUrl(url, pathParams)
     let request = null
     switch (method) {
       case this.httpMethod.GET: {
-        request = Vue.http.get(wrapURL, {params: options})
+        if (options !== null) {
+          request = this.instance.get(wrapURL, {params: options})
+        } else {
+          request = this.instance.get(wrapURL)
+        }
         break
       }
       case this.httpMethod.POST: {
-        request = Vue.http.post(wrapURL, body, options)
+        request = this.instance.post(wrapURL, body, options)
         break
       }
       case this.httpMethod.PUT: {
-        request = Vue.http.put(wrapURL, body, options)
+        request = this.instance.put(wrapURL, body, options)
         break
       }
       case this.httpMethod.DELETE: {
-        request = Vue.http.delete(wrapURL, options)
+        request = this.instance.delete(wrapURL, options)
         break
       }
     }
@@ -108,20 +102,21 @@ export default {
 
   /**
    * Request Promise
-   * @param request {Promise} Vue Http Promise
+   * @param request {Promise} Axios Http Promise
    * @returns {Promise}
    * @private
    */
-  _requestPromise (request) {
+  _requestPromise(request) {
+    console.log('_requestPromise')
     return new Promise(function (resolve, reject) {
       request.then(response => {
-        if (response.body.status === 0) {
-          resolve(response.body)
+        if (response.data.status === 0) {
+          resolve(response.data)
         } else {
-          reject(response.body.message)
+          reject(response.data.message)
         }
       }, error => {
-        reject(error.statusText)
+        reject(error)
       })
     })
   },
@@ -133,7 +128,7 @@ export default {
    * @returns {string}
    * @private
    */
-  _wrapUrl (url, params) {
+  _wrapUrl(url, params) {
     if (params !== null) {
       let matches = this._getMatches(url)
       for (let match of matches) {
@@ -143,7 +138,7 @@ export default {
         }
       }
     }
-    return this.path + url
+    return url
   },
 
   /**
@@ -152,7 +147,7 @@ export default {
    * @returns {Array}
    * @private
    */
-  _getMatches (string) {
+  _getMatches(string) {
     let matches = []
     let regex = /(:[a-z_]+)/
     let match = regex.exec(string)

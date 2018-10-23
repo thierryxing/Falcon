@@ -12,7 +12,7 @@
           <th>Guard Projects</th>
           <th>Join Time</th>
         </tr>
-        <template slot="item" scope="props">
+        <template slot="item" slot-scope="props">
           <tr>
             <td>
               {{ props.item.id }}

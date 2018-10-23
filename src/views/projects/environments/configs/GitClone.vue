@@ -25,7 +25,7 @@
           <th>Full</th>
           <th>Action</th>
         </tr>
-        <template slot="item" scope="props">
+        <template slot="item" slot-scope="props">
           <tr>
             <td>
               {{ props.item.name }}
