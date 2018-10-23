@@ -17,7 +17,7 @@
 
 <script>
 import NetWorking from '@/utils/networking'
-import * as API from '@/constants/api';
+import * as API from '@/constants/api'
 
 export default {
   data() {
