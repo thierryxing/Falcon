@@ -2,7 +2,7 @@
 > 基于Vue2和AdminLTE的移动客户端自动化平台（前端）
 
 ## 关于Falcon
-从16年初开始到现在，我们的前端团队将Vue作为主框架已经有一年多的时间了，而作为前端工程师出身的我，知识体系还停留在远古的Prototype和jQuery上，说起来也是一件十分惭愧的事情。
+从16年初开始到现在，我们的前端团队将 Vue 作为主框架已经有一年多的时间了，而作为前端工程师出身的我，知识体系还停留在远古的 Prototype 和 jQuery 上，说起来也是一件十分惭愧的事情。
 
 于是我下定决心花一段时间由浅入深地学习一下这个目前非常流行的框架，同时恶补一下ES6的知识。
 
@@ -12,11 +12,11 @@
 
 因为在这个项目中你将遇到几乎所有的问题，那么解决这些问题的过程就是你不断提高，融会贯通的过程。
 
-学习Vue也不例外，恰好最近正在计划为内部的自动化平台Jaguar提供iOS和Android的版本，以方便大家在移动端进行使用，那么用Native去写显然有些浪费资源，而做一个Hybrid的跨平台App应该是最经济的方式了，所以最终的计划是将Jaguar进行前后端分离，然后在前端使用Vue框架，并使其同时能够支持浏览器，iOS和Android平台。
+学习 Vue 也不例外，恰好最近正在计划为内部的自动化平台 Jaguar 提供 iOS 和 Android 的版本，以方便大家在移动端进行使用，那么用 Native 去写显然有些浪费资源，而做一个Hybrid的跨平台App应该是最经济的方式了，所以最终的计划是将 Jaguar 进行前后端分离，然后在前端使用Vue框架，并使其同时能够支持浏览器，iOS 和 Android 平台。
 
-为了和Jaguar（美洲豹）相对应，最终决定给项目取名叫Falcon，即：猎鹰，和Jaguar一样都是速度飞快的动物。
+为了和 Jaguar（美洲豹）相对应，最终决定给项目取名叫 Falcon，即：猎鹰，和 Jaguar 一样都是速度飞快的动物。
 
-经过一段时间的规划和整理，可以预计出最终的版本大约包含40个左右的页面，30个左右的组件，这么算来也可以称之为一个不大不小的项目了。
+经过一段时间的规划和整理，可以预计出最终的版本大约包含40个左右的页面，30 个左右的组件，这么算来也可以称之为一个不大不小的项目了。
 
 最终的界面大概如下：
 ![Dashboard.png](http://upload-images.jianshu.io/upload_images/1639341-feeaad585cad9bba.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
@@ -26,22 +26,24 @@
 [Vue实战](http://www.jianshu.com/nb/13169691)将事无巨细的记录我在完成整个项目过程中对Vue的从浅到深理解，遇到的点点滴滴问题，希望可以帮助正在入门或打算尝试Vue框架的同学们。
 
 ## 如何运行
-由于后端Jaguar服务目前暂时没有开源，所以无法提供一个真实的API。但是我已经将所有的API放置在了Mock服务上，可以通过JSON Server来访问，运行方法如下：
+由于后端 Jaguar 服务配置起来比较繁琐，为了简化大家的使用，我已经将部分 API 放置在了 Easy-Mock 服务上（不断更新中），运行方法如下：
 
-### 配置proxyTable
-首先保证，config下的index.js中proxyTable的内容如下（注释部分）：
+### 配置 proxy
+首先保证，vue.config.js 中 proxy 的内容如下（注释部分）：
 
 ```
-    proxyTable: { // proxy all requests starting with /api to jsonplaceholder
-      '/api': {
-        changeOrigin: true,
-        secure: false,
-        target: 'http://localhost:9090',
-        pathRewrite: {
-          '^/api': ''
-        }
-      }
-    },
+    proxy: {
+            '/api/v1': {
+              changeOrigin: true,
+              secure: false,
+              target: 'https://www.easy-mock.com/mock/5b18ccb77dddfa3903693dba'
+            },
+            '/sidekiq': {
+              changeOrigin: true,
+              secure: false,
+              target: 'http://localhost:3000'
+            }
+          }
 ```
 
 ### 运行项目：
@@ -55,7 +57,7 @@ npm install
 * 运行服务
 
 ```
-npm run mockdev
+npm run serve
 ```
 
 * 在浏览器中访问：[http://localhost:8080/#/](http://localhost:8080/#/)
