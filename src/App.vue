@@ -5,34 +5,39 @@
 </template>
 
 <script>
-  import axios from 'axios'
+  import NetWorking from '@/utils/networking'
 
   export default {
     created() {
-      axios.interceptors.response.use((response) => {
+      NetWorking.instance.interceptors.response.use((response) => {
         this.handleResponse(response)
         return response
       }, (error => {
-        this._showAlert(error)
+        this.handleError(error.response)
       }))
     },
 
     methods: {
       handleResponse(response) {
-        // 在处理前，删除已经弹出的Alert
-        this.$store.dispatch('deleteAlert')
-        if (response.status >= 400) {
-          if (response.status === 401) {
-            this.handleUnauthorized()
-          } else if (response.status === 403) {
-            this.handleForbidden()
-          } else {
+        if (response.data.status !== 0) {
+          this.handleApiError(response)
+        }
+      },
+
+      handleError(response) {
+        switch (response.status) {
+          case 401:
+            this.handleUnauthorized(response)
+            break
+          case 403:
+            this.handleForbidden(response)
+            break
+          case 404:
+            this.handleNotFound(response)
+            break
+          default:
             this.handleServerError(response)
-          }
-        } else {
-          if (response.data.status !== 0) {
-            this.handleApiError(response)
-          }
+            break
         }
       },
 
@@ -48,7 +53,7 @@
        * 处理服务器Http 401未登录异常
        */
       handleUnauthorized() {
-        this.$router.replace({name: 'login'})
+        this.$router.replace({ name: 'login' })
       },
 
       /**
@@ -68,12 +73,21 @@
       },
 
       /**
+       * 处理 404 异常
+       * @param response
+       */
+      handleNotFound(response) {
+        this._showAlert(response.data.message)
+      },
+
+      /**
        * 向Store中分发需要弹出的消息
        * @param message
        * @private
        */
       _showAlert(message) {
-        this.$store.dispatch('createAlert', {type: 'warning', message: message})
+        this.$store.dispatch('deleteAlert')
+        this.$store.dispatch('createAlert', { type: 'warning', message: message })
       }
     }
   }
