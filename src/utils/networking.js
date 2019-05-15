@@ -149,7 +149,7 @@ export default {
    */
   _getMatches(string) {
     let matches = []
-    let regex = /(:[a-z_]+)/
+    let regex = /(:[a-z_A-Z]+)/
     let match = regex.exec(string)
     while (match !== null) {
       matches.push(match[1])
